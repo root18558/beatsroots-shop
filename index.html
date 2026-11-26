@@ -119,7 +119,7 @@
 <body class="min-h-screen flex flex-col antialiased selection:bg-cyan-500 selection:text-navy-950">
 
     <!-- =====================================================================
-         ตั้งค่าข้อมูลร้านค้าและรายการไอดี (ผู้ขายสามารถแก้ไขข้อมูลตรงนี้ได้ง่ายๆ)
+         ตั้งค่าข้อมูลร้านค้า (ผู้ขายสามารถแก้ไขข้อมูลตรงนี้ได้ง่ายๆ)
          ===================================================================== -->
     <script>
         const SHOP_CONFIG = {
@@ -136,202 +136,6 @@
                 promptPayQrUrl: "https://placehold.co/260x260/071024/22D3EE?text=QR+PromptPay%0A(ใส่รูป+QR+จริงของคุณ)"
             }
         };
-
-        // ข้อมูลรายการไอดีทั้งหมด (สามารถเพิ่ม/ลบ/แก้ไขราคา ลิงก์รูปภาพ และลิงก์ฝากรูปได้ทันที)
-        const PRODUCTS_DATA = [
-            {
-                id: "WW-001",
-                game: "wuthering",
-                gameLabel: "Wuthering Waves",
-                title: "ไอดีเริ่มต้น Hiyuki S0R1 + อาวุธประจำตัว",
-                server: "SEA",
-                unionLevel: "Union Level: 8 - 10",
-                dataBank: "Data Bank: Lv. 1",
-                emailStatus: "อีเมลเปล่า ปลอดภัย 100%",
-                price: 590,
-                featured: true,
-                albumUrl: "https://drive.google.com/", // ใส่ลิงก์ Google Drive / Imgur / โพสต์รูปของไอดีนี้
-                description: "ไอดีรีโรลมือแท้ 100% ไม่ใช้โปรแกรมช่วยเล่น เมลเปล่าพร้อมเปลี่ยนรหัสผ่านได้ทันที เนื้อเรื่องเริ่มต้น สายสำรวจเองห้ามพลาด!",
-                characters: [
-                    { name: "HIYUKI", rank: "S0R1", element: "Glacio", img: "https://placehold.co/220x240/0b1733/FCD34D?text=HIYUKI%0AS0R1" },
-                    { name: "VERINA", rank: "S0", element: "Spectro", img: "https://placehold.co/220x240/0b1733/22D3EE?text=VERINA%0AS0" }
-                ],
-                gallery: [
-                    "https://placehold.co/800x450/071024/22D3EE?text=ภาพหน้าตัวละคร+Hiyuki+S0R1+(WW-001)",
-                    "https://placehold.co/800x450/071024/FBBF24?text=ภาพกระเป๋า+และอาวุธประจำตัว+(WW-001)"
-                ]
-            },
-            {
-                id: "WW-002",
-                game: "wuthering",
-                gameLabel: "Wuthering Waves",
-                title: "ไอดีเทพ Cartethyia S0R1 + Aemeath S0R1",
-                server: "SEA",
-                unionLevel: "Union Level: 10",
-                dataBank: "Data Bank: Lv. 1",
-                emailStatus: "อีเมลเปล่า ปลอดภัย 100%",
-                price: 1290,
-                featured: true,
-                albumUrl: "https://drive.google.com/",
-                description: "คู่หูสุดแกร่ง Cartethyia + Aemeath พร้อมอาวุธประจำตัวทั้งคู่ คุ้มสุดๆ สำหรับสายแบกคอนเทนต์และเสพเนื้อเรื่อง",
-                characters: [
-                    { name: "CARTETHYIA", rank: "S0R1", element: "Aero", img: "https://placehold.co/220x240/0b1733/FCD34D?text=CARTETHYIA%0AS0R1" },
-                    { name: "AEMEATH", rank: "S0R1", element: "Fusion", img: "https://placehold.co/220x240/0b1733/F472B6?text=AEMEATH%0AS0R1" }
-                ],
-                gallery: [
-                    "https://placehold.co/800x450/071024/FBBF24?text=Cartethyia+%26+Aemeath+S0R1+(WW-002)",
-                    "https://placehold.co/800x450/071024/22D3EE?text=รายละเอียดอาวุธในไอดี+(WW-002)"
-                ]
-            },
-            {
-                id: "WW-003",
-                game: "wuthering",
-                gameLabel: "Wuthering Waves",
-                title: "ไอดี Zani S0R1 + Phoebe S0R1 ทีมแสงสุดโหด",
-                server: "SEA",
-                unionLevel: "Union Level: 8",
-                dataBank: "Data Bank: Lv. 1",
-                emailStatus: "อีเมลเปล่า ปลอดภัย 100%",
-                price: 1150,
-                featured: false,
-                albumUrl: "https://drive.google.com/",
-                description: "คอมโบทีม Spectro ยอดนิยม Zani S0R1 คู่กับ Phoebe S0R1 เล่นลื่นตั้งแต่ต้นเกมจนจบเกม",
-                characters: [
-                    { name: "ZANI", rank: "S0R1", element: "Spectro", img: "https://placehold.co/220x240/0b1733/FCD34D?text=ZANI%0AS0R1" },
-                    { name: "PHOEBE", rank: "S0R1", element: "Spectro", img: "https://placehold.co/220x240/0b1733/38BDF8?text=PHOEBE%0AS0R1" }
-                ],
-                gallery: [
-                    "https://placehold.co/800x450/071024/FBBF24?text=Zani+%26+Phoebe+S0R1+(WW-003)"
-                ]
-            },
-            {
-                id: "WW-004",
-                game: "wuthering",
-                gameLabel: "Wuthering Waves",
-                title: "ไอดี Augusta S0R1 + Phrolova S0R1",
-                server: "SEA",
-                unionLevel: "Union Level: 9",
-                dataBank: "Data Bank: Lv. 1",
-                emailStatus: "อีเมลเปล่า ปลอดภัย 100%",
-                price: 1090,
-                featured: false,
-                albumUrl: "https://drive.google.com/",
-                description: "ตัวละครลิมิเต็ดยอดฮิต Augusta พร้อมอาวุธ + Phrolova พร้อมอาวุธ แผนที่ยังไม่ได้สำรวจ 100%",
-                characters: [
-                    { name: "AUGUSTA", rank: "S0R1", element: "Electro", img: "https://placehold.co/220x240/0b1733/FB923C?text=AUGUSTA%0AS0R1" },
-                    { name: "PHROLOVA", rank: "S0R1", element: "Havoc", img: "https://placehold.co/220x240/0b1733/E879F9?text=PHROLOVA%0AS0R1" }
-                ],
-                gallery: [
-                    "https://placehold.co/800x450/071024/22D3EE?text=Augusta+%26+Phrolova+S0R1+(WW-004)"
-                ]
-            },
-            {
-                id: "WW-005",
-                game: "wuthering",
-                gameLabel: "Wuthering Waves",
-                title: "ไอดี Galbrena S0R1 + Lucy S0R1 สายปืนคู่",
-                server: "SEA",
-                unionLevel: "Union Level: 8",
-                dataBank: "Data Bank: Lv. 1",
-                emailStatus: "อีเมลเปล่า ปลอดภัย 100%",
-                price: 890,
-                featured: false,
-                albumUrl: "https://drive.google.com/",
-                description: "ไอดีเริ่มต้นราคาประหยัดได้ 2 ตัวลิมิเต็ดพร้อมอาวุธประจำตัว Galbrena และ Lucy เมลเปล่าสะอาด",
-                characters: [
-                    { name: "GALBRENA", rank: "S0R1", element: "Glacio", img: "https://placehold.co/220x240/0b1733/38BDF8?text=GALBRENA%0AS0R1" },
-                    { name: "LUCY", rank: "S0R1", element: "Electro", img: "https://placehold.co/220x240/0b1733/818CF8?text=LUCY%0AS0R1" }
-                ],
-                gallery: [
-                    "https://placehold.co/800x450/071024/38BDF8?text=Galbrena+%26+Lucy+S0R1+(WW-005)"
-                ]
-            },
-            {
-                id: "WW-006",
-                game: "wuthering",
-                gameLabel: "Wuthering Waves",
-                title: "ไอดี Qingxiao S0R1 + Sigrika S0R1 + Luno S0R1",
-                server: "SEA",
-                unionLevel: "Union Level: 10",
-                dataBank: "Data Bank: Lv. 1",
-                emailStatus: "อีเมลเปล่า ปลอดภัย 100%",
-                price: 1690,
-                featured: true,
-                albumUrl: "https://drive.google.com/",
-                description: "ไอดีระดับท็อป 3 ตัวลิมิเต็ดพร้อมอาวุธประจำตัวครบเซ็ต Qingxiao, Sigrika และ Luno หายากมาก!",
-                characters: [
-                    { name: "QINGXIAO", rank: "S0R1", element: "Glacio", img: "https://placehold.co/220x240/0b1733/22D3EE?text=QINGXIAO%0AS0R1" },
-                    { name: "SIGRIKA", rank: "S0R1", element: "Fusion", img: "https://placehold.co/220x240/0b1733/FB923C?text=SIGRIKA%0AS0R1" },
-                    { name: "LUNO", rank: "S0R1", element: "Spectro", img: "https://placehold.co/220x240/0b1733/FBBF24?text=LUNO%0AS0R1" }
-                ],
-                gallery: [
-                    "https://placehold.co/800x450/071024/FBBF24?text=Triple+S0R1+Qingxiao+Sigrika+Luno+(WW-006)"
-                ]
-            },
-            {
-                id: "MG-001",
-                game: "mongil",
-                gameLabel: "Mongil: Star Dive",
-                title: "ไอดีเริ่มต้น Mongil: Star Dive ตัว SSR หน้าตู้ 2 ตัว",
-                server: "Global / SEA",
-                unionLevel: "Starter Lv. 5",
-                dataBank: "เนื้อเรื่องบทที่ 1",
-                emailStatus: "อีเมลเปล่า ปลอดภัย 100%",
-                price: 450,
-                featured: false,
-                albumUrl: "https://drive.google.com/",
-                description: "ไอดีเริ่มต้นเกม Mongil: Star Dive สุ่มได้ตัวละครระดับ SSR ยอดนิยมตั้งแต่ต้นเกม พร้อมเพชรเหลือเปิดต่อ",
-                characters: [
-                    { name: "VERNA", rank: "SSR", element: "Star", img: "https://placehold.co/220x240/1e1b4b/FBBF24?text=VERNA%0ASSR" },
-                    { name: "CLOUD", rank: "SSR", element: "Wind", img: "https://placehold.co/220x240/1e1b4b/22D3EE?text=CLOUD%0ASSR" }
-                ],
-                gallery: [
-                    "https://placehold.co/800x450/1e1b4b/FBBF24?text=Mongil+Star+Dive+ID+(MG-001)"
-                ]
-            },
-            {
-                id: "DNA-001",
-                game: "dna",
-                gameLabel: "Duet Night Abyss",
-                title: "ไอดี Duet Night Abyss ตัวละคร 5 ดาวลิมิเต็ด + อาวุธ",
-                server: "SEA",
-                unionLevel: "Account Lv. 8",
-                dataBank: "Untouched Map",
-                emailStatus: "อีเมลเปล่า ปลอดภัย 100%",
-                price: 650,
-                featured: false,
-                albumUrl: "https://drive.google.com/",
-                description: "ไอดีเกม Duet Night Abyss (Dual Night Abyss) ได้ตัวละครหลักระดับ 5 ดาวพร้อมอาวุธคู่ใจ เล่นมันส์ตั้งแต่เริ่ม",
-                characters: [
-                    { name: "BERENICA", rank: "5★ + Sig", element: "Abyss", img: "https://placehold.co/220x240/1f122b/F43F5E?text=BERENICA%0A5%E2%98%85" },
-                    { name: "PSYCHE", rank: "5★", element: "Anemo", img: "https://placehold.co/220x240/1f122b/34D399?text=PSYCHE%0A5%E2%98%85" }
-                ],
-                gallery: [
-                    "https://placehold.co/800x450/1f122b/F43F5E?text=Duet+Night+Abyss+ID+(DNA-001)"
-                ]
-            },
-            {
-                id: "NTE-001",
-                game: "nte",
-                gameLabel: "NTE (Neverness to Everness)",
-                title: "ไอดี NTE ตัวละคร S-Rank หน้าตู้ + รถสปอร์ตแต่ง",
-                server: "SEA / Asia",
-                unionLevel: "Rank Lv. 7",
-                dataBank: "Hethereau City",
-                emailStatus: "อีเมลเปล่า ปลอดภัย 100%",
-                price: 790,
-                featured: false,
-                albumUrl: "https://drive.google.com/",
-                description: "ไอดีเริ่มต้นเกม NTE (Neverness to Everness) ได้ตัวละคร S-Rank พร้อมลุยเมือง Hethereau เมลเปล่าเปลี่ยนได้หมด",
-                characters: [
-                    { name: "MINT", rank: "S-Rank", element: "Anomaly", img: "https://placehold.co/220x240/0f172a/38BDF8?text=MINT%0AS-Rank" },
-                    { name: "NANALLY", rank: "S-Rank", element: "Fire", img: "https://placehold.co/220x240/0f172a/FBBF24?text=NANALLY%0AS-Rank" }
-                ],
-                gallery: [
-                    "https://placehold.co/800x450/0f172a/38BDF8?text=NTE+Neverness+to+Everness+(NTE-001)"
-                ]
-            }
-        ];
     </script>
 
     <!-- =====================================================================
@@ -391,14 +195,19 @@
                             BEATSROOTS SHOP
                         </h1>
                     </div>
-                    <p class="text-[11px] sm:text-xs text-gold-400 font-medium tracking-wide">
-                        Gaming ID Store • มีไอดีให้เลือกกว่า 300+ ไอดี
-                    </p>
+                    <p class="text-[11px] text-slate-400 hidden sm:block">ศูนย์รวมไอดีเกมคุณภาพ ปลอดภัย 100%</p>
                 </div>
             </a>
 
-            <!-- Right Actions: Middleman Mode Indicator & Cart Button -->
+            <!-- Right Actions: Middleman Mode Indicator, Importer & Cart Button -->
             <div class="flex items-center gap-2 sm:gap-3">
+                <!-- ปุ่มนำเข้าข้อมูล CSV / JSON -->
+                <button onclick="openImporterModal()" title="นำเข้าหรืออัปเดตข้อมูลไอดีด้วย CSV / JSON"
+                        class="flex items-center gap-1.5 px-3 py-2.5 rounded-xl bg-navy-800 hover:bg-navy-700 border border-cyan-500/40 text-cyan-300 font-semibold text-xs sm:text-sm transition active:scale-95">
+                    <i class="fa-solid fa-file-import"></i>
+                    <span class="hidden lg:inline">นำเข้า CSV/JSON</span>
+                </button>
+
                 <!-- ปุ่มเลือกโหมดการซื้อ (โอนตรง / กลางแอดมินกลุ่ม) -->
                 <button onclick="openContactModal()" 
                         class="hidden md:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-navy-800/90 hover:bg-navy-800 border border-gold-500/40 text-xs font-medium text-gold-300 transition shadow-gold-glow">
@@ -595,22 +404,32 @@
             </div>
         </div>
 
-        <!-- 3.2 ระบบคัดกรองการค้นหา (ค้นหาชื่อ / เลือกตัวละครเฉพาะ / เรียงราคา) -->
+        <!-- 3.2 ระบบคัดกรองการค้นหา (ค้นหาชื่อ / หมวดหมู่ทีม / เลือกตัวละครเฉพาะ / เรียงราคา) -->
         <div class="rounded-2xl bg-navy-900/90 border border-cyan-500/25 p-4 space-y-3.5 shadow-lg">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-3">
                 <!-- ช่องพิมพ์ค้นหา -->
-                <div class="md:col-span-5 relative">
+                <div class="md:col-span-4 relative">
                     <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-cyan-400"></i>
                     <input type="text" id="search-input" oninput="applyFilters()"
-                           placeholder="ค้นหาชื่อตัวละคร, รหัสไอดี (เช่น Hiyuki, Zani, WW-001)..."
+                           placeholder="ค้นหาตัวละคร, รหัสไอดี (เช่น 6.4, 40, Hsin)..."
                            class="w-full pl-10 pr-9 py-2.5 rounded-xl bg-navy-950 border border-slate-700 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-sm text-white placeholder-slate-400 outline-none transition">
                     <button id="clear-search-btn" onclick="clearSearchInput()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white">
                         <i class="fa-solid fa-circle-xmark"></i>
                     </button>
                 </div>
 
+                <!-- Dropdown กรองหมวดหมู่ / ทีม -->
+                <div class="md:col-span-3 relative">
+                    <i class="fa-solid fa-people-group absolute left-3.5 top-1/2 -translate-y-1/2 text-cyan-400"></i>
+                    <select id="category-select" onchange="applyFilters()"
+                            class="w-full pl-10 pr-8 py-2.5 rounded-xl bg-navy-950 border border-slate-700 focus:border-cyan-400 text-sm text-white outline-none appearance-none cursor-pointer transition">
+                        <option value="all">ทุกหมวดหมู่ / ทุกทีม</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs pointer-events-none"></i>
+                </div>
+
                 <!-- Dropdown ค้นหาแยกเฉพาะตัวละคร -->
-                <div class="md:col-span-4 relative">
+                <div class="md:col-span-3 relative">
                     <i class="fa-solid fa-user-astronaut absolute left-3.5 top-1/2 -translate-y-1/2 text-gold-400"></i>
                     <select id="character-select" onchange="applyFilters()"
                             class="w-full pl-10 pr-8 py-2.5 rounded-xl bg-navy-950 border border-slate-700 focus:border-gold-400 text-sm text-white outline-none appearance-none cursor-pointer transition">
@@ -621,13 +440,13 @@
                 </div>
 
                 <!-- Dropdown เรียงตามราคา -->
-                <div class="md:col-span-3 relative">
+                <div class="md:col-span-2 relative">
                     <i class="fa-solid fa-arrow-down-wide-short absolute left-3.5 top-1/2 -translate-y-1/2 text-cyan-400"></i>
                     <select id="sort-select" onchange="applyFilters()"
                             class="w-full pl-10 pr-8 py-2.5 rounded-xl bg-navy-950 border border-slate-700 focus:border-cyan-400 text-sm text-white outline-none appearance-none cursor-pointer transition">
-                        <option value="default">เรียงลำดับ: แนะนำ / ล่าสุด</option>
-                        <option value="price-asc">ราคา: ต่ำไปสูง (ถูกสุดก่อน)</option>
-                        <option value="price-desc">ราคา: สูงไปต่ำ (แพงสุดก่อน)</option>
+                        <option value="default">เรียง: แนะนำ</option>
+                        <option value="price-asc">ราคา: ต่ำ → สูง</option>
+                        <option value="price-desc">ราคา: สูง → ต่ำ</option>
                     </select>
                     <i class="fa-solid fa-chevron-down absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs pointer-events-none"></i>
                 </div>
@@ -753,33 +572,43 @@
 
                 <!-- รายชื่อตัวละครในไอดี -->
                 <div>
-                    <h4 class="text-sm font-bold text-gold-400 mb-2.5 flex items-center gap-2">
-                        <i class="fa-solid fa-users"></i> ตัวละครและอาวุธที่มีในไอดี
-                    </h4>
-                    <div id="modal-characters" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                        <!-- เติมตัวละครจาก JS -->
-                    </div>
+                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">ตัวละครหลักในไอดี</h4>
+                    <div id="modal-characters" class="grid grid-cols-1 sm:grid-cols-3 gap-2.5"></div>
                 </div>
 
-                <!-- รายละเอียดเพิ่มเติม -->
-                <div class="p-4 rounded-xl bg-navy-950/80 border border-slate-800 space-y-2">
-                    <h4 class="text-sm font-bold text-white">รายละเอียดไอดี:</h4>
-                    <p id="modal-desc" class="text-sm text-slate-300 leading-relaxed"></p>
+                <!-- รายละเอียดเพิ่มเติมทั้งหมด -->
+                <div class="p-3.5 rounded-xl bg-navy-950/90 border border-slate-800 space-y-1">
+                    <div class="text-xs font-bold text-gold-400">รายละเอียดไอดีทั้งหมด</div>
+                    <p id="modal-desc" class="text-xs sm:text-sm text-slate-200 leading-relaxed whitespace-pre-line"></p>
                 </div>
 
-                <!-- ปุ่มลิงก์ดูรูปภาพเพิ่มเติมทั้งหมด (ลิงก์ฝากรูปภายนอกที่ผู้ขายเตรียมไว้) -->
-                <div class="p-4 rounded-xl bg-gradient-to-r from-blue-950/80 to-cyan-950/60 border border-cyan-400/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-                    <div>
-                        <div class="text-sm font-bold text-cyan-300 flex items-center gap-2">
-                            <i class="fa-solid fa-images"></i> อัลบั้มรูปภาพเพิ่มเติมทั้งหมดของไอดีนี้
+                <!-- ปุ่มลิงก์ดูรูปภาพเพิ่มเติมทั้งหมด (ลิงก์ฝากรูปภายนอกที่ผู้ขายเตรียมไว้ + แก้ไขบันทึกในเครื่องได้ทันที) -->
+                <div class="p-4 rounded-xl bg-gradient-to-r from-blue-950/80 to-cyan-950/60 border border-cyan-400/40 space-y-3">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                        <div>
+                            <div class="text-sm font-bold text-cyan-300 flex items-center gap-2">
+                                <i class="fa-solid fa-images"></i> อัลบั้มรูปภาพเพิ่มเติมทั้งหมดของไอดีนี้
+                            </div>
+                            <p class="text-xs text-slate-300 mt-0.5">กดเปิดลิงก์เพื่อดูรูปกระเป๋า อาวุธ เอคโค่ และทรัพยากรทั้งหมดแบบชัดๆ</p>
                         </div>
-                        <p class="text-xs text-slate-300 mt-0.5">กดเปิดลิงก์เพื่อดูรูปกระเป๋า อาวุธ เอคโค่ และทรัพยากรทั้งหมดแบบชัดๆ</p>
+                        <a id="modal-album-link" href="#" target="_blank" rel="noopener"
+                           class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold text-sm shadow-cyan-glow transition shrink-0">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            <span>เปิดดูอัลบั้มรูปฝาก</span>
+                        </a>
                     </div>
-                    <a id="modal-album-link" href="#" target="_blank" rel="noopener"
-                       class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold text-sm shadow-cyan-glow transition shrink-0">
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        <span>เปิดดูอัลบั้มรูปฝาก</span>
-                    </a>
+
+                    <!-- ช่องสำหรับผู้ขายวางลิงก์ฝากรูปของไอดีนี้และบันทึกเก็บไว้ในเบราว์เซอร์ -->
+                    <div class="pt-2 border-t border-cyan-500/20 flex flex-col sm:flex-row gap-2">
+                        <input type="url" id="modal-album-input"
+                               placeholder="วางลิงก์ฝากรูปของไอดีนี้ (เช่น https://drive.google.com/... หรือ https://imgur.com/...)"
+                               class="flex-1 px-3 py-2 rounded-xl bg-navy-950 border border-slate-700 focus:border-cyan-400 text-xs sm:text-sm text-white placeholder-slate-400 outline-none">
+                        <button type="button" id="modal-save-album-btn"
+                                class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-navy-950 font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition shrink-0">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <span>บันทึกลิงก์รูป</span>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- รูปตัวอย่างในหน้าต่าง -->
@@ -811,194 +640,206 @@
     </div>
 
     <!-- =====================================================================
-         6. SLIDE-OVER SHOPPING CART DRAWER (ตะกร้าสินค้า)
+         6. CART DRAWER: ตะกร้าสินค้า
          ===================================================================== -->
-    <div id="cart-drawer-backdrop" onclick="toggleCartDrawer(false)" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-xs"></div>
+    <div id="cart-drawer-backdrop" onclick="toggleCartDrawer(false)" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-xs"></div>
     <aside id="cart-drawer" class="fixed top-0 right-0 z-50 h-full w-full max-w-md bg-navy-900 border-l border-cyan-500/30 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
-        <!-- Cart Header -->
         <div class="px-5 py-4 bg-navy-950 border-b border-slate-800 flex items-center justify-between">
-            <div class="flex items-center gap-2.5">
-                <i class="fa-solid fa-cart-shopping text-cyan-400 text-lg"></i>
-                <h3 class="text-lg font-bold text-white">ตะกร้าไอดีของคุณ</h3>
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-cart-shopping text-cyan-400"></i>
+                <h3 class="text-base font-bold text-white">ตะกร้าไอดี (<span id="cart-total-items">0</span>)</h3>
             </div>
-            <button onclick="toggleCartDrawer(false)" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">
+            <button onclick="toggleCartDrawer(false)" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
 
-        <!-- Cart Items List -->
-        <div id="cart-items-container" class="flex-1 overflow-y-auto p-4 space-y-3">
-            <!-- รายการในตะกร้า -->
-        </div>
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-4 space-y-2.5"></div>
 
-        <!-- Cart Footer & Checkout Options -->
-        <div id="cart-footer" class="p-4 bg-navy-950 border-t border-slate-800 space-y-4">
-            <!-- เลือกรูปแบบการสั่งซื้อ (โอนตรง vs ผ่านกลางแอดมินกลุ่ม) -->
-            <div class="space-y-2">
-                <label class="text-xs font-bold text-slate-300 flex items-center gap-1.5">
-                    <i class="fa-solid fa-shield-halved text-gold-400"></i> เลือกช่องทางการชำระเงิน / ความปลอดภัย:
-                </label>
-                <div class="grid grid-cols-1 gap-2">
-                    <label onclick="setTradePreference('direct')" id="cart-opt-direct"
+        <div class="p-4 bg-navy-950 border-t border-slate-800 space-y-3">
+            <!-- เลือกรูปแบบการซื้อขาย -->
+            <div class="space-y-1.5">
+                <div class="text-xs font-semibold text-slate-400">เลือกรูปแบบการชำระเงิน:</div>
+                <div class="grid grid-cols-2 gap-2">
+                    <label id="cart-opt-direct" onclick="setTradePreference('direct')"
                            class="cursor-pointer p-2.5 rounded-xl border border-cyan-400 bg-cyan-500/15 flex items-center gap-3 transition">
-                        <input type="radio" name="cartTradeMode" value="direct" checked class="accent-cyan-400">
-                        <div class="text-xs">
-                            <div class="font-bold text-white">โอนตรงกับผู้ขาย (เครดิตแน่น ส่งไวใน 5 นาที)</div>
-                            <div class="text-slate-400">โอนเข้าบัญชีร้านโดยตรง รับเมลและรหัสทันที</div>
-                        </div>
+                        <input type="radio" name="cartTradeMode" value="direct" checked class="hidden">
+                        <i class="fa-solid fa-bolt text-cyan-400"></i>
+                        <span class="text-xs font-bold text-white">โอนตรงกับผู้ขาย</span>
                     </label>
-                    <label onclick="setTradePreference('middleman')" id="cart-opt-middleman"
+                    <label id="cart-opt-middleman" onclick="setTradePreference('middleman')"
                            class="cursor-pointer p-2.5 rounded-xl border border-slate-700 bg-navy-900 flex items-center gap-3 transition">
-                        <input type="radio" name="cartTradeMode" value="middleman" class="accent-gold-400">
-                        <div class="text-xs">
-                            <div class="font-bold text-gold-400">ผ่านกลางแอดมินกลุ่ม (ปลอดภัย 100%)</div>
-                            <div class="text-slate-400">ดึงกลุ่มกลางแอดมินที่เชื่อถือได้เพื่อตรวจสอบไอดีก่อนโอน</div>
-                        </div>
+                        <input type="radio" name="cartTradeMode" value="middleman" class="hidden">
+                        <i class="fa-solid fa-user-shield text-gold-400"></i>
+                        <span class="text-xs font-bold text-white">ผ่านกลางแอดมิน</span>
                     </label>
                 </div>
             </div>
 
-            <!-- ยอดรวม -->
-            <div class="flex items-center justify-between pt-2 border-t border-slate-800">
-                <span class="text-sm text-slate-300">ยอดชำระทั้งหมด (<span id="cart-total-items">0</span> ไอดี):</span>
+            <div class="flex items-center justify-between pt-1">
+                <span class="text-sm text-slate-300">ยอดรวมทั้งหมด:</span>
                 <span id="cart-total-price" class="text-2xl font-extrabold text-gold-400">฿0</span>
             </div>
 
-            <!-- ปุ่มกดสั่งซื้อไปยังช่องทางชำระเงินของผู้ขายโดยตรง -->
-            <button onclick="openCheckoutModal()" id="checkout-btn"
-                    class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 disabled:opacity-40 disabled:cursor-not-allowed text-navy-950 font-extrabold text-sm sm:text-base shadow-cyan-glow flex items-center justify-center gap-2 transition">
-                <i class="fa-solid fa-credit-card"></i>
-                <span>ดำเนินการสั่งซื้อ / ชำระเงินกับผู้ขาย</span>
+            <button id="checkout-btn" onclick="openCheckoutModal()" disabled
+                    class="w-full py-3 rounded-xl bg-gradient-to-r from-gold-500 to-amber-500 hover:from-gold-400 hover:to-amber-400 disabled:opacity-40 disabled:cursor-not-allowed text-navy-950 font-extrabold text-sm shadow-gold-glow transition">
+                <i class="fa-solid fa-paper-plane mr-1.5"></i> ดำเนินการสั่งซื้อ / ชำระเงิน
             </button>
         </div>
     </aside>
 
     <!-- =====================================================================
-         7. CHECKOUT & DIRECT PAYMENT MODAL (หน้าชำระเงินและส่งออเดอร์ให้ผู้ขาย)
+         7. CHECKOUT MODAL: หน้าต่างสรุปออเดอร์และช่องทางชำระเงินถึงผู้ขายโดยตรง
          ===================================================================== -->
     <div id="checkout-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-5 bg-black/85 backdrop-blur-sm">
-        <div class="bg-navy-900 border border-gold-400/50 rounded-2xl max-w-xl w-full max-h-[92vh] overflow-y-auto shadow-2xl">
+        <div class="bg-navy-900 border border-gold-400/50 rounded-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
             <div class="px-5 py-4 bg-navy-950 border-b border-slate-800 flex items-center justify-between">
-                <h3 class="text-lg font-bold text-gold-400 flex items-center gap-2">
+                <h3 class="text-base sm:text-lg font-bold text-gold-400 flex items-center gap-2">
                     <i class="fa-solid fa-receipt"></i> สรุปคำสั่งซื้อ & ช่องทางชำระเงิน
                 </h3>
-                <button onclick="closeCheckoutModal()" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">
+                <button onclick="closeCheckoutModal()" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
             <div class="p-5 space-y-4">
-                <!-- แสดงโหมดที่เลือก -->
-                <div id="checkout-mode-banner" class="p-3 rounded-xl bg-cyan-500/15 border border-cyan-400/40 text-xs sm:text-sm text-cyan-200 flex items-center gap-2.5">
-                    <i class="fa-solid fa-bolt text-cyan-400 text-base"></i>
-                    <span>คุณเลือกรูปแบบ: <strong>โอนตรงกับผู้ขาย (เครดิตแน่น)</strong></span>
+                <div id="checkout-mode-banner" class="p-3 rounded-xl bg-cyan-500/15 border border-cyan-400/40 text-xs sm:text-sm text-cyan-200 flex items-center gap-2.5"></div>
+
+                <!-- ข้อมูลบัญชีรับโอนโดยตรง -->
+                <div class="p-4 rounded-xl bg-navy-950 border border-slate-800 flex flex-col sm:flex-row items-center gap-4">
+                    <img src="https://placehold.co/260x260/071024/22D3EE?text=QR+PromptPay%0A(BEATSROOTS+SHOP)" alt="QR Code" class="w-32 h-32 rounded-xl border border-cyan-400/40 object-cover shrink-0">
+                    <div class="space-y-1 text-center sm:text-left">
+                        <div class="text-xs text-cyan-400 font-bold">ช่องทางโอนเงินเข้าบัญชีผู้ขายโดยตรง</div>
+                        <div class="text-sm font-bold text-white">ธนาคารกสิกรไทย (K-Bank) / พร้อมเพย์</div>
+                        <div class="text-xs text-slate-300">ชื่อบัญชี: นาย สุรศักดิ์ (BEATSROOTS SHOP)</div>
+                        <div class="text-xs text-slate-400">ยอดชำระ: <span id="checkout-amount-display" class="text-lg font-extrabold text-gold-400">฿0</span></div>
+                        <div class="text-[11px] text-amber-300 pt-1">* ทักแชทเช็กสต็อกกับแอดมินก่อนโอนทุกครั้งนะครับ</div>
+                    </div>
                 </div>
 
-                <!-- กล่องข้อความสรุปรายการสั่งซื้อ พร้อมปุ่มคัดลอก -->
+                <!-- กล่องคัดลอกรายละเอียดออเดอร์ -->
                 <div class="space-y-1.5">
                     <div class="flex items-center justify-between">
-                        <label class="text-xs font-semibold text-slate-300">รายละเอียดออเดอร์ (กดคัดลอกเพื่อส่งในแชทได้เลย):</label>
-                        <button onclick="copyOrderSummary()" class="text-xs px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-cyan-500 hover:text-navy-950 text-cyan-300 font-semibold transition flex items-center gap-1">
-                            <i class="fa-regular fa-copy"></i> <span id="copy-btn-text">คัดลอกข้อความ</span>
+                        <label class="text-xs font-semibold text-slate-300">ข้อความสรุปออเดอร์ (คัดลอกส่งเข้าแชท):</label>
+                        <button onclick="copyOrderSummary()" class="px-3 py-1 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-400/50 text-cyan-300 text-xs font-bold transition">
+                            <i class="fa-solid fa-copy mr-1"></i> <span id="copy-btn-text">คัดลอกข้อความ</span>
                         </button>
                     </div>
-                    <textarea id="order-summary-text" rows="5" readonly
-                              class="w-full p-3 rounded-xl bg-navy-950 border border-slate-700 text-xs sm:text-sm text-slate-200 font-mono focus:outline-none"></textarea>
+                    <textarea id="order-summary-text" rows="6" readonly class="w-full p-3 rounded-xl bg-navy-950 border border-slate-700 text-xs text-slate-200 font-mono outline-none"></textarea>
                 </div>
 
-                <!-- ข้อมูลบัญชีรับโอน / QR Code (แสดงชัดเจนเมื่อเลือกโอนตรง หรือดูไว้เป็นข้อมูล) -->
-                <div id="direct-payment-box" class="p-4 rounded-xl bg-navy-950 border border-gold-400/30 grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
-                    <div class="sm:col-span-5 flex justify-center">
-                        <img src="https://placehold.co/220x220/071024/22D3EE?text=QR+PromptPay%0ABEATSROOTS+SHOP" alt="QR PromptPay"
-                             class="w-36 h-36 rounded-xl border border-cyan-400/40 object-cover">
-                    </div>
-                    <div class="sm:col-span-7 space-y-1.5 text-xs sm:text-sm">
-                        <div class="text-gold-400 font-bold text-base">ช่องทางโอนเงินโดยตรง</div>
-                        <div class="text-slate-300">ธนาคาร: <span class="text-white font-semibold">กสิกรไทย / พร้อมเพย์</span></div>
-                        <div class="text-slate-300">ชื่อบัญชี: <span class="text-white font-semibold">BEATSROOTS SHOP</span></div>
-                        <div class="text-slate-300">ยอดโอน: <span id="checkout-amount-display" class="text-gold-400 font-extrabold text-lg">฿0</span></div>
-                        <p class="text-[11px] text-slate-400 pt-1">* หลังโอนเงินหรือต้องการดึงกลางแอดมินกลุ่ม กดปุ่มติดต่อผู้ขายด้านล่างเพื่อส่งสลิป/แจ้งรหัสไอดีได้เลยครับ</p>
-                    </div>
-                </div>
-
-                <!-- ปุ่มส่งออเดอร์ไปที่ Facebook หรือ LINE ของผู้ขายโดยตรง -->
-                <div class="space-y-2 pt-1">
-                    <div class="text-xs font-bold text-center text-slate-300">เลือกช่องทางส่งรายการสั่งซื้อ / แจ้งสลิปให้ผู้ขายโดยตรง:</div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                        <a href="https://www.facebook.com/search/top?q=Surasak%20Besun" target="_blank" rel="noopener" onclick="copyOrderSummary()"
-                           class="py-3 px-4 rounded-xl bg-[#1877F2] hover:bg-[#166FE5] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg transition">
-                            <i class="fa-brands fa-facebook text-lg"></i>
-                            <span>ส่งทาง FB: Surasak Besun</span>
-                        </a>
-                        <a href="https://line.me/ti/p/~12ut_" target="_blank" rel="noopener" onclick="copyOrderSummary()"
-                           class="py-3 px-4 rounded-xl bg-[#06C755] hover:bg-[#05B34C] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg transition">
-                            <i class="fa-brands fa-line text-lg"></i>
-                            <span>ส่งทาง LINE: 12ut_</span>
-                        </a>
-                    </div>
-                    <p class="text-[11px] text-center text-cyan-300">
-                        <i class="fa-solid fa-circle-info mr-1"></i>ระบบจะคัดลอกข้อความสั่งซื้อให้อัตโนมัติเมื่อกดปุ่มแชท สามารถกดวาง (Paste) ส่งให้แอดมินได้ทันที
-                    </p>
+                <!-- ปุ่มส่งเข้าแชทผู้ขายโดยตรง -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                    <a href="https://www.facebook.com/search/top?q=Surasak%20Besun" target="_blank" rel="noopener"
+                       class="py-3 px-4 rounded-xl bg-[#1877F2] hover:bg-[#166FE5] text-white font-bold text-sm flex items-center justify-center gap-2 shadow transition">
+                        <i class="fa-brands fa-facebook text-lg"></i>
+                        <span>ส่งออเดอร์ทาง FB</span>
+                    </a>
+                    <a href="https://line.me/ti/p/~12ut_" target="_blank" rel="noopener"
+                       class="py-3 px-4 rounded-xl bg-[#06C755] hover:bg-[#05B34C] text-white font-bold text-sm flex items-center justify-center gap-2 shadow transition">
+                        <i class="fa-brands fa-line text-lg"></i>
+                        <span>ส่งออเดอร์ทาง LINE</span>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- =====================================================================
-         8. CONTACT & MIDDLEMAN INFO MODAL (หน้าต่างเลือกกลางแอดมิน / ติดต่อผู้ขาย)
+         8. CONTACT & MIDDLEMAN MODAL: เลือกรูปแบบติดต่อและกลางแอดมินกลุ่ม
          ===================================================================== -->
-    <div id="contact-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-5 bg-black/80 backdrop-blur-sm">
-        <div class="bg-navy-900 border border-cyan-400/40 rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl">
+    <div id="contact-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-5 bg-black/85 backdrop-blur-sm">
+        <div class="bg-navy-900 border border-gold-400/50 rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl">
             <div class="px-5 py-4 bg-navy-950 border-b border-slate-800 flex items-center justify-between">
-                <h3 class="text-lg font-bold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-headset text-cyan-400"></i> ติดต่อผู้ขาย & เลือกบริการกลางแอดมิน
+                <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-handshake-angle text-gold-400"></i> เลือกรูปแบบการซื้อขาย & ติดต่อผู้ขาย
                 </h3>
-                <button onclick="closeContactModal()" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">
+                <button onclick="closeContactModal()" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
             <div class="p-5 space-y-4">
-                <p class="text-sm text-slate-300">
-                    ลูกค้าสามารถเลือกซื้อขายได้ 2 รูปแบบตามความสบายใจ ทักแชทสอบถามสต็อกเพิ่มเติม (มีกว่า 300+ ไอดี) ได้ตลอด 24 ชม.
-                </p>
-
-                <!-- ตัวเลือก 1: โอนตรง -->
-                <div onclick="setTradePreference('direct')" id="modal-card-direct"
-                     class="cursor-pointer p-4 rounded-xl border border-cyan-400 bg-cyan-500/10 space-y-1 transition">
-                    <div class="flex items-center justify-between">
-                        <span class="font-bold text-cyan-300 flex items-center gap-2">
-                            <i class="fa-solid fa-bolt"></i> 1. โอนตรงกับผู้ขาย (เครดิตแน่น)
-                        </span>
-                        <span class="text-xs px-2 py-0.5 rounded bg-cyan-500 text-navy-950 font-bold">ส่งไวใน 5 นาที</span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div id="modal-card-direct" onclick="setTradePreference('direct')"
+                         class="cursor-pointer p-4 rounded-xl border border-cyan-400 bg-cyan-500/10 space-y-1 transition">
+                        <div class="flex items-center gap-2 text-cyan-300 font-bold text-sm">
+                            <i class="fa-solid fa-bolt"></i> โอนตรงกับผู้ขาย
+                        </div>
+                        <p class="text-xs text-slate-300">รวดเร็วที่สุด รับรหัสภายใน 5 นาที เครดิตแน่น ปลอดภัย 100%</p>
                     </div>
-                    <p class="text-xs text-slate-300">โอนเงินเข้าบัญชีผู้ขายโดยตรง ไม่มีค่าธรรมเนียมกลาง รับเมลเปล่าและรหัสเข้าเกมทันที</p>
+                    <div id="modal-card-middleman" onclick="setTradePreference('middleman')"
+                         class="cursor-pointer p-4 rounded-xl border border-slate-700 bg-navy-950 hover:border-gold-400/60 space-y-1 transition">
+                        <div class="flex items-center gap-2 text-gold-400 font-bold text-sm">
+                            <i class="fa-solid fa-user-shield"></i> ผ่านกลางแอดมินกลุ่ม
+                        </div>
+                        <p class="text-xs text-slate-300">ยินดีผ่านกลางแอดมินกลุ่มซื้อขายเกมที่น่าเชื่อถือทุกกลุ่ม</p>
+                    </div>
                 </div>
 
-                <!-- ตัวเลือก 2: ผ่านกลางแอดมินกลุ่ม -->
-                <div onclick="setTradePreference('middleman')" id="modal-card-middleman"
-                     class="cursor-pointer p-4 rounded-xl border border-slate-700 bg-navy-950 hover:border-gold-400/60 space-y-1 transition">
-                    <div class="flex items-center justify-between">
-                        <span class="font-bold text-gold-400 flex items-center gap-2">
-                            <i class="fa-solid fa-user-shield"></i> 2. ผ่านกลางแอดมินกลุ่ม
-                        </span>
-                        <span class="text-xs px-2 py-0.5 rounded bg-gold-500/20 text-gold-300 border border-gold-400/40 font-semibold">ปลอดภัย 100%</span>
-                    </div>
-                    <p class="text-xs text-slate-300">ซื้อขายผ่านแอดมินกลางของกลุ่มซื้อขายเกม (ผู้ซื้อออกค่ากลางตามเรทแอดมินกลุ่ม) สบายใจหายห่วง</p>
-                </div>
-
-                <!-- ปุ่มช่องทางติดต่อ -->
-                <div class="pt-2 space-y-2.5">
+                <div class="space-y-2 pt-2 border-t border-slate-800">
                     <a href="https://www.facebook.com/search/top?q=Surasak%20Besun" target="_blank" rel="noopener"
-                       class="w-full py-3 px-4 rounded-xl bg-[#1877F2] hover:bg-[#166FE5] text-white font-bold text-sm flex items-center justify-center gap-2.5 shadow-lg transition">
-                        <i class="fa-brands fa-facebook text-xl"></i>
-                        <span>ติดต่อทาง Facebook: Surasak Besun</span>
+                       class="w-full py-3 px-4 rounded-xl bg-[#1877F2] hover:bg-[#166FE5] text-white font-bold text-sm flex items-center justify-center gap-2 transition">
+                        <i class="fa-brands fa-facebook text-lg"></i>
+                        <span>ติดต่อ Facebook: Surasak Besun</span>
                     </a>
                     <a href="https://line.me/ti/p/~12ut_" target="_blank" rel="noopener"
-                       class="w-full py-3 px-4 rounded-xl bg-[#06C755] hover:bg-[#05B34C] text-white font-bold text-sm flex items-center justify-center gap-2.5 shadow-lg transition">
-                        <i class="fa-brands fa-line text-xl"></i>
-                        <span>ติดต่อทาง LINE: 12ut_</span>
+                       class="w-full py-3 px-4 rounded-xl bg-[#06C755] hover:bg-[#05B34C] text-white font-bold text-sm flex items-center justify-center gap-2 transition">
+                        <i class="fa-brands fa-line text-lg"></i>
+                        <span>ติดต่อ LINE ID: 12ut_</span>
                     </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         8.5 MODAL: นำเข้าข้อมูล CSV / JSON สำหรับอัปเดตสต็อกไอดีเอง
+         ===================================================================== -->
+    <div id="importer-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-5 bg-black/85 backdrop-blur-sm">
+        <div class="bg-navy-900 border border-cyan-400/50 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div class="px-5 py-4 bg-navy-950 border-b border-slate-800 flex items-center justify-between">
+                <h3 class="text-lg font-bold text-cyan-300 flex items-center gap-2">
+                    <i class="fa-solid fa-file-import"></i> นำเข้าหรืออัปเดตข้อมูลไอดี (CSV / JSON)
+                </h3>
+                <button onclick="closeImporterModal()" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="p-5 space-y-4">
+                <p class="text-xs sm:text-sm text-slate-300">
+                    วางข้อมูล CSV (ที่ได้จากเครื่องมือแปลง/Google Sheets) หรือ JSON ของ <code class="text-cyan-300">PRODUCTS_DATA</code> เพื่ออัปเดตรายการไอดีบนหน้าเว็บทันที
+                </p>
+
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                    <label class="text-xs font-semibold text-slate-300">เลือกรูปแบบข้อมูลที่นำเข้า:</label>
+                    <select id="import-format-select" class="px-3 py-1.5 rounded-lg bg-navy-950 border border-slate-700 text-xs text-white outline-none">
+                        <option value="auto">ตรวจจับอัตโนมัติ (CSV หรือ JSON)</option>
+                        <option value="csv">CSV (คั่นด้วยจุลภาค)</option>
+                        <option value="json">JSON / Array สินค้า</option>
+                    </select>
+                </div>
+
+                <textarea id="import-data-textarea" rows="8"
+                          placeholder="วางข้อมูล CSV หรือ JSON ที่นี่..."
+                          class="w-full p-3 rounded-xl bg-navy-950 border border-slate-700 focus:border-cyan-400 text-xs text-slate-200 font-mono outline-none"></textarea>
+
+                <div class="flex flex-wrap items-center justify-between gap-2 pt-1">
+                    <button type="button" onclick="resetProductsToDefault()"
+                            class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition">
+                        <i class="fa-solid fa-rotate-left mr-1"></i> คืนค่าข้อมูลเริ่มต้นทั้งหมด
+                    </button>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="closeImporterModal()"
+                                class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold transition">
+                            ยกเลิก
+                        </button>
+                        <button type="button" onclick="applyImportedData()"
+                                class="px-5 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-navy-950 text-xs sm:text-sm font-extrabold shadow-cyan-glow transition">
+                            <i class="fa-solid fa-check mr-1"></i> นำเข้าข้อมูลลงร้านค้า
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1010,9 +851,563 @@
     <div id="toast-container" class="fixed top-20 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
     <!-- =====================================================================
-         JAVASCRIPT LOGIC: FILTERING, CART, MODALS & CHECKOUT
+         JAVASCRIPT LOGIC: FULL A_TOTAL_UPDATED DATASET, FILTERING, CART & IMPORT
          ===================================================================== -->
     <script>
+        // รายชื่อตัวละครและคำสำคัญสำหรับแยกตัวละครอัตโนมัติจากรายการ A_total_updated.txt
+        const KNOWN_CHARACTERS = [
+            "Hsin", "Suoming", "Jingran", "Qingxiao", "Hiyuki", "Aemeath",
+            "Lucy", "Cartethyia", "Phrolova", "Qiuyuan", "Augusta", "Chisa",
+            "Sigrika", "Yangyang", "Suisui", "Lucilla", "Denia", "Galbrena",
+            "Luuk", "Lynae", "Zani", "Phoebe", "Cantarella", "Changli", "Luno",
+            "Jinhsi", "Shorekeeper", "Mornye", "Ciaccona", "Camellya", "Roccia",
+            "Xiangli Yao", "Yinlin", "Jiyan", "Lupa", "Brant", "Zhezhi", "Carlotta",
+            "Lily", "Verina", "Calcharo", "Jianxin", "Jainxin", "Encore", "Lingyang", "Rebecca"
+        ];
+
+        // ฟังก์ชันช่วยสร้างออบเจกต์ไอดี Wuthering Waves จากข้อมูลดิบของ A_total_updated.txt
+        function buildWuWaItem(code, category, title, price, detail, charsOverride = null, extraMeta = {}) {
+            const lowerText = `${title} ${detail}`.toLowerCase();
+            const detectedChars = charsOverride && charsOverride.length > 0
+                ? charsOverride
+                : KNOWN_CHARACTERS.filter(name => lowerText.includes(name.toLowerCase()));
+
+            const displayChars = (detectedChars.length > 0 ? detectedChars : ["Wuthering Waves"]).slice(0, 3).map((name, idx) => {
+                // ดึงลำดับซ้ำ S1/S2/S3 หรือป้ายเรทถ้ามีในข้อความ
+                const rankRegex = new RegExp(`${name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\s*(S[1-6])`, "i");
+                const rankMatch = `${title} ${detail}`.match(rankRegex);
+                const rankLabel = rankMatch ? rankMatch[1].toUpperCase() : (idx === 0 && extraMeta.rateBadge ? extraMeta.rateBadge : "5★");
+                return {
+                    name: name.toUpperCase(),
+                    rank: rankLabel,
+                    element: extraMeta.element || category,
+                    img: `https://placehold.co/220x240/0b1733/22D3EE?text=${encodeURIComponent(name.toUpperCase())}%0A${encodeURIComponent(rankLabel)}`
+                };
+            });
+
+            return {
+                id: `WW-${code}`,
+                code: String(code),
+                game: "wuthering",
+                gameLabel: "Wuthering Waves",
+                category,
+                title,
+                server: extraMeta.server || "SEA",
+                unionLevel: extraMeta.unionLevel || "ตามรายละเอียดไอดี",
+                dataBank: extraMeta.dataBank || category,
+                emailStatus: extraMeta.emailStatus || "เช็กสถานะกับผู้ขาย",
+                exploration: extraMeta.exploration || "",
+                price: Number(price) || 0,
+                featured: Boolean(extraMeta.featured),
+                albumUrl: extraMeta.albumUrl || "https://drive.google.com/",
+                description: detail,
+                characters: displayChars,
+                allCharacterNames: detectedChars,
+                gallery: [
+                    `https://placehold.co/800x450/071024/22D3EE?text=${encodeURIComponent(`ID ${code} - ${title.slice(0, 42)}`)}`,
+                    `https://placehold.co/800x450/071024/FBBF24?text=${encodeURIComponent(`รายละเอียด: ${category}`)}`
+                ]
+            };
+        }
+
+        // ข้อมูลตั้งต้นครบถ้วนจาก A_total_updated.txt + ตัวอย่างเกมอื่นที่รองรับ
+        const DEFAULT_PRODUCTS_DATA = [
+            // --- เรทราคาตัวละคร / ปจต. / ทีม (1.23 ลงมาถึง 1.1) ---
+            buildWuWaItem("1.23", "เรทราคาตัวละคร / ปจต.", "1.23 Hsin + ปจต. + อื่นๆ (เรท 240 / 590 / 890 / 1,200)", 240, "เรทราคา: 240 (ตัวละคร) --- 590 (+ปจต.) --- 890 (ซ้ำ1+ปจต.) --- 1,200 (ซ้ำ2+ปจต.)", ["Hsin"], { rateBadge: "240+" }),
+            buildWuWaItem("1.22", "เรทราคาตัวละคร / ปจต.", "1.22 Suoming + ปจต. + อื่นๆ (เรท 240 / 590)", 240, "เรทราคา: 240 (ตัวละคร) ---//--- 590 (+ปจต.)", ["Suoming"], { rateBadge: "240+" }),
+            buildWuWaItem("1.21", "เรทราคาตัวละคร / ปจต.", "1.21 Jingran + ปจต. + อื่นๆ (590 +ปจต. / 490+ ทีม)", 490, "เรทราคา: 590 (+ปจต.) ---- // ---- 490+ ( ทีม )", ["Jingran"], { rateBadge: "490+" }),
+            buildWuWaItem("1.20", "เรทราคาตัวละคร / ปจต.", "1.20 Qingxiao + ปจต. + อื่นๆ (490++ ทีม)", 490, "เรทราคา: 490++ ( ทีม )", ["Qingxiao"], { rateBadge: "490++" }),
+            buildWuWaItem("1.19", "เรทราคาตัวละคร / ปจต.", "1.19 Hiyuki + ปจต. + อื่นๆ (240 ตัวละคร / 490++ ทีม)", 240, "เรทราคา: 240 (ตัวละคร) ---- // ---- 490++ ( ทีม )", ["Hiyuki"], { rateBadge: "240+" }),
+            buildWuWaItem("1.18", "เรทราคาตัวละคร / ปจต.", "1.18 Aemeath + ปจต. + อื่นๆ (590 +ปจต. / 490++ ทีม)", 490, "เรทราคา: 590 (+ปจต.) ---- //---- 490++ ( ทีม )", ["Aemeath"], { rateBadge: "490+" }),
+            buildWuWaItem("1.17", "เรทราคาตัวละคร / ปจต.", "1.17 Lucy + ปจต. + อื่นๆ (590++ ทีม)", 590, "เรทราคา: 590++ ( ทีม )", ["Lucy"], { rateBadge: "590++" }),
+            buildWuWaItem("1.16", "เรทราคาตัวละคร / ปจต.", "1.16 Cartethyia + ปจต. + อื่นๆ (590 +ปจต. / 1,000 ซ้ำ1+ปจต.)", 590, "เรทราคา: 590 (+ปจต.) ----// --- 1,000 (ซ้ำ1+ปจต.)", ["Cartethyia"], { rateBadge: "590+" }),
+            buildWuWaItem("1.15", "เรทราคาตัวละคร / ปจต.", "1.15 Phrolova + ปจต. + อื่นๆ (490++ ทีม)", 490, "เรทราคา: 490++ ( ทีม )", ["Phrolova"], { rateBadge: "490++" }),
+            buildWuWaItem("1.14", "เรทราคาตัวละคร / ปจต.", "1.14 Qiuyuan + อื่นๆ (240 ตัวละคร / 490++ ทีม)", 240, "เรทราคา: 240 (ตัวละคร)---- // ----- 490++ ( ทีม )", ["Qiuyuan"], { rateBadge: "240+" }),
+            buildWuWaItem("1.13", "เรทราคาตัวละคร / ปจต.", "1.13 Augusta + ปจต. + อื่นๆ (490++ ทีม)", 490, "เรทราคา: 490++( ทีม )", ["Augusta"], { rateBadge: "490++" }),
+            buildWuWaItem("1.12", "เรทราคาตัวละคร / ปจต.", "1.12 Chisa + อื่นๆ (490+ ทีม)", 490, "เรทราคา: 490+( ทีม )", ["Chisa"], { rateBadge: "490+" }),
+            buildWuWaItem("1.11", "เรทราคาตัวละคร / ปจต.", "1.11 Sigrika + ปจต. + อื่นๆ (240 ตัวละคร / 490++ ทีม)", 240, "เรทราคา: 240 (ตัวละคร) ---- // ---- 490++ ( ทีม )", ["Sigrika"], { rateBadge: "240+" }),
+            buildWuWaItem("1.10", "เรทราคาตัวละคร / ปจต.", "1.10 Yangyang + ปจต. + อื่นๆ (240 ตัวละคร / 590 +ปจต.)", 240, "เรทราคา: 240 (ตัวละคร) ---- // ---- 590 (+ปจต.)", ["Yangyang"], { rateBadge: "240+" }),
+            buildWuWaItem("1.9", "เรทราคาตัวละคร / ปจต.", "1.9 Suisui + อื่นๆ (240 ตัวละคร / 490+ ทีม)", 240, "เรทราคา: 240 (ตัวละคร)---- // ---- 490+ ( ทีม )", ["Suisui"], { rateBadge: "240+" }),
+            buildWuWaItem("1.8", "เรทราคาตัวละคร / ปจต.", "1.8 Lucilla + ปจต. + อื่นๆ (240 ตัวละคร / 590 +ปจต.)", 240, "เรทราคา: 240 (ตัวละคร) ---- // ---- 590 (+ปจต.)", ["Lucilla"], { rateBadge: "240+" }),
+            buildWuWaItem("1.7", "เรทราคาตัวละคร / ปจต.", "1.7 Denia + ปจต. + อื่นๆ (240 ตัวละคร / 590 +ปจต.)", 240, "เรทราคา: 240 (ตัวละคร) ---- // ---- 590 (+ปจต.)", ["Denia"], { rateBadge: "240+" }),
+            buildWuWaItem("1.6", "เรทราคาตัวละคร / ปจต.", "1.6 Galbrena + ปจต. + อื่นๆ (240 ตัวละคร / 490++ ทีม)", 240, "เรทราคา: 240 (ตัวละคร)---- // ---- 490++ ( ทีม )", ["Galbrena"], { rateBadge: "240+" }),
+            buildWuWaItem("1.5", "เรทราคาตัวละคร / ปจต.", "1.5 Luuk + ปจต. + อื่นๆ (490++ ทีม)", 490, "เรทราคา: 490++ ( ทีม )", ["Luuk"], { rateBadge: "490++" }),
+            buildWuWaItem("1.4", "เรทราคาตัวละคร / ปจต.", "1.4 Lynae + ปจต. + อื่นๆ (240 ตัวละคร / 590 +ปจต.)", 240, "เรทราคา: 240 (ตัวละคร) ---- // ---- 590 (+ปจต.)", ["Lynae"], { rateBadge: "240+" }),
+            buildWuWaItem("1.2", "เรทราคาตัวละคร / ปจต.", "1.2 Zani + ปจต. + อื่นๆ (490++ ทีม)", 490, "เรทราคา: 490++ ( ทีม )", ["Zani"], { rateBadge: "490++" }),
+            buildWuWaItem("1.1", "เรทราคาตัวละคร / ปจต.", "1.1 Phoebe + ปจต. + อื่นๆ (240 ตัวละคร / 590 +ปจต.)", 240, "เรทราคา: 240 (ตัวละคร) ---- // ---- 590 (+ปจต.)", ["Phoebe"], { rateBadge: "240+" }),
+
+            // --- Team Havoc 1 ---
+            buildWuWaItem("6.4", "Team Havoc 1", "6.4 Yangyang +ปจต. + Chisa + Rebecca + Jainxin + Encore", 890, "Yangyang🪶 +ปจต. 🪶 + Chisa✂️ + Rebecca 💥 + Jainxin ⭐+ Encore ⭐"),
+            buildWuWaItem("6.5", "Team Havoc 1", "6.5 Yangyang + Chisa + ปจต. + Rebecca + Jainxin + Encore", 790, "Yangyang🪶 + Chisa✂️ + ปจต. ✂️ + Rebecca 💥 + Jainxin ⭐+ Encore ⭐"),
+            buildWuWaItem("70.4", "Team Havoc 1", "70.4 Yangyang + Cantarella + ปจต. + Rebecca + ดาบMC + Encore", 790, "Yangyang🪶 + Cantarella 🪼 + ปจต.🪼 +Rebecca 💥 + ดาบMC ⭐ + Encore⭐"),
+            buildWuWaItem("70.5", "Team Havoc 1", "70.5 Yangyang + Cantarella + Changli + Rebecca", 790, "Yangyang🪶 + Cantarella 🪼 + Changli 🐦‍🔥 +Rebecca 💥"),
+            buildWuWaItem("6.6", "Team Havoc 1", "6.6 Yangyang + Chisa + Rebecca + Jainxin + ดาบMC", 590, "Yangyang🪶 + Chisa ✂️ + Rebecca 💥 + Jainxin ⭐+ ดาบMC ⭐"),
+            buildWuWaItem("70.3", "Team Havoc 1", "70.3 Yangyang + Luno + Rebecca + Calcharo", 490, "Yangyang🪶 + Luno 🪐 +Rebecca 💥 + Calcharo ⭐"),
+            buildWuWaItem("70.6", "Team Havoc 1", "70.6 Yangyang + Cantarella + Rebecca + Verina + Lingyang", 490, "Yangyang🪶 + Cantarella 🪼 +Rebecca 💥 + Verina⭐ + Lingyang⭐"),
+            buildWuWaItem("6.9", "Team Havoc 1", "6.9 Cantarella + ปจต. + Chisa + ปจต. + Phrolova + Rebecca + อื่นๆ", 1290, "Cantarella 🪼 + ปจต.🪼 + Chisa ✂️ + ปจต. ✂️ + Phrolova 🌺 + Rebecca 💥 + อื่นๆ"),
+            buildWuWaItem("6.8", "Team Havoc 1", "6.8 Cantarella + ปจต. + Phrolova S1 + Rebecca + อื่นๆ", 1190, "Cantarella 🪼 + ปจต.🪼 + Phrolova S1 🌺 🌺 + Rebecca 💥 + อื่นๆ"),
+            buildWuWaItem("8.6", "Team Havoc 1", "8.6 Cantarella + ปจต. + Chisa + Rebecca + อื่นๆ", 790, "Cantarella 🪼 + ปจต.🪼 + Chisa ✂️ + Rebecca 💥 + อื่นๆ"),
+
+            // --- Team Spectro 1 ---
+            buildWuWaItem("85.3", "Team Spectro 1", "85.3 Lynae + ปจต. + Mornye + Rebecca + อื่นๆ", 790, "Lynae 🛼+ ปจต. 🛼+ Mornye ☄️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("86.1", "Team Spectro 1", "86.1 Lynae + Mornye + Rebecca + อื่นๆ", 490, "Lynae 🛼 + Mornye ☄️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("20", "Team Spectro 1", "20. Jinhsi + Phoebe + Shorekeeper + ปจต. + Aemeath + Denia + Rebecca", 2390, "Jinhsi🐉+ Phoebe👒+ Shorekeeper 🦋+ ปจต. 🦋 + Aemeath 💗+ Denia 👁️‍🗨️+ Rebecca 💥+ Verina S1⭐⭐ + Calcharo S1 ⭐⭐ + ดาบใหญ่ถาวรใหม่ ⭐ + ดาบ MC ⭐ + ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️ ฉลอง 2 ปี ( Lv. โลก 20)", null, { featured: true }),
+            buildWuWaItem("21", "Team Spectro 1", "21. Jinhsi + Shorekeeper + ปจต. + Aemeath + Denia + Chisa + Rebecca", 2090, "Jinhsi🐉 + Shorekeeper 🦋+ ปจต. 🦋 + Aemeath 💗 +Denia 👁️‍🗨️+ Chisa✂️ + Rebecca 💥 + Verina ⭐+ Calcharo S1 ⭐⭐ + ดาบใหญ่ตู้ถาวร ⭐"),
+            buildWuWaItem("40", "Team Spectro 1", "40. Zani + ปจต. + Lynae + ปจต. + Mornye + ปจต. + Jinhsi + Aemeath", 3390, "Zani 🛡️ + ปจต.🛡️ + Lynae 🛼+ ปจต. 🛼 + Mornye ☄️+ ปจต. ☄️+ Jinhsi🐉+ Aemeath 💗+ Rebecca 💥 + Verina⭐+ Encore⭐ + ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️ ฉลอง 2 ปี ( Lv. โลก 20)", null, { featured: true }),
+            buildWuWaItem("41", "Team Spectro 1", "41. Zani + ปจต. + Phoebe + Luuk + Jinhsi + Rebecca", 1590, "Zani 🛡️ + ปจต. 🛡️+ Phoebe👒 + Luuk 🧬+ Jinhsi🐉 + Rebecca 💥 + Verina⭐+ Jainxin⭐+ Calcharo ⭐"),
+            buildWuWaItem("62", "Team Spectro 1", "62. Zani + ปจต. + Phoebe + Qingxiao + Ciaccona + Rebecca + อื่นๆ", 1490, "Zani 🛡️+ ปจต. 🛡️ + Phoebe👒+ Qingxiao 🌊 + Ciaccona 🍃 + Rebecca 💥+ Verina ⭐ + อื่นๆ"),
+            buildWuWaItem("63.2", "Team Spectro 1", "63.2 Zani + ปจต. + Cartethyia + Ciaccona + ปจต. + Chisa + ปจต. + อื่นๆ", 2490, "Zani 🛡️ + ปจต. 🛡️+ Cartethyia🌀 + Ciaccona 🍃 + ปจต. 🍃 + Chisa✂️+ ปจต. ✂️ + Rebecca 💥+ Verina S1⭐⭐ + Encore⭐ + อื่นๆ"),
+            buildWuWaItem("32", "Team Spectro 1", "32. Zani + ปจต. + Ciaccona + Shorekeeper + Hiyuki + ปจต. + Lucilla", 2590, "Zani 🛡️ + ปจต.🛡️ + Ciaccona 🍃 + Shorekeeper 🦋 + Hiyuki ❄️ + ปจต.❄️ + Lucilla 📷 + Rebecca 💥+ ดาบ.MC ⭐ + Verina S1⭐⭐ + Encore S1⭐⭐"),
+            buildWuWaItem("16", "Team Spectro 1", "16. Zani S1 + ปจต. + Phoebe + Shorekeeper + Cartethyia + Ciaccona + Chisa", 3090, "Zani S1🛡️🛡️ + ปจต.🛡️ + Phoebe👒+ Shorekeeper 🦋+ Cartethyia🌀 + Ciaccona 🍃 + Chisa✂️+ Rebecca 💥 + Verina ⭐+ อาวุธโดรนตู้ถาวร ⭐ + Lingyang S1 ⭐⭐ + Calcharo ⭐+ ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️ ฉลอง 2 ปี ( Lv. โลก 20)"),
+            buildWuWaItem("67.3", "Team Spectro 1", "67.3 Zani + ปจต. + Hsin + ปจต. + Jinhsi + Phrolova + Qiuyuan + ปจต.", 3090, "Zani 🛡️+ ปจต. 🛡️ + Hsin 🏯+ ปจต. 🏯 + Jinhsi 🐉 + Phrolova 🌺 + Qiuyuan ☘️+ ปจต. ☘️ + Rebecca 💥 + ดาบใหญ่ตู้ถาวร ⭐+ Verina ⭐+ Encore S2 ⭐⭐⭐+ Calcharo ⭐"),
+            buildWuWaItem("66.6", "Team Spectro 1", "66.6 Zani + ปจต. + Qingxiao + Rebecca + อื่นๆ", 790, "Zani 🛡️+ ปจต. 🛡️ Qingxiao 🌊 + Rebecca 💥 + อื่นๆ"),
+            buildWuWaItem("64", "Team Spectro 1", "64. Zani + Phoebe + Rebecca + อื่นๆ", 490, "Zani 🛡️ + Phoebe👒+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("86.7", "Team Spectro 1", "86.7 Zani + Hiyuki + Rebecca + อื่นๆ", 490, "Zani 🛡️ + Hiyuki ❄️ +Rebecca 💥+อื่นๆ"),
+            buildWuWaItem("65.2.1", "Team Spectro 1", "65.2.1 Phoebe + ปจต. + Aemeath + Lynae + Rebecca + อื่นๆ", 1090, "Phoebe👒 + ปจต. 👒+ Aemeath 💗 + Lynae 🛼+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("65.2.2", "Team Spectro 1", "65.2.2 Phoebe + ปจต. + Aemeath + Rebecca + อื่นๆ", 790, "Phoebe👒 + ปจต. 👒+ Aemeath 💗+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("64.1", "Team Spectro 1", "64.1 Phoebe + ปจต. + Mornye + Rebecca + อื่นๆ", 790, "Phoebe👒 + ปจต. 👒 + Mornye ☄️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("64.3", "Team Spectro 1", "64.3 Phoebe + ปจต. + Lynae + Rebecca + อื่นๆ", 790, "Phoebe👒 + ปจต. 👒 + Lynae 🛼 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("92.3", "Team Spectro 1", "92.3 Phoebe + Lynae + Mornye S1 + Rebecca + อื่นๆ", 1090, "Phoebe👒 + Lynae 🛼+ Mornye S1☄️☄️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("98.8", "Team Spectro 1", "98.8 Phoebe + Aemeath + ปจต. + Denia + Chisa + Rebecca + อื่นๆ", 1490, "Phoebe👒 + Aemeath 💗+ ปจต. 💗+ Denia 👁️‍🗨️ + Chisa✂️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("64.2", "Team Spectro 1", "64.2 Phoebe + Lynae + ปจต. + Mornye + Rebecca + อื่นๆ", 1090, "Phoebe👒+ Lynae 🛼 + ปจต. 🛼+ Mornye ☄️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("65.3", "Team Spectro 1", "65.3 Phoebe + Aemeath + Rebecca + อื่นๆ", 490, "Phoebe👒+ Aemeath 💗+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("64.4", "Team Spectro 1", "64.4 Phoebe + Lynae + Rebecca + อื่นๆ", 490, "Phoebe👒 + Lynae 🛼 + Rebecca 💥+ อื่นๆ"),
+
+            // --- Team Aero 1 ---
+            buildWuWaItem("26", "Team Aero 1", "26. Cartethyia S2 + ปจต. + Ciaccona + ปจต. + Shorekeeper + Hsin + Chisa", 4490, "Cartethyia S2 🌀🌀🌀 + ปจต.🌀+ Ciaccona 🍃 + ปจต.🍃 + Shorekeeper 🦋 + Hsin 🏯+ ปจต. 🏯 + Chisa✂️ + Rebecca 💥+ Verina ⭐+ ดาบMC⭐+ Calcharo ⭐ + ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️ RE/Kaiju/ตุ๊กตา Hiyuki/ตุ๊กตาMorney/ ฉลอง 2 ปี ( Lv. โลก 20)", null, { featured: true }),
+            buildWuWaItem("1", "Team Aero 1", "1. Cartethyia + ปจต. 2 อัน + Ciaccona + Chisa + Jinhsi + Lucy", 3390, "Cartethyia🌀 + ปจต. 2 อัน 🌀🌀 + Ciaccona 🍃 + Chisa✂️ + Jinhsi 🐉 + Lucy 💫 + Rebecca 💥+ Camellya🪷 + Roccia🧳+ Verina S3⭐⭐⭐⭐ + ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️ ฉลอง 2 ปี ( Lv. โลก 20)"),
+            buildWuWaItem("3", "Team Aero 1", "3. Cartethyia + ปจต. + Ciaccona + Chisa + Lucy + Camellya + Roccia + Shorekeeper", 3290, "Cartethyia🌀 + ปจต. 🌀 + Ciaccona 🍃 + Chisa✂️ + Lucy 💫 + Rebecca 💥 + Camellya🪷 + Roccia🧳+ Shorekeeper 🦋+ ดาบMC ⭐ + Verina⭐+ Lingyang⭐ + Jainxin ⭐ + ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️ ฉลอง 2 ปี ( Lv. โลก 20)"),
+            buildWuWaItem("63.1", "Team Aero 1", "63.1 Cartethyia S2 + ปจต. + Ciaccona + ปจต. + Zani + อื่นๆ", 2690, "Cartethyia S2 🌀🌀🌀+ ปจต. 🌀+ Ciaccona 🍃 + ปจต. 🍃 + Zani 🛡️ + Rebecca 💥+ Verina S1⭐⭐ + Encore⭐ + อื่นๆ"),
+            buildWuWaItem("70.2", "Team Aero 1", "70.2 Cartethyia S2 + ปจต. + Ciaccona + ปจต. + Chisa + อื่นๆ", 2890, "Cartethyia S2 🌀🌀🌀+ ปจต. 🌀+ Ciaccona 🍃 + ปจต. 🍃 + Chisa✂️+ Rebecca 💥+ Verina ⭐+ อื่นๆ"),
+            buildWuWaItem("29", "Team Aero 1", "29. Cartethyia S1 + ปจต. + Ciaccona + ปจต. + Shorekeeper + Hiyuki", 2690, "CartethyiaS1🌀🌀+ ปจต. 🌀+Ciaccona🍃+ปจต. 🍃+Shorekeeper 🦋+ Hiyuki ❄️ + Rebecca💥+ดาบMC⭐+Verina⭐+Lingyang S1 ⭐⭐ +Jianxin ⭐"),
+            buildWuWaItem("30", "Team Aero 1", "30. Cartethyia + ปจต. + Ciaccona + ปจต. + Chisa + Hiyuki + Shorekeeper", 2690, "Cartethyia🌀+ ปจต. 🌀+ Ciaccona 🍃+ ปจต. 🍃 + Chisa✂️+ Hiyuki ❄️+ Shorekeeper 🦋 + Rebecca 💥+ Verina ⭐+ Encore S1 ⭐⭐ + Calcharo ⭐"),
+            buildWuWaItem("47", "Team Aero 1", "47. Cartethyia + ปจต. + Ciaccona + Chisa + ปจต. + Hsin + Jinhsi + ปจต.", 3290, "Cartethyia 🌀+ ปจต. 🌀+ Ciaccona 🍃 + Chisa✂️+ ปจต.✂️ + Hsin 🏯 + Jinhsi🐉+ ปจต.🐉 + Rebecca 💥+ Verina S1 ⭐⭐ + ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️ ฉลอง 2 ปี ( Lv. โลก 20)"),
+            buildWuWaItem("42", "Team Aero 1", "42. Cartethyia + ปจต. + Ciaccona + ปจต. + Aemeath + ปจต. 2 อัน + Denia S1", 3690, "Cartethyia 🌀 + ปจต. 🌀 + Ciaccona 🍃 + ปจต.🍃 + Aemeath 💗 + ปจต. 2 อัน 💗💗 + Denia S1 👁️‍🗨️👁️‍🗨️ + Rebecca 💥 + Verina S1⭐ + Calcharo ⭐"),
+            buildWuWaItem("11", "Team Aero 1", "11. Cartethyia + ปจต. + Qingxiao + Ciaccona + ปจต. + Chisa + Jinhsi", 2590, "Cartethyia🌀+ ปจต. 🌀+ Qingxiao 🌊+ Ciaccona 🍃 + ปจต. 🍃 + Chisa✂️ + Jinhsi🐉 + Rebecca 💥+ ดาบMC ⭐ + ดาบใหญ่5ดาวใหม่ ⭐+ Verina S1⭐⭐+ Calcharo ⭐ + Jainxin ⭐ + Lingyang ⭐ + ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️ ฉลอง 2 ปี ( Lv. โลก 20)"),
+            buildWuWaItem("28.4", "Team Aero 1", "28.4 Cartethyia S1 + Ciaccona + ปจต. + Shorekeeper + Lucy + อื่นๆ", 2190, "Cartethyia S1🌀🌀 + Ciaccona 🍃+ ปจต. 🍃 + Shorekeeper 🦋 + Lucy 💫 + Rebecca 💥+ Verina ⭐+อื่นๆ"),
+            buildWuWaItem("2", "Team Aero 1", "2. Cartethyia + ปจต. + Chisa + Camellya + Roccia + Shorekeeper", 2290, "Cartethyia🌀 + ปจต. 🌀+ Chisa✂️+ Camellya🪷 + Roccia🧳 + Shorekeeper 🦋+ Rebecca 💥 + อาวุธปจต. Yinlin ⚡ + ดาบMC ⭐ + Verina⭐ + Calcharo S1⭐⭐ + ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️ ฉลอง 2 ปี ( Lv. โลก 20)"),
+            buildWuWaItem("43", "Team Aero 1", "43. Cartethyia S1 + ปจต. + Chisa + Jinhsi + ปจต. + Rebecca", 2290, "Cartethyia S1🌀🌀+ ปจต. 🌀+ Chisa✂️+ Jinhsi🐉+ ปจต.🐉+ Rebecca 💥 Verina S1⭐⭐ + ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️ ฉลอง 2 ปี ( Lv. โลก 20)"),
+            buildWuWaItem("70.1", "Team Aero 1", "70.1 Cartethyia + ปจต. + Ciaccona + ปจต. + Chisa + Qingxiao + อื่นๆ", 2190, "Cartethyia🌀+ ปจต. 🌀+ Ciaccona 🍃 + ปจต. 🍃 + Chisa✂️ + Qingxiao 🌊+ Rebecca 💥+ ดาบใหญ่5ดาวใหม่ ⭐ + ปืนใหม่ 5 ดาว ⭐+ Verina ⭐+ อื่นๆ"),
+            buildWuWaItem("19", "Team Aero 1", "19. Cartethyia + ปจต. + Chisa + Shorekeeper + Zani + Rebecca", 1590, "Cartethyia🌀+ ปจต. 🌀 + Chisa✂️+ Shorekeeper 🦋 + Zani 🛡️ + Rebecca 💥 + Verina ⭐+ ดาบMC⭐+ Encore ⭐+Calcharo ⭐ + ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️ ฉลอง 2 ปี ( Lv. โลก 20)"),
+            buildWuWaItem("4", "Team Aero 1", "4. Cartethyia + ปจต. + Chisa + ปจต. + Camellya + Roccia + ปจต.", 2690, "Cartethyia🌀 + ปจต. 🌀 + Chisa✂️ + ปจต.✂️ + Camellya🪷 + Roccia🧳+ปจต.🧳+ Rebecca 💥+ Verina⭐ + Jainxin ⭐ + Encore ⭐ + ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️ ฉลอง 2 ปี ( Lv. โลก 20)"),
+            buildWuWaItem("98.4", "Team Aero 1", "98.4 Cartethyia + ปจต. + Chisa + Aemeath + ปจต. + Lynae S1 + Rebecca", 2590, "Cartethyia 🌀 + ปจต. 🌀+ Chisa✂️ + Aemeath 💗+ ปจต.💗 + Lynae S1🛼🛼+ Rebecca 💥+ Verina ⭐ + Encore⭐"),
+            buildWuWaItem("82.2", "Team Aero 1", "82.2 Cartethyia + ปจต. + Ciaccona + Hiyuki + Zhezhi + Rebecca", 1590, "Cartethyia 🌀 + ปจต. 🌀+ Ciaccona 🍃 + Hiyuki ❄️+ Zhezhi 🖌️+ Rebecca 💥 + Verina ⭐+ ดาบMC ⭐+ Jainxin ⭐+ Calcharo ⭐"),
+            buildWuWaItem("85.1", "Team Aero 1", "85.1 Cartethyia + ปจต. + Hiyuki + Shorekeeper + Rebecca + Verina S2", 1190, "Cartethyia 🌀 + ปจต. 🌀+ Hiyuki ❄️+ Shorekeeper 🦋 + Rebecca 💥+ Verina S2 ⭐⭐⭐"),
+            buildWuWaItem("79.6", "Team Aero 1", "79.6 Cartethyia + ปจต. + Hiyuki + Lucilla + Rebecca + อื่นๆ", 1190, "Cartethyia 🌀 + ปจต. 🌀+ Hiyuki ❄️ + Lucilla 📷 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("85.2", "Team Aero 1", "85.2 Cartethyia + ปจต. + Hiyuki + Rebecca + อื่นๆ", 790, "Cartethyia 🌀 + ปจต. 🌀+ Hiyuki ❄️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("98.1", "Team Aero 1", "98.1 Cartethyia + ปจต. + Aemeath + Rebecca + Verina S1 + Encore", 790, "Cartethyia 🌀 + ปจต. 🌀+ Aemeath 💗 + Rebecca 💥+ Verina S1⭐⭐ + Encore⭐"),
+            buildWuWaItem("31", "Team Aero 1", "31. Cartethyia + Ciaccona + Rebecca + Jainxin", 490, "Cartethyia🌀+ Ciaccona 🍃 + Rebecca 💥 + Jainxin ⭐"),
+            buildWuWaItem("46", "Team Aero 1", "46. Cartethyia + Chisa + Rebecca + Verina + Jainxin", 490, "Cartethyia 🌀 + Chisa✂️ + Rebecca 💥 + Verina ⭐ + Jainxin ⭐"),
+            buildWuWaItem("97.9", "Team Aero 1", "97.9 Cartethyia + Aemeath + Rebecca + อื่นๆ", 490, "Cartethyia 🌀+ Aemeath 💗 + Rebecca 💥 + อื่นๆ"),
+            buildWuWaItem("99.2", "Team Aero 1", "99.2 Cartethyia + Aemeath + Lynae + Rebecca + อื่นๆ", 790, "Cartethyia 🌀+ Aemeath 💗 + Lynae 🛼 + Rebecca 💥 + อื่นๆ"),
+            buildWuWaItem("79.3", "Team Aero 1", "79.3 Cartethyia + Hiyuki + Rebecca + อื่นๆ", 490, "Cartethyia 🌀 + Hiyuki ❄️ + Rebecca 💥+อื่นๆ"),
+
+            // --- Team Electro ---
+            buildWuWaItem("5", "Team Electro", "5. Cartethyia + ปจต. + Ciaccona + Chisa + Hiyuki + Lynae + Xiangli Yao + Yinlin", 4900, "Cartethyia🌀 + ปจต. 🌀 + Ciaccona 🍃 + Chisa✂️ + Hiyuki ❄️ + ปจต. ❄️+ Lynae 🛼 + Zhezhi 🖌️ + Xiangli Yao 🧊 + Yinlin ⚡+ Jiyan 🐉+ Rebecca 💥 + หมัด 5ดาวใหม่ ⭐+ Verina S1⭐⭐ + Jainxin ⭐ + Lingyang ⭐ + Calcharo⭐ + 🪽 ปีกฉลองครบรอบ 1 ปี ( Lv. โลก 20) + 🏍️สกินรถ LeonAda / Kaiju /PragMata/ สกินรถฉลอง 2ปี + แมวน้ำ Aemeath / ตุ๊กตา Hiyuki", null, { featured: true }),
+            buildWuWaItem("91.1", "Team Electro", "91.1 Augusta + ปจต. + Luno + Hiyuki + ปจต. + Jinhsi + ปจต.", 2900, "Augusta☀️ + ปจต.☀️ + Luno 🪐 + Hiyuki ❄️ + ปจต. ❄️+ Jinhsi🐉+ ปจต.🐉+ Rebecca 💥 + ดาบ MC ⭐ + ดาบใหญ่ตู้ถาวร ⭐ + Verina ⭐+ Lingyang S1⭐⭐ + ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️ ฉลอง 2 ปี ( Lv. โลก 20)"),
+            buildWuWaItem("91.4", "Team Electro", "91.4 Augusta + ปจต. + Luno + ปจต. + Jinhsi + Rebecca", 1790, "Augusta☀️ + ปจต.☀️+ Luno 🪐+ ปจต. 🪐+ Jinhsi🐉+ Rebecca 💥 + Verina S1⭐⭐+ Calcharo⭐"),
+            buildWuWaItem("91.5", "Team Electro", "91.5 Augusta + ปจต. + Luno + Jingran + Rebecca + อื่นๆ", 1190, "Augusta☀️ + ปจต.☀️+ Luno 🪐 + Jingran🏮+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("98.6", "Team Electro", "98.6 Augusta + Rebecca + Aemeath + ปจต. + Denia + ปจต. + อื่นๆ", 1590, "Augusta☀️ + Rebecca 💥+ Aemeath 💗+ ปจต. 💗+ Denia 👁️‍🗨️ + ปจต. 👁️‍🗨️+ อื่นๆ"),
+            buildWuWaItem("91.7", "Team Electro", "91.7 Augusta + Luno + Mornye + Jingran + Rebecca", 1190, "Augusta☀️ + Luno 🪐+ Mornye ☄️+ Jingran🏮+ Rebecca 💥+ ดาบ MC⭐ + Calcharo⭐+ Encore ⭐"),
+            buildWuWaItem("91.9", "Team Electro", "91.9 Augusta + Luno + ปจต. + Rebecca + อื่นๆ", 790, "Augusta☀️ + Luno 🪐 + ปจต.🪐 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("91.8", "Team Electro", "91.8 Augusta + Luno + Lynae + Mornye + Rebecca + อื่นๆ", 1190, "Augusta☀️ + Luno 🪐 + Lynae 🛼+ Mornye ☄️+ Rebecca 💥+ Encore ⭐+Lingyang⭐ +Jainxin ⭐"),
+            buildWuWaItem("92.5", "Team Electro", "92.5 Augusta + Luno + Yangyang + Rebecca + อื่นๆ", 890, "Augusta☀️ + Luno 🪐 + Yangyang🪶+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("92.1", "Team Electro", "92.1 Augusta + Luno + Rebecca + อื่นๆ", 590, "Augusta☀️ + Luno 🪐 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("98.7", "Team Electro", "98.7 Augusta + Rebecca + Aemeath + Lynae S1 + Jainxin + Lingyang", 990, "Augusta☀️+ Rebecca 💥+ Aemeath 💗+ Lynae S1 🛼🛼 + Jainxin ⭐+ Lingyang ⭐"),
+            buildWuWaItem("91.6", "Team Electro", "91.6 Augusta + Lynae + Mornye + Rebecca + Encore", 790, "Augusta☀️ + Lynae 🛼+ Mornye ☄️+ Rebecca 💥+Encore ⭐"),
+
+            // --- Team Havoc 2 ---
+            buildWuWaItem("6", "Team Havoc 2", "6. Phrolova +ปจต. + Qiuyuan + ปจต. + Lucilla + Xiangli Yao + Yinlin", 2990, "Phrolova 🌺 +ปจต.🌺+ Qiuyuan☘️ + ปจต.☘️ + Lucilla 📷 + Xiangli Yao 🧊 + Yinlin ⚡+ Rebecca 💥+ Verina S2⭐⭐⭐+ Calcharo⭐+Jainxin ⭐ + ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️ ฉลอง 2 ปี ( Lv. โลก 20)"),
+            buildWuWaItem("75.6", "Team Havoc 2", "75.6 Phrolova + ปจต. + Lucilla + ปจต. + Qiuyuan + Lucy + Rebecca", 2190, "Phrolova 🌺 + ปจต. 🌺+ Lucilla 📷 + ปจต. 📷+ Qiuyuan ☘️+ Lucy 💫 + Rebecca 💥+ Verina ⭐"),
+            buildWuWaItem("76.1", "Team Havoc 2", "76.1 Phrolova + ปจต. + Qiuyuan + ปจต. + Lucilla + Lucy + Rebecca", 2190, "Phrolova 🌺+ ปจต.🌺 + Qiuyuan ☘️ + ปจต.☘️ +Lucilla 📷+ Lucy 💫+ Rebecca 💥+ Lingyang ⭐ + Encore ⭐"),
+            buildWuWaItem("55", "Team Havoc 2", "55. Phrolova + ปจต. + Roccia + Aemeath + Denia + Lucy + Rebecca", 2090, "Phrolova 🌺 + ปจต. 🌺 + Roccia🧳+ Aemeath 💗+ Denia 👁️‍🗨️+ Lucy 💫+ Rebecca 💥+ หมัด5ดาวตู้ถาวรใหม่ ⭐+ Verina S1⭐⭐"),
+            buildWuWaItem("95-havoc2", "Team Havoc 2", "95. Phrolova + ปจต. + Cantarella + Lucy + Rebecca + Mornye + Lingyang", 1490, "Phrolova 🌺 + ปจต. 🌺 + Cantarella 🪼+ Lucy 💫 + Rebecca 💥 + Mornye ☄️ + Lingyang ⭐"),
+            buildWuWaItem("39", "Team Havoc 2", "39. Phrolova + ปจต. + Hiyuki + ปจต. + Lucilla + ปจต. + Camellya", 2490, "Phrolova 🌺 + ปจต. 🌺 + Hiyuki ❄️ + ปจต. ❄️+ Lucilla 📷 + ปจต. 📷+ Camellya🪷+ Rebecca 💥+ ดาบMC + Verina S1⭐⭐+ Jainxin ⭐ + Calcharo⭐+ Encore ⭐"),
+            buildWuWaItem("75.9", "Team Havoc 2", "75.9 Phrolova + ปจต. + Qiuyuan + Hiyuki + ปจต. + Rebecca + อื่นๆ", 1590, "Phrolova 🌺 + ปจต. 🌺 + Qiuyuan ☘️+ Hiyuki ❄️+ ปจต.❄️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("35", "Team Havoc 2", "35. Phrolova + ปจต. + Lucilla + Cantarella + Shorekeeper + Rebecca", 1590, "Phrolova 🌺 + ปจต. 🌺 + Lucilla 📷+ Cantarella 🪼+ Shorekeeper 🦋+ Rebecca 💥 + Verina⭐ + Lingyang ⭐"),
+            buildWuWaItem("75.5", "Team Havoc 2", "75.5. Phrolova + ปจต. + Cantarella + Roccia + ปจต. + Hsin + ปจต. + อื่นๆ", 2690, "Phrolova 🌺 + ปจต. 🌺 + Cantarella 🪼+ Roccia🧳+ ปจต.🧳 + Hsin 🏯+ ปจต. 🏯+ Rebecca 💥+ Verina ⭐+ Jainxin ⭐+ Encore ⭐+ Lingyang ⭐ + อื่นๆ"),
+            buildWuWaItem("79.5", "Team Havoc 2", "79.5 Phrolova + ปจต. + Qiuyuan + Cantarella + Jiyan + Luno + อื่นๆ", 2090, "Phrolova 🌺 + ปจต. 🌺 + Qiuyuan ☘️+ Cantarella 🪼 + Jiyan 🐉 + Luno 🪐 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("77.2", "Team Havoc 2", "77.2 Phrolova + ปจต. + Cantarella + ปจต. + Qiuyuan + ปจต. + อื่นๆ", 2390, "Phrolova 🌺 + ปจต.🌺+ Cantarella 🪼+ปจต.🪼+ Qiuyuan ☘️ + ปจต.☘️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("78.1", "Team Havoc 2", "78.1 Phrolova + ปจต. + Cantarella + Qiuyuan + ปจต. + อื่นๆ", 1690, "Phrolova 🌺 + ปจต. 🌺 + Cantarella 🪼 + Qiuyuan ☘️ + ปจต.☘️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("21.3", "Team Havoc 2", "21.3 Phrolova + ปจต. + Cantarella + Lucy + Rebecca", 1190, "Phrolova 🌺 + ปจต. 🌺 + Cantarella 🪼 + Lucy 💫+ Rebecca 💥"),
+            buildWuWaItem("8.7", "Team Havoc 2", "8.7 Phrolova + ปจต. + Cantarella + Rebecca", 890, "Phrolova 🌺 + ปจต. 🌺 + Cantarella 🪼 + Rebecca 💥"),
+            buildWuWaItem("98.9", "Team Havoc 2", "98.9 Phrolova + ปจต. + Qiuyuan + Aemeath + Rebecca + อื่นๆ", 1190, "Phrolova 🌺 + ปจต. 🌺 + Qiuyuan ☘️+ Aemeath 💗+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("75.7", "Team Havoc 2", "75.7 Phrolova + ปจต. + Qiuyuan + Hiyuki + Rebecca + อื่นๆ", 1190, "Phrolova 🌺 + ปจต. 🌺 + Qiuyuan ☘️+ Hiyuki ❄️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("23.1", "Team Havoc 2", "23.1 Phrolova + ปจต. + Lucilla + Rebecca + อื่นๆ", 890, "Phrolova 🌺 + ปจต. 🌺 + Lucilla 📷+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("75.1", "Team Havoc 2", "75.1 Phrolova + ปจต. + Qiuyuan + Rebecca + อื่นๆ", 890, "Phrolova 🌺 + ปจต. 🌺+ Qiuyuan ☘️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("98.2", "Team Havoc 2", "98.2 Phrolova + ปจต. + Qiuyuan + Aemeath + Rebecca + อื่นๆ", 1190, "Phrolova 🌺 + ปจต. 🌺 + Qiuyuan ☘️ + Aemeath 💗+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("75.3", "Team Havoc 2", "75.3 Phrolova + Cantarella + ปจต. + Qiuyuan + ปจต. + Rebecca", 1490, "Phrolova 🌺 + Cantarella 🪼+ปจต.🪼+ Qiuyuan ☘️ + ปจต. ☘️ + Rebecca 💥"),
+            buildWuWaItem("23.2", "Team Havoc 2", "23.2 Phrolova + Lucilla + Suisui + Rebecca + Encore + Jainxin", 790, "Phrolova 🌺 + Lucilla 📷+ Suisui 🪭+ Rebecca 💥+ Encore⭐ + Jainxin⭐"),
+            buildWuWaItem("75.8", "Team Havoc 2", "75.8 Phrolova + Lucilla + Qiuyuan + Rebecca + อื่นๆ", 790, "Phrolova 🌺 + Lucilla 📷 + Qiuyuan ☘️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("70.7", "Team Havoc 2", "70.7 Phrolova + Cantarella + Changli + Rebecca + อื่นๆ", 790, "Phrolova 🌺 + Cantarella 🪼+ Changli 🐦‍🔥 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("75.2", "Team Havoc 2", "75.2 Phrolova + Qiuyuan + Rebecca + อื่นๆ", 490, "Phrolova 🌺 + Qiuyuan ☘️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("98.3", "Team Havoc 2", "98.3 Phrolova + Aemeath + Lynae + Rebecca + อื่นๆ", 790, "Phrolova 🌺 + Aemeath 💗+ Lynae 🛼+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("93", "Team Havoc 2", "93. Phrolova + Mornye + Rebecca + Verina", 490, "Phrolova 🌺 + Mornye ☄️+ Rebecca 💥+ Verina⭐"),
+
+            // --- Team Fusion 1 ---
+            buildWuWaItem("18", "Team Fusion 1", "18. Cartethyia S1 + ปจต. + Chisa + Hiyuki + Suisui + Changli + Shorekeeper", 3390, "Cartethyia S1🌀🌀+ ปจต.🌀 + Chisa ✂️+ Hiyuki ❄️+ Suisui 🪭 + Changli🐦‍🔥+ Shorekeeper 🦋 + Rebecca 💥 + Verina S1⭐⭐+ Calcharo ⭐ + ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️ ฉลอง 2 ปี ( Lv. โลก 20)"),
+            buildWuWaItem("15", "Team Fusion 1", "15. Lupa + ปจต. + Changli + Zhezhi + Cartethyia S1 + ปจต. + Chisa", 3290, "Lupa 🦊 + ปจต. 🦊 + Changli 🐦‍🔥+ Zhezhi🖌️+ Cartethyia S1 🌀🌀 + ปจต. 🌀 + Chisa ✂️ + Rebecca 💥+ ดาบ MC ⭐+ Verina S1⭐⭐ + Jainxin ⭐ + ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️ ฉลอง 2 ปี ( Lv. โลก 20)"),
+            buildWuWaItem("69.3", "Team Fusion 1", "69.3 Aemeath + Denia + Chisa + Lupa + Cartethyia + ปจต. + อื่นๆ", 2090, "Aemeath 💗 + Denia 👁️‍🗨️ + Chisa ✂️+ Lupa 🦊 +Cartethyia🌀+ ปจต.🌀 + Rebecca 💥+ Verina S1 ⭐⭐ + อื่นๆ"),
+            buildWuWaItem("68.2", "Team Fusion 1", "68.2 Lupa + ปจต. + Cartethyia + ปจต. + Chisa + Rebecca", 1490, "Lupa 🦊+ ปจต. 🦊 + Cartethyia🌀+ ปจต. 🌀 + Chisa ✂️+Rebecca 💥 + Verina ⭐+ Jianxin ⭐"),
+            buildWuWaItem("51", "Team Fusion 1", "51. Lupa + ปจต. + Aemeath + Changli + Brant + Lynae + ปจต.", 2790, "Lupa 🦊+ ปจต. 🦊 + Aemeath 💗 + Changli🐦‍🔥+ Brant ⚓ + Lynae 🛼 + ปจต. 🛼+ Rebecca 💥 + Verina ⭐ + Jainxin S1 ⭐⭐ + ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️ ฉลอง 2 ปี ( Lv. โลก 20)"),
+            buildWuWaItem("52", "Team Fusion 1", "52. Lupa S1 + ปจต. + Denia + Changli + Lynae + Shorekeeper", 2890, "Lupa S1🦊🦊 + ปจต. 🦊 + Denia 👁️‍🗨️+ Changli 🐦‍🔥+ Lynae 🛼+ Shorekeeper 🦋+ Rebecca 💥 + ดาบ MC ⭐ + Verina ⭐ + Calcharo ⭐ + ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️ ฉลอง 2 ปี ( Lv. โลก 20)"),
+            buildWuWaItem("97.3-f1", "Team Fusion 1", "97.3 Aemeath + ปจต. + Lupa + Mornye + Lucy + Rebecca", 1690, "Aemeath 💗+ ปจต. 💗+ Lupa 🦊 + Mornye ☄️ + Lucy 💫 + Rebecca 💥 + Verina S2 ⭐⭐⭐ + Calcharo ⭐+ Jainxin ⭐+ Encore ⭐"),
+            buildWuWaItem("97.1", "Team Fusion 1", "97.1 Aemeath + ปจต. + Lupa + ปจต. + Mornye + Rebecca + อื่นๆ", 1690, "Aemeath 💗 + ปจต. 💗+ Lupa 🦊 + ปจต.🦊 + Mornye ☄️ + Rebecca 💥+ Verina ⭐ + อื่นๆ"),
+            buildWuWaItem("97.6", "Team Fusion 1", "97.6 Aemeath + Denia + Lupa + ปจต. + Lucy + Rebecca", 1590, "Aemeath 💗 + Denia 👁️‍🗨️ + Lupa 🦊 + ปจต. 🦊 + Lucy 💫 + Rebecca 💥+ Verina S1⭐⭐ + ดาบ MC ⭐+ โดรน5ดาวใหม่ ⭐+ Jainxin⭐ + Lingyang⭐"),
+            buildWuWaItem("69.1", "Team Fusion 1", "69.1 Lupa + Denia + Chisa + ปจต. + Rebecca + Verina S1", 1190, "Lupa 🦊 + Denia 👁️‍🗨️ + Chisa ✂️ + ปจต. ✂️ + Rebecca 💥+ Verina S1 ⭐⭐"),
+            buildWuWaItem("7.1", "Team Fusion 1", "7.1 Aemeath + Denia + Mornye + ปจต. + Rebecca + อื่นๆ", 1190, "Aemeath 💗 + Denia 👁️‍🗨️ + Mornye ☄️ + ปจต.☄️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("7.2", "Team Fusion 1", "7.2 Denia + Mornye + Rebecca + อื่นๆ", 490, "Denia 👁️‍🗨️ + Mornye ☄️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("7.4", "Team Fusion 1", "7.4 Denia + ปจต. + Chisa + Rebecca + อื่นๆ", 790, "Denia 👁️‍🗨️ + ปจต. 👁️‍🗨️+ Chisa✂️+ Rebecca 💥 + อื่นๆ"),
+            buildWuWaItem("7.3", "Team Fusion 1", "7.3 Denia + Chisa + Rebecca + อื่นๆ", 490, "Denia 👁️‍🗨️ + Chisa✂️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("7.7", "Team Fusion 1", "7.7 Denia + Cartethyia + Chisa + Rebecca + อื่นๆ", 790, "Denia 👁️‍🗨️ + Cartethyia 🌀 + Chisa✂️ + Rebecca 💥+ อื่นๆ"),
+
+            // --- Team Fusion 2 ---
+            buildWuWaItem("14", "Team Fusion 2", "14. Galbrena S1 + ปจต. 2 อัน + Changli + ปจต. + Hiyuki + Zhezhi", 3900, "Galbrena S1 😈😈 + ปจต. 😈😈 2 อัน + Changli 🐦‍🔥+ ปจต.🐦‍🔥 + Hiyuki ❄️ + Zhezhi🖌️+ ปจต.🖌️ + Rebecca 💥+ Verina⭐+ Calcharo ⭐ + ดาบMC ⭐ 2 อัน + Jainxin ⭐+ ปีกฉลองครบรอบ 1 ปี 🪽 ( Lv. โลก 20 )"),
+            buildWuWaItem("73", "Team Fusion 2", "73. Galbrena + ปจต. 2 อัน + Hiyuki + ปจต. + Lucilla + Chisa + อื่นๆ", 2590, "Galbrena 😈+ ปจต. 😈😈 2 อัน+ Hiyuki ❄️ + ปจต.❄️ + Lucilla 📷 + Chisa ✂️+ ปืน ปจต. Carlotta 💎 + Rebecca 💥 + Verina S2 ⭐⭐⭐+ Calcharo ⭐ + อื่นๆ"),
+            buildWuWaItem("23.3", "Team Fusion 2", "23.3 Galbrena + ปจต. + Lucilla + Lily + ปจต. + Lucy + Rebecca", 2190, "Galbrena 😈+ ปจต. 😈+ Lucilla 📷 + Lily 🪻 + ปจต. 🪻 + Lucy 💫 + Rebecca 💥"),
+            buildWuWaItem("23.4", "Team Fusion 2", "23.4 Galbrena + ปจต. + Lucilla + ปจต. + Rebecca", 1290, "Galbrena 😈+ ปจต. 😈+ Lucilla 📷 + ปจต. 📷+ Rebecca 💥"),
+            buildWuWaItem("57.1", "Team Fusion 2", "57.1 Galbrena + ปจต. + Lucilla + ปจต. + Changli + Rebecca", 1890, "Galbrena 😈+ ปจต. 😈+ Lucilla 📷 + ปจต. 📷 + Changli 🐦‍🔥 + Rebecca 💥+ Verina ⭐+ ดาบMC⭐ + Jainxin⭐ + Calcaro ⭐+ ปีกฉลองครบรอบ 1 ปี 🪽 ( Lv. โลก 20 )"),
+            buildWuWaItem("24.5", "Team Fusion 2", "24.5 Galbrena + ปจต. + Aemeath + ปจต. + Rebecca", 1290, "Galbrena 😈+ ปจต. 😈+ Aemeath 💗+ ปจต. 💗+ Rebecca 💥"),
+            buildWuWaItem("23.5-a", "Team Fusion 2", "23.5 Galbrena S1 + Qiuyuan + Lucy + Rebecca + Mornye + อื่นๆ", 1590, "Galbrena S1 😈😈 + Qiuyuan ☘️ + Lucy 💫 + Rebecca 💥+ Mornye ☄️ + อื่นๆ"),
+            buildWuWaItem("74.2", "Team Fusion 2", "74.2 Galbrena + ปจต. + Qiuyuan + Jingran + Luno + Rebecca", 1690, "Galbrena 😈+ ปจต. 😈 + Qiuyuan ☘️ + Jingran🏮+ Luno 🪐+ Rebecca 💥"),
+            buildWuWaItem("25.2", "Team Fusion 2", "25.2 Galbrena + Aemeath + Denia + Changli + Rebecca", 990, "Galbrena 😈+ Aemeath 💗 + Denia 👁️‍🗨️+ Changli 🐦‍🔥+ Rebecca 💥"),
+            buildWuWaItem("24.7", "Team Fusion 2", "24.7 Galbrena S1 + Qiuyuan + Changli + Rebecca", 990, "Galbrena S1 😈😈 + Qiuyuan ☘️ + Changli 🐦‍🔥+ Rebecca 💥"),
+            buildWuWaItem("24.6", "Team Fusion 2", "24.6 Galbrena + ปจต. + Aemeath + Rebecca", 790, "Galbrena 😈+ ปจต. 😈 + Aemeath 💗+ Rebecca 💥"),
+            buildWuWaItem("24.8", "Team Fusion 2", "24.8 Galbrena + Aemeath + Rebecca", 490, "Galbrena 😈+ Aemeath 💗+ Rebecca 💥"),
+            buildWuWaItem("23.8", "Team Fusion 2", "23.8 Galbrena + Jingran + Rebecca", 490, "Galbrena 😈 + Jingran🏮 + Rebecca 💥"),
+            buildWuWaItem("23.9", "Team Fusion 2", "23.9 Galbrena + Lucilla + Rebecca", 490, "Galbrena 😈 + Lucilla 📷 + Rebecca 💥"),
+            buildWuWaItem("23.5-b", "Team Fusion 2", "23.5 Galbrena S1 + Lucy + Rebecca + Jainxin + Lingyang", 690, "Galbrena S1😈😈+ Lucy 💫 + Rebecca 💥+ Jainxin ⭐+ Lingyang⭐"),
+
+            // --- Team Glacio 1 ---
+            buildWuWaItem("44", "Team Glacio 1", "44. Hiyuki + ปจต. + Lucilla + ปจต. + Chisa + Cartethyia + Zani", 4590, "Hiyuki ❄️ + ปจต. ❄️ + Lucilla 📷 + ปจต. 📷 + Chisa✂️+ ปจต.✂️+ Cartethyia 🌀 + ปจต. 🌀+ Zani 🛡️ + ปจต.🛡️ + Rebecca 💥+ Verina S1 ⭐⭐+ Calcharo ⭐ + ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️ ฉลอง 2 ปี ( Lv. โลก 20)"),
+            buildWuWaItem("10", "Team Glacio 1", "10. Hiyuki + ปจต. + Lynae + ปจต. + Chisa + Cartethyia + Carlotta + Jinhsi", 4190, "Hiyuki ❄️ + ปจต. ❄️ + Lynae 🛼+ ปจต. 🛼+ Chisa ✂️ + ปจต. ✂️ + Cartethyia🌀 + Carlotta 💎+ Jinhsi🐉 + Rebecca 💥+ Verina ⭐ + อื่นๆ"),
+            buildWuWaItem("67.2", "Team Glacio 1", "67.2 Hiyuki + ปจต. + Lucilla + Galbrena + Qiuyuan + Mornye + Jinhsi", 3290, "Hiyuki ❄️ + ปจต.❄️+ Lucilla 📷+ Galbrena 😈 + Qiuyuan ☘️+ ปจต. ☘️ + Mornye ☄️+ Jinhsi🐉+ Rebecca 💥+ Verina ⭐+ Encore ⭐+Jainxin S1⭐⭐ + ปีกฉลอง 1 ปี 🪽 + แมวน้ำ 🦭 Aemeath + สกินรถ 🏍️ ฉลอง 2 ปี ( Lv. โลก 20)"),
+            buildWuWaItem("94.3", "Team Glacio 1", "94.3 Hiyuki + ปจต. + Lynae + ปจต. + Mornye + ปจต. + Carlotta", 2990, "Hiyuki ❄️ + ปจต.❄️+ Lynae 🛼 + ปจต. 🛼+ Mornye ☄️ + ปจต. ☄️+ Carlotta💎+ Rebecca 💥+ ดาบMC⭐ + ปืนตู้ถาวร ⭐+ โดรนตู้ถาวร ⭐ Verina ⭐ + Encore⭐ + Lingyang⭐ + ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️ ฉลอง 2 ปี ( Lv. โลก 20)"),
+            buildWuWaItem("94.5", "Team Glacio 1", "94.5 Hiyuki + ปจต. + Lynae + Mornye + ปจต. + Carlotta + Rebecca", 2390, "Hiyuki ❄️ + ปจต.❄️ + Lynae 🛼+ Mornye ☄️ + ปจต. ☄️+ Carlotta💎 + Rebecca 💥+ ปืนตู้ถาวรใหม่ ⭐ + Verina ⭐+ Lingyang⭐ + Jainxin ⭐+ Calcharo ⭐ + ปีกฉลอง 1 ปี 🪽 /แมวน้ำ🦭/สกินรถ 🏍️ /ตุ๊กตาMorney/ ฉลอง 2 ปี ( Lv. โลก 20)"),
+            buildWuWaItem("54", "Team Glacio 1", "54. Hiyuki S1 + ปจต. + Mornye + Jingran + Brant + Lupa + Rebecca", 2590, "Hiyuki S1❄️❄️+ ปจต.❄️ + Mornye ☄️+ Jingran🏮+ Brant ⚓ + Lupa 🦊 + Rebecca 💥+ Verina S1⭐⭐ + Jianxin ⭐"),
+            buildWuWaItem("90.1", "Team Glacio 1", "90.1 Hiyuki + ปจต. + Lynae + Suisui + Carlotta + ปจต. + Lucy", 2690, "Hiyuki ❄️ + ปจต.❄️ + Lynae 🛼 + Suisui 🪭 + Carlotta 💎+ ปจต.💎+ Lucy 💫 + Rebecca 💥 + ดาบ MC⭐ + Verina ⭐ + Calcharo⭐ + Lingyang S1⭐⭐"),
+            buildWuWaItem("90.2", "Team Glacio 1", "90.2 Hiyuki + ปจต. + Lynae + Chisa + ปจต. + Carlotta + ปจต. 2 อัน", 3090, "Hiyuki ❄️ + ปจต. ❄️+ Lynae 🛼 + Chisa ✂️ + ปจต. ✂️+ Carlotta 💎+ ปจต. 2 อัน 💎💎 + Rebecca 💥 + ดาบ MC⭐ + Verina ⭐ + Calcharo ⭐ + Lingyang⭐"),
+            buildWuWaItem("94.6", "Team Glacio 1", "94.6 Hiyuki + ปจต. + Lucilla + ปจต. + Carlotta + Lynae + Mornye", 2890, "Hiyuki ❄️ + ปจต.❄️ + Lucilla 📷 + ปจต. 📷 + Carlotta💎 + Lynae 🛼 + Mornye ☄️ + Rebecca 💥+ Verina ⭐+ Lingyang⭐ + Encore⭐+ Calcharo ⭐ + ปีกฉลองครบรอบ 1 ปี 🪽 ( Lv. โลก 20 )"),
+            buildWuWaItem("85.9", "Team Glacio 1", "85.9 Hiyuki S1 + ปจต. + Lynae S1 + Mornye + Rebecca + อื่นๆ", 2090, "Hiyuki S1 ❄️❄️+ ปจต. ❄️+ Lynae S1🛼🛼 + Mornye ☄️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("24.2", "Team Glacio 1", "24.2 Hiyuki + ปจต. + Lucilla + ปจต. + Qiuyuan + Rebecca", 1590, "Hiyuki ❄️ + ปจต.❄️ + Lucilla 📷 + ปจต. 📷 + Qiuyuan ☘️+ Rebecca 💥"),
+            buildWuWaItem("88.1", "Team Glacio 1", "88.1 Hiyuki + ปจต. + Lynae S1 + ปจต. + Rebecca + อื่นๆ", 1590, "Hiyuki ❄️+ ปจต. ❄️ + Lynae S1🛼🛼+ ปจต. 🛼 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("88", "Team Glacio 1", "88. Hiyuki + ปจต. + Lynae + ปจต. + Luno + Rebecca + อื่นๆ", 1590, "Hiyuki ❄️ + ปจต. ❄️ + Lynae 🛼 + ปจต. 🛼 + Luno 🪐 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("84.7", "Team Glacio 1", "84.7 Hiyuki + ปจต. + Lucilla + ปจต. + Rebecca + อื่นๆ", 1190, "Hiyuki ❄️ + ปจต.❄️ + Lucilla 📷 + ปจต. 📷 + Rebecca 💥 + อื่นๆ"),
+            buildWuWaItem("24.4", "Team Glacio 1", "24.4 Hiyuki + ปจต. + Lucilla + ปจต. + Chisa + Rebecca", 1690, "Hiyuki ❄️ + ปจต.❄️ + Lucilla 📷 + ปจต. 📷 + Chisa ✂️+ Rebecca 💥 + Encore S1⭐⭐ + Lingyang ⭐+ ดาบMC ⭐"),
+            buildWuWaItem("89.2", "Team Glacio 1", "89.2 Hiyuki + ปจต. + Lynae + Mornye + Rebecca + อื่นๆ", 1190, "Hiyuki ❄️+ ปจต. ❄️+ Lynae 🛼 + Mornye ☄️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("76.2", "Team Glacio 1", "76.2 Hiyuki + ปจต. + Phrolova + Qiuyuan + Rebecca + อื่นๆ", 1190, "Hiyuki ❄️ + ปจต.❄️ + Phrolova 🌺 + Qiuyuan ☘️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("84.2", "Team Glacio 1", "84.2 Hiyuki + ปจต. + Cartethyia + Ciaccona + Rebecca + อื่นๆ", 1090, "Hiyuki ❄️ + ปจต. ❄️ + Cartethyia 🌀 + Ciaccona 🍃 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("86.2", "Team Glacio 1", "86.2 Hiyuki + ปจต. 2 อัน + Mornye + Rebecca + อื่นๆ", 1090, "Hiyuki ❄️ + ปจต. 2 อัน ❄️❄️ + Mornye ☄️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("84.4", "Team Glacio 1", "84.4 Hiyuki + ปจต. + Lucilla + Cartethyia + Rebecca + อื่นๆ", 1090, "Hiyuki ❄️ + ปจต. ❄️ + Lucilla 📷 + Cartethyia 🌀 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("84.5", "Team Glacio 1", "84.5 Hiyuki + ปจต. + Lucilla + Changli + Rebecca + อื่นๆ", 1090, "Hiyuki ❄️ + ปจต. ❄️ + Lucilla 📷 + Changli 🐦‍🔥+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("9.1", "Team Glacio 1", "9.1 Hiyuki + ปจต. + Lucilla + Rebecca + อื่นๆ", 890, "Hiyuki ❄️ + ปจต. ❄️ + Lucilla 📷 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("79.2", "Team Glacio 1", "79.2 Hiyuki + Lucilla + Chisa + Cartethyia + ปจต. + อื่นๆ", 1690, "Hiyuki ❄️ + Lucilla 📷 + Chisa✂️ + Cartethyia 🌀+ ปจต. 🌀+ Rebecca 💥+อื่นๆ"),
+            buildWuWaItem("86.4", "Team Glacio 1", "86.4 Hiyuki + Lynae S1 + Mornye + Rebecca + อื่นๆ", 1190, "Hiyuki ❄️+ Lynae S1🛼🛼 + Mornye ☄️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("86.8", "Team Glacio 1", "86.8 Hiyuki S1 + Lynae + Mornye + ปจต. + Rebecca + อื่นๆ", 1590, "Hiyuki S1❄️❄️ + Lynae 🛼+ Mornye ☄️+ ปจต. ☄️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("86.3", "Team Glacio 1", "86.3 Hiyuki + Zhezhi + Mornye + Rebecca + อื่นๆ", 890, "Hiyuki ❄️ + Zhezhi🖌️ + Mornye ☄️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("86.6", "Team Glacio 1", "86.6 Hiyuki + Lucilla + Luno + Rebecca + อื่นๆ", 790, "Hiyuki ❄️ + Lucilla 📷 + Luno 🪐 + Rebecca 💥+อื่นๆ"),
+            buildWuWaItem("84.9", "Team Glacio 1", "84.9 Hiyuki + Lucilla + Rebecca + อื่นๆ", 590, "Hiyuki ❄️ + Lucilla 📷 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("84.6", "Team Glacio 1", "84.6 Hiyuki + Suisui + Rebecca + อื่นๆ", 490, "Hiyuki ❄️ + Suisui 🪭 + Rebecca 💥 + อื่นๆ"),
+            buildWuWaItem("86.9", "Team Glacio 1", "86.9 Hiyuki + Mornye + Rebecca + อื่นๆ", 490, "Hiyuki ❄️ + Mornye ☄️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("86.5", "Team Glacio 1", "86.5 Hiyuki + Lynae + Rebecca + อื่นๆ", 590, "Hiyuki ❄️ + Lynae 🛼 + Rebecca 💥+ อื่นๆ"),
+
+            // --- Team Aemeath ---
+            buildWuWaItem("94.1", "Team Aemeath", "94.1 Aemeath + ปจต. + Lynae + ปจต. 2 อัน + Mornye + ปจต. + Carlotta S1", 3690, "Aemeath 💗 + ปจต. 💗+ Lynae 🛼 + ปจต. 🛼🛼 2 อัน + Mornye ☄️ + ปจต. ☄️+ Carlotta S1💎💎+ Rebecca 💥+ ปืนตู้ถาวรใหม่ ⭐+ ดาบ MC⭐ + Verina ⭐ + Calcharo⭐"),
+            buildWuWaItem("68.1", "Team Aemeath", "68.1 Aemeath + ปจต. + Lupa + ปจต. + Chisa + ปจต. + Hsin + Jinhsi", 3590, "Aemeath 💗 + ปจต. 💗 + Lupa 🦊+ ปจต. 🦊 + Chisa ✂️+ ปจต.✂️ + Hsin 🏯+ Jinhsi 🐉 + ปจต. 🐉 + Rebecca 💥 + Verina ⭐ + ดาบ MC ⭐+ Lingyang ⭐"),
+            buildWuWaItem("13", "Team Aemeath", "13. Aemeath + ปจต. + Changli + Chisa + ปจต. + Carlotta + Shorekeeper", 2990, "Aemeath 💗+ ปจต. 💗 + Changli🐦‍🔥+ Chisa ✂️ + ปจต. ✂️ + Carlotta 💎+ Shorekeeper 🦋 + Rebecca 💥 + ดาบMC⭐ + Verina⭐ + ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️ ฉลอง 2 ปี ( Lv. โลก 20)"),
+            buildWuWaItem("27", "Team Aemeath", "27. Aemeath + ปจต. + Denia + Shorekeeper + ปจต. + Changli + Rebecca", 2190, "Aemeath 💗+ ปจต. 💗+ Denia 👁️‍🗨️ + Shorekeeper 🦋+ ปจต. 🦋 + Changli🐦‍🔥+ Rebecca 💥+ VerinaS2 ⭐⭐⭐ + ดาบMC⭐+ Encore ⭐"),
+            buildWuWaItem("36.2", "Team Aemeath", "36.2 Aemeath + ปจต. + Lynae + ปจต. + Shorekeeper + Brant + Rebecca", 2090, "Aemeath 💗+ ปจต. 💗 + Lynae 🛼 + ปจต. 🛼+ Shorekeeper 🦋 + Brant ⚓+ Rebecca 💥+ Verina ⭐ + Encore S1 ⭐⭐"),
+            buildWuWaItem("25", "Team Aemeath", "25. Aemeath + ปจต. + Lynae + ปจต. + Lupa + Shorekeeper + Rebecca", 2090, "Aemeath 💗+ ปจต. 💗 + Lynae 🛼 + ปจต. 🛼+ Lupa 🦊+ Shorekeeper 🦋 + Rebecca 💥+ Verina ⭐ + Calcharo ⭐"),
+            buildWuWaItem("95.3", "Team Aemeath", "95.3 Aemeath + ปจต. + Denia + Chisa + ปจต. + Lupa + Rebecca + อื่นๆ", 2090, "Aemeath 💗+ ปจต. 💗 + Denia 👁️‍🗨️ + Chisa✂️ + ปจต. ✂️+ Lupa 🦊 + Rebecca 💥+ Verina ⭐+ Calcharo⭐ + อื่นๆ"),
+            buildWuWaItem("69.4", "Team Aemeath", "69.4 Aemeath + ปจต. 2 อัน + Denia + Chisa + Lupa + Rebecca", 1990, "Aemeath 💗+ ปจต. 2 อัน 💗💗+ Denia 👁️‍🗨️ + Chisa ✂️ + Lupa 🦊+ Rebecca 💥+ Verina ⭐ + ดาบใหญ่ ⭐+ ดาบMC ⭐+ CalCharo ⭐+ Lingyang ⭐"),
+            buildWuWaItem("69.2", "Team Aemeath", "69.2 Aemeath + ปจต. + Denia + Chisa + Lupa + Rebecca + Verina S1", 1690, "Aemeath 💗+ ปจต. 💗+ Denia 👁️‍🗨️ + Chisa ✂️ + Lupa 🦊+ Rebecca 💥+ Verina S1 ⭐⭐"),
+            buildWuWaItem("96.1", "Team Aemeath", "96.1 Aemeath + ปจต. + Denia + Chisa + Hsin + Rebecca + อื่นๆ", 1690, "Aemeath 💗+ ปจต. 💗+ Denia 👁️‍🗨️ + Chisa ✂️ + Hsin 🏯 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("71.1", "Team Aemeath", "71.1 Aemeath + ปจต. + Chisa + Qingxiao + Ciaccona + Rebecca + อื่นๆ", 1590, "Aemeath 💗 + ปจต. 💗+ Chisa✂️+ Qingxiao 🌊+ Ciaccona 🍃 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("8.3", "Team Aemeath", "8.3 Aemeath + ปจต. + Denia + Chisa + Rebecca + Verina + อื่นๆ", 1290, "Aemeath 💗 + ปจต. 💗 + Denia 👁️‍🗨️ + Chisa✂️+ Rebecca 💥 + Verina ⭐ + อื่นๆ"),
+            buildWuWaItem("97.7", "Team Aemeath", "97.7 Aemeath + ปจต. + Denia + Lupa + Rebecca + Verina + อื่นๆ", 1190, "Aemeath 💗+ ปจต. 💗 + Denia 👁️‍🗨️ + Lupa 🦊 + Rebecca 💥+ Verina ⭐+ Calcharo⭐ + อื่นๆ"),
+            buildWuWaItem("97.8-a", "Team Aemeath", "97.8 Aemeath + ปจต. + Denia + ปจต. + Rebecca + อื่นๆ", 1290, "Aemeath 💗+ ปจต. 💗 + Denia 👁️‍🗨️ + ปจต. 👁️‍🗨️+ Rebecca 💥 + อื่นๆ"),
+            buildWuWaItem("96.5", "Team Aemeath", "96.5 Aemeath + ปจต. + Lynae + Lupa + Rebecca + ดาบใหญ่ตู้ถาวรใหม่", 1190, "Aemeath 💗+ ปจต. 💗 + Lynae 🛼+ Lupa 🦊 + Rebecca 💥+ ดาบใหญ่ตู้ถาวรใหม่ ⭐ + Verina ⭐ + Calcharo⭐ + Encore⭐"),
+            buildWuWaItem("97.2", "Team Aemeath", "97.2 Aemeath + ปจต. + Lupa + Mornye + Rebecca + Verina + Calcharo", 1190, "Aemeath 💗+ ปจต. 💗 + Lupa 🦊 + Mornye ☄️+ Rebecca 💥+ Verina ⭐ + Calcharo⭐ + Jainxin⭐ + Lingyang S1 ⭐⭐ + ปืน ปจต. Chalotte"),
+            buildWuWaItem("24.9", "Team Aemeath", "24.9 Aemeath + ปจต. + Mornye + Galbrena + Rebecca + อื่นๆ", 1090, "Aemeath 💗 + ปจต.💗 + Mornye ☄️+ Galbrena 😈 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("97.4", "Team Aemeath", "97.4 Aemeath + ปจต. + Denia + Rebecca + อื่นๆ", 890, "Aemeath 💗+ ปจต. 💗 + Denia 👁️‍🗨️+ Rebecca 💥 + อื่นๆ"),
+            buildWuWaItem("96.3", "Team Aemeath", "96.3 Aemeath + ปจต. + Lynae + Rebecca + อื่นๆ", 890, "Aemeath 💗 + ปจต.💗 + Lynae 🛼 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("79.1", "Team Aemeath", "79.1 Aemeath + Denia + Chisa + Cartethyia + ปจต. + Rebecca", 1590, "Aemeath 💗+ Denia 👁️‍🗨️ + Chisa✂️ + Cartethyia 🌀+ ปจต. 🌀+ Rebecca 💥 + Jainxin ⭐+ Lingyang ⭐"),
+            buildWuWaItem("95.1", "Team Aemeath", "95.1 Aemeath + Denia + Chisa + ปจต. + Rebecca + อื่นๆ", 1090, "Aemeath 💗 + Denia 👁️‍🗨️ + Chisa✂️ + ปจต. ✂️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("96.8", "Team Aemeath", "96.8 Aemeath + Denia + ปจต. + Chisa + Rebecca + อื่นๆ", 1090, "Aemeath 💗 + Denia 👁️‍🗨️ + ปจต. 👁️‍🗨️+ Chisa ✂️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("85.6", "Team Aemeath", "85.6 Aemeath + Lynae + ปจต. + Changli + Rebecca + อื่นๆ", 1090, "Aemeath 💗 + Lynae 🛼+ ปจต. 🛼+ Changli 🐦‍🔥+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("85.4", "Team Aemeath", "85.4 Aemeath + Lynae + Mornye + Rebecca + อื่นๆ", 890, "Aemeath 💗 + Lynae 🛼 + Mornye ☄️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("82.3", "Team Aemeath", "82.3 Aemeath + Lynae + ปจต. + Mornye + Rebecca + อื่นๆ", 1190, "Aemeath 💗 + Lynae 🛼+ ปจต. 🛼+ Mornye ☄️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("85.7", "Team Aemeath", "85.7 Aemeath + Lynae + ปจต. + Rebecca + อื่นๆ", 790, "Aemeath 💗 + Lynae 🛼+ ปจต. 🛼+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("97.8-b", "Team Aemeath", "97.8 Aemeath + Denia + Lupa + Rebecca + Verina + Calcharo", 790, "Aemeath 💗 + Denia 👁️‍🗨️ + Lupa 🦊 + Rebecca 💥+ Verina ⭐ + ดาบ MC ⭐+ Calcharo⭐ + Lingyang⭐"),
+            buildWuWaItem("96.4", "Team Aemeath", "96.4 Aemeath + Lynae + Rebecca + อื่นๆ", 490, "Aemeath 💗 + Lynae 🛼+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("96.6", "Team Aemeath", "96.6 Aemeath + Denia + Rebecca + อื่นๆ", 490, "Aemeath 💗 + Denia 👁️‍🗨️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("71.2", "Team Aemeath", "71.2 Aemeath + Chisa + Rebecca + อื่นๆ", 490, "Aemeath 💗 + Chisa✂️ + Rebecca 💥+ อื่นๆ"),
+
+            // --- Team Glacio 2 ---
+            buildWuWaItem("84.8", "Team Glacio 2", "84.8 Lucilla + ปจต. + Hiyuki + Rebecca +อื่นๆ", 790, "Lucilla 📷 + ปจต. 📷 + Hiyuki ❄️ + Rebecca 💥 +อื่นๆ"),
+            buildWuWaItem("6.7", "Team Glacio 2", "6.7 Lucilla + ปจต. + Chisa + Rebecca +อื่นๆ", 790, "Lucilla 📷 + ปจต. 📷 + Chisa ✂️ + Rebecca 💥 +อื่นๆ"),
+            buildWuWaItem("24.3", "Team Glacio 2", "24.3 Lucilla + Qiuyuan + Rebecca + อื่นๆ", 490, "Lucilla 📷 + Qiuyuan ☘️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("8.1", "Team Glacio 2", "8.1 Carlotta + ปจต. + Aemeath + ปจต. + Lynae + Chisa + Jinhsi", 2590, "Carlotta 💎+ ปจต.💎+ Aemeath 💗 + ปจต. 💗 + Lynae 🛼+ Chisa ✂️ + Jinhsi🐉 + Rebecca 💥 + Verina S1⭐⭐ + Lingyang ⭐+ Encore⭐ + Calcharo S1⭐⭐"),
+            buildWuWaItem("9", "Team Glacio 2", "9. Cartethyia + ปจต. + Hiyuki + Lucilla + Carlotta + Jinhsi + Rebecca", 2090, "Cartethyia🌀 + ปจต. 🌀 + Hiyuki ❄️ + Lucilla 📷 + Carlotta 💎+ Jinhsi🐉 + Rebecca 💥+ ดาบใหญ่ 5ดาว ⭐+ Verina S1⭐⭐ + Lingyang ⭐ + Encore S1⭐⭐"),
+            buildWuWaItem("72", "Team Glacio 2", "72. Carlotta + ปจต. + Aemeath + ปจต. + Denia + Chisa + Rebecca", 2390, "Carlotta 💎+ ปจต.💎+ Aemeath 💗 + ปจต. 💗 + Denia 👁️‍🗨️ + Chisa ✂️ + Rebecca 💥+ ปืน5ดาวตู้ถาวร ⭐ + Verina ⭐ + Calcharo S1⭐⭐ + ปีกฉลองครบรอบ 1 ปี 🪽 ( Lv. โลก 20)"),
+
+            // --- Team Cyberpunk / Lucy / Rebecca ---
+            buildWuWaItem("87.9-cp", "Team Cyberpunk / Lucy / Rebecca", "87.9 Lucy + ปจต. + Rebecca + Luuk + ปจต. + Denia + อื่นๆ", 1790, "Lucy 💫 + ปจต. 💫 + Rebecca 💥+ Luuk 🧬+ ปจต. 🧬+ Denia 👁️‍🗨️ + อื่นๆ"),
+            buildWuWaItem("95-cp", "Team Cyberpunk / Lucy / Rebecca", "95. Lucy + Rebecca + Phrolova + ปจต. + Cantarella + Mornye + Lingyang", 1590, "Lucy 💫 + Rebecca 💥 + Phrolova 🌺 + ปจต. 🌺 + Cantarella 🪼+ Mornye ☄️ + Lingyang ⭐"),
+            buildWuWaItem("7.6", "Team Cyberpunk / Lucy / Rebecca", "7.6 Lucy + Rebecca + Luuk + Denia + การันตี 61/80 + อาวุธ 52/80", 1490, "Lucy 💫 + Rebecca 💥+ Luuk 🧬+ Denia 👁️‍🗨️ + การันตีตัวละครอีเวนท์ 61/80 โรล + อาวุธอีเวนท์ 52/80 โรล + อื่นๆ"),
+            buildWuWaItem("12.6", "Team Cyberpunk / Lucy / Rebecca", "12.6 Lucy + Rebecca + Cartethyia + ปจต. + Jinhsi + Aemeath", 1590, "Lucy 💫 + Rebecca 💥+ Cartethyia🌀 + ปจต. 🌀+ Jinhsi🐉+ Aemeath 💗 + ปืน5ดาวใหม่ ⭐+ Lingyang ⭐+ Calcharo ⭐"),
+            buildWuWaItem("97.5", "Team Cyberpunk / Lucy / Rebecca", "97.5 Lucy + Rebecca + Aemeath S1 + Lynae + ปจต. + Phoebe + อื่นๆ", 2190, "Lucy 💫 + Rebecca 💥+ Aemeath S1 💗💗+ Lynae 🛼+ ปจต. 🛼+ Phoebe👒+ อื่นๆ"),
+            buildWuWaItem("96.7", "Team Cyberpunk / Lucy / Rebecca", "96.7 Lucy + Rebecca + Aemeath + ปจต. + Denia + Jainxin S1 + Encore", 1290, "Lucy 💫 + Rebecca 💥 + Aemeath 💗 + ปจต. 💗+ Denia 👁️‍🗨️ + Jainxin S1⭐⭐+ Encore ⭐"),
+            buildWuWaItem("97.3-cp", "Team Cyberpunk / Lucy / Rebecca", "97.3 Lucy + Rebecca + Aemeath S1 + Lynae S1 + อื่นๆ", 1590, "Lucy 💫 + Rebecca 💥 + Aemeath S1 💗💗 + Lynae S1 🛼🛼+ อื่นๆ"),
+            buildWuWaItem("21.4", "Team Cyberpunk / Lucy / Rebecca", "21.4 Lucy + Rebecca + Mornye + Zani S1 + Jainxin S1", 1190, "Lucy 💫 + Rebecca 💥+ Mornye ☄️+ Zani S1🛡️🛡️+ Jainxin S1⭐⭐"),
+            buildWuWaItem("12.1", "Team Cyberpunk / Lucy / Rebecca", "12.1 Lucy S1 + Rebecca + Jainxin + Lingyang + การันตีโรล", 1190, "Lucy S1💫💫 + Rebecca 💥+ Jainxin ⭐+ Lingyang⭐ + การันตีเปิดตัวละครโรลทองไปแล้ว 49/80 โรล + ดองโรลทอง 37 อัน + เปิดอาวุธทองไปแล้ว 54/80 โรล"),
+            buildWuWaItem("21.1", "Team Cyberpunk / Lucy / Rebecca", "21.1 Lucy + Rebecca + Lynae + Mornye + ปจต. + อื่นๆ", 1190, "Lucy 💫+Rebecca💥+ Lynae 🛼 + Mornye ☄️ + ปจต. ☄️+ อื่นๆ"),
+            buildWuWaItem("98.5", "Team Cyberpunk / Lucy / Rebecca", "98.5 Lucy + Rebecca + Aemeath + Lynae + Qingxiao + Denia", 1590, "Lucy 💫 + Rebecca 💥+ Aemeath 💗+ Lynae 🛼 + Qingxiao 🌊+ Denia 👁️‍🗨️+ Calcharo⭐ + Jianxin⭐"),
+            buildWuWaItem("33.1", "Team Cyberpunk / Lucy / Rebecca", "33.1 Lucy + Rebecca + Yangyang + Jingran + Luno + Lingyang + Calcharo", 1190, "Lucy 💫+Rebecca💥+ Yangyang🪶 + Jingran 🏮+ Luno🪐 +Lingyang⭐+Calcharo⭐"),
+            buildWuWaItem("13.2", "Team Cyberpunk / Lucy / Rebecca", "13.2 Lucy + Rebecca + Jingran + Jiyan + Qiuyuan + อื่นๆ", 1190, "Lucy 💫 + Rebecca 💥+ Jingran🏮+ Jiyan🐉 + Qiuyuan ☘️+ อื่นๆ"),
+            buildWuWaItem("13.1", "Team Cyberpunk / Lucy / Rebecca", "13.1 Lucy + Rebecca + Aemeath + Lynae + ดาบMC + อื่นๆ", 890, "Lucy 💫 + Rebecca 💥+ Aemeath 💗 + Lynae 🛼+ ดาบMC ⭐+ อื่นๆ"),
+            buildWuWaItem("21.2", "Team Cyberpunk / Lucy / Rebecca", "21.2 Lucy + Rebecca + Augusta + ปจต. + Luno + Encore", 1290, "Lucy 💫 + Rebecca 💥 + Augusta ☀️ + ปจต. ☀️ + Luno 🪐 + Encore ⭐"),
+            buildWuWaItem("12.3", "Team Cyberpunk / Lucy / Rebecca", "12.3 Lucy + Aemeath + ปจต. + Chisa + Rebecca + Jainxin S1 + Encore", 1290, "Lucy 💫 + Aemeath 💗 + ปจต. 💗 + Chisa ✂️+ Rebecca 💥 + Jainxin S1⭐⭐+ Encore ⭐"),
+            buildWuWaItem("12.7", "Team Cyberpunk / Lucy / Rebecca", "12.7 Lucy + Rebecca + Hiyuki + ปจต. + อื่นๆ", 890, "Lucy 💫 + Rebecca 💥+ Hiyuki ❄️+ ปจต. ❄️+ อื่นๆ"),
+            buildWuWaItem("6.2", "Team Cyberpunk / Lucy / Rebecca", "6.2 Lucy + Rebecca + Jingran + Luuk + อื่นๆ", 790, "Lucy 💫 + Rebecca 💥+ Jingran 🏮+ Luuk 🧬 + อื่นๆ"),
+            buildWuWaItem("7.5-a", "Team Cyberpunk / Lucy / Rebecca", "7.5 Lucy + Rebecca + Luno + การันตี 63/80 + อื่นๆ", 790, "Lucy 💫 + Rebecca 💥+ Luno 🪐 + การันตีตัวละครอีเวนท์ 63/80 โรล + อื่นๆ"),
+            buildWuWaItem("13.3", "Team Cyberpunk / Lucy / Rebecca", "13.3 Lucy + Rebecca + Mornye + Galbrena + Lily + อื่นๆ", 1190, "Lucy 💫 + Rebecca 💥+ Mornye ☄️ + Galbrena 😈+ Lily 🪻 + อื่นๆ"),
+            buildWuWaItem("12.8", "Team Cyberpunk / Lucy / Rebecca", "12.8 Lucy + Rebecca + Mornye + Galbrena + อื่นๆ", 890, "Lucy 💫 + Rebecca 💥+ Mornye ☄️ + Galbrena 😈+ อื่นๆ"),
+            buildWuWaItem("21.5", "Team Cyberpunk / Lucy / Rebecca", "21.5 Lucy + Rebecca + Mornye + Zani + อื่นๆ", 890, "Lucy 💫 + Rebecca 💥+ Mornye ☄️+ Zani 🛡️+ อื่นๆ"),
+            buildWuWaItem("21.6", "Team Cyberpunk / Lucy / Rebecca", "21.6 Lucy + Rebecca + Mornye + Phoebe + Verina", 890, "Lucy 💫 + Rebecca 💥+ Mornye ☄️+ Phoebe👒+ Verina⭐"),
+            buildWuWaItem("7.8", "Team Cyberpunk / Lucy / Rebecca", "7.8 Lucy + Rebecca + Luuk + Lynae + อื่นๆ", 890, "Lucy 💫 + Rebecca 💥+ Luuk 🧬 + Lynae 🛼+ อื่นๆ"),
+            buildWuWaItem("12.9", "Team Cyberpunk / Lucy / Rebecca", "12.9 Lucy + Rebecca + Sigrika + Qiuyuan + อื่นๆ", 890, "Lucy 💫 + Rebecca 💥 + Sigrika 🌿 + Qiuyuan ☘️+ อื่นๆ"),
+            buildWuWaItem("7.5-b", "Team Cyberpunk / Lucy / Rebecca", "7.5 Lucy + Rebecca + Luno + การันตี + อื่นๆ", 590, "Lucy 💫 + Rebecca 💥+ Luno 🪐 + การันตี + อื่นๆ"),
+
+            // --- Team Aero 2 ---
+            buildWuWaItem("28.2", "Team Aero 2", "28.2 Qingxiao + ปจต. + Cartethyia + Ciaccona + ปจต. + Shorekeeper + Lucy", 2790, "Qingxiao 🌊 + ปจต. 🌊 + Cartethyia🌀+ Ciaccona 🍃+ ปจต. 🍃 + Shorekeeper 🦋 + Lucy 💫+ Rebecca 💥+ Verina ⭐+อื่นๆ"),
+            buildWuWaItem("58", "Team Aero 2", "58. Qingxiao + ปจต. + Denia + Galbrena + ปืน Carlotta + Lupa + ปจต.", 2090, "Qingxiao 🌊 + ปจต. 🌊 + Denia👁️‍🗨️+ Galbrena 😈 + ปืน ปจต. Carlotta 💎 + Lupa 🦊+ ปจต. 🦊 + Rebecca 💥+ โดรน5ดาวใหม่ ⭐ + Verina ⭐ + Lingyang S1⭐ + อื่นๆ"),
+            buildWuWaItem("66.5", "Team Aero 2", "66.5 Qingxiao + ปจต. + Lynae + Zani S1 + ปจต. + Rebecca + อื่นๆ", 2090, "Qingxiao 🌊 + ปจต. 🌊 + Lynae 🛼 + Zani S1🛡️🛡️ + ปจต. 🛡️ + Rebecca 💥+ Calcharo ⭐+ Lingyang ⭐+ Encore ⭐+ Jianxin ⭐"),
+            buildWuWaItem("65.1", "Team Aero 2", "65.1 Qingxiao + ปจต. + Denia + Phoebe + Rebecca + Jainxin", 1090, "Qingxiao 🌊 + ปจต. 🌊 + Denia 👁️‍🗨️ + Phoebe👒+ Rebecca 💥+ Jainxin⭐"),
+            buildWuWaItem("65.5", "Team Aero 2", "65.5 Qingxiao + ปจต. 2 อัน + Denia + Rebecca + อื่นๆ", 1190, "Qingxiao 🌊 + ปจต. 2 อัน 🌊🌊 + Denia 👁️‍🗨️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("66", "Team Aero 2", "66. Qingxiao S1 + ปจต. + Cartethyia + Rebecca + อื่นๆ", 1190, "Qingxiao S1 🌊🌊 + ปจต. 🌊 + Cartethyia🌀 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("66.1", "Team Aero 2", "66.1 Qingxiao + ปจต. + Cartethyia + Rebecca + อื่นๆ", 890, "Qingxiao 🌊 + ปจต. 🌊 + Cartethyia🌀 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("65.6", "Team Aero 2", "65.6 Qingxiao + ปจต. + Denia + Rebecca + อื่นๆ", 890, "Qingxiao 🌊 + ปจต. 🌊 + Denia 👁️‍🗨️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("7.9", "Team Aero 2", "7.9 Qingxiao + ปจต. + Mornye + Lucy + Rebecca + อื่นๆ", 1190, "Qingxiao 🌊 + ปจต. 🌊 + Mornye ☄️ + Lucy 💫 + Rebecca 💥 + อื่นๆ"),
+            buildWuWaItem("33.2", "Team Aero 2", "33.2 Qingxiao + ปจต. + Changli + Rebecca + Verina + Encore", 790, "Qingxiao 🌊 + ปจต. 🌊 + Changli🐦‍🔥+ Rebecca 💥+ Verina ⭐+ Encore⭐"),
+            buildWuWaItem("66.7", "Team Aero 2", "66.7 Qingxiao + ปจต. + Zani + Rebecca + อื่นๆ", 790, "Qingxiao 🌊 + ปจต. 🌊 + Zani 🛡️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("85.8", "Team Aero 2", "85.8 Qingxiao + Lynae + Mornye + Rebecca + Verina S1 + อื่นๆ", 890, "Qingxiao 🌊 + Lynae 🛼 + Mornye ☄️ + Rebecca 💥+ Verina S1 ⭐⭐+ Calcharo ⭐+ อื่นๆ"),
+            buildWuWaItem("65.4", "Team Aero 2", "65.4 Qingxiao + Denia + ปจต. + Rebecca + อื่นๆ", 790, "Qingxiao 🌊 + Denia 👁️‍🗨️ + ปจต. 👁️‍🗨️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("66.9", "Team Aero 2", "66.9 Qingxiao + Denia + Changli + Rebecca + อื่นๆ", 790, "Qingxiao 🌊 + Denia 👁️‍🗨️ + Changli🐦‍🔥+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("65.7", "Team Aero 2", "65.7 Qingxiao + Denia + Rebecca + อื่นๆ", 590, "Qingxiao 🌊 + Denia 👁️‍🗨️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("92.2", "Team Aero 2", "92.2 Qingxiao + Mornye + ปจต. + Jinhsi + Rebecca + อื่นๆ", 1190, "Qingxiao 🌊 + Mornye ☄️ + ปจต.☄️ + Jinhsi🐉 + ดาบใหญ่ตู้ถาวรใหม่⭐+ Rebecca 💥+ โดรน 5ดาวใหม่ + Verina S1⭐⭐+ Jainxin ⭐ + Encore + Lingyang ⭐"),
+            buildWuWaItem("66.2", "Team Aero 2", "66.2 Qingxiao + Mornye + ปจต. + Rebecca + อื่นๆ", 790, "Qingxiao 🌊 + Mornye ☄️ + ปจต. ☄️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("66.3", "Team Aero 2", "66.3 Qingxiao + Mornye + Rebecca + อื่นๆ", 590, "Qingxiao 🌊 + Mornye ☄️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("92.4", "Team Aero 2", "92.4 Qingxiao + Phoebe + Mornye + Rebecca + อื่นๆ", 790, "Qingxiao 🌊 + Phoebe👒+ Mornye ☄️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("65.8", "Team Aero 2", "65.8 Qingxiao + Ciaccona + ปจต. + Rebecca + อื่นๆ", 790, "Qingxiao 🌊+ Ciaccona 🍃+ ปจต. 🍃 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("65.9", "Team Aero 2", "65.9 Qingxiao + Cartethyia + ปจต. + Rebecca + อื่นๆ", 790, "Qingxiao 🌊+ Cartethyia🌀 + ปจต. 🌀+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("66.4", "Team Aero 2", "66.4 Qingxiao + Augusta + Rebecca + อื่นๆ", 490, "Qingxiao 🌊+ Augusta☀️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("66.8", "Team Aero 2", "66.8 Qingxiao + Zani + Rebecca + อื่นๆ", 490, "Qingxiao 🌊+ Zani 🛡️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("23.7", "Team Aero 2", "23.7 Sigrika + ปจต. + Lucilla + Mornye + Rebecca + อื่นๆ", 1290, "Sigrika 🌿 + ปจต. 🌿 + Lucilla 📷 + Mornye ☄️+ Rebecca 💥 + อื่นๆ"),
+            buildWuWaItem("25.3", "Team Aero 2", "25.3 Sigrika + ปจต. + Lucilla + Lily + Rebecca + อื่นๆ", 1290, "Sigrika 🌿 + ปจต. 🌿 + Lucilla 📷 + Lily 🪻+ Rebecca 💥 + อื่นๆ"),
+            buildWuWaItem("25.5", "Team Aero 2", "25.5 Sigrika + ปจต. 2 อัน + Lucilla + Rebecca + อื่นๆ", 1090, "Sigrika 🌿 + ปจต. 🌿🌿 2 อัน + Lucilla 📷 + Rebecca 💥 + อื่นๆ"),
+            buildWuWaItem("25.4", "Team Aero 2", "25.4 Sigrika + ปจต. + Lucilla + Rebecca + อื่นๆ", 890, "Sigrika 🌿 + ปจต. 🌿 + Lucilla 📷 + Rebecca 💥 + อื่นๆ"),
+            buildWuWaItem("24.1", "Team Aero 2", "24.1 Sigrika + Lucilla + Rebecca + อื่นๆ", 490, "Sigrika 🌿 + Lucilla 📷 + Rebecca 💥 + อื่นๆ"),
+            buildWuWaItem("56", "Team Aero 2", "56. Luno + ปจต. + Lynae + Cartethyia + Ciaccona + Rebecca", 1490, "Luno 🪐+ ปจต. 🪐 + Lynae 🛼 + Cartethyia🌀 + Ciaccona 🍃 + Rebecca 💥+ หมัด 5ดาวใหม่ 2 อัน ⭐⭐ + Verina ⭐ + Jainxin ⭐+ Calcharo⭐+ Encore ⭐ + Lingyang ⭐"),
+            buildWuWaItem("61.2", "Team Aero 2", "61.2 Luno +ปจต. + Lynae + Zani + Rebecca + ปืน5ดาวถาวรใหม่", 1090, "Luno 🪐 +ปจต. 🪐+ Lynae 🛼 + Zani 🛡️ + Rebecca 💥 + ปืน5ดาวถาวรใหม่ ⭐ + Calcharo ⭐+ Verina ⭐"),
+            buildWuWaItem("61.3", "Team Aero 2", "61.3 Luno +ปจต. + Hiyuki + Lynae + Chisa + Rebecca + Encore", 1590, "Luno 🪐 +ปจต. 🪐 + Hiyuki ❄️+ Lynae 🛼 + Chisa✂️+ Rebecca 💥+ Encore ⭐+ Verina ⭐"),
+            buildWuWaItem("89.4", "Team Aero 2", "89.4 Luno + ปจต. + Lynae + Mornye + Rebecca + อื่นๆ", 1190, "Luno 🪐 + ปจต. 🪐 + Lynae 🛼 + Mornye ☄️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("89.1", "Team Aero 2", "89.1 Luno + ปจต. + Lynae + Rebecca + อื่นๆ", 890, "Luno 🪐 + ปจต. 🪐+ Lynae 🛼 + Rebecca 💥+ อื่นๆ"),
+
+            // --- Team ตัวละครชาย ---
+            buildWuWaItem("94.4", "Team ตัวละครชาย", "94.4 Luuk + Denia + ปจต. + Mornye + ปจต. + Carlotta + Rebecca", 2390, "Luuk 🧬+ Denia 👁️‍🗨️ + ปจต. 👁️‍🗨️+ Mornye ☄️ + ปจต. ☄️+ Carlotta💎+ ปจต.Camellya🌺 + Rebecca 💥+ Verina ⭐ + Calcharo S1⭐⭐+ Lingyang⭐+ jainxin⭐ + ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️PragMata/ตุ๊กตา Hiyuki/ตุ๊กตารถMornye/ ฉลอง 2 ปี ( Lv. โลก 20)"),
+            buildWuWaItem("87.4", "Team ตัวละครชาย", "87.4 Luuk + ปจต. + Denia + Chisa + Rebecca + อื่นๆ", 1190, "Luuk 🧬+ ปจต. 🧬+ Denia 👁️‍🗨️ + Chisa✂️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("87.5", "Team ตัวละครชาย", "87.5 Luuk S1 + ปจต. + Denia + ปจต. + Rebecca + อื่นๆ", 1590, "Luuk S1🧬🧬+ ปจต. 🧬+ Denia 👁️‍🗨️ + ปจต. 👁️‍🗨️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("87.9-m", "Team ตัวละครชาย", "87.9 Luuk + ปจต. + Denia + Lucy + ปจต. + Rebecca + อื่นๆ", 1790, "Luuk 🧬+ ปจต. 🧬+ Denia 👁️‍🗨️ + Lucy 💫 + ปจต. 💫 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("87.8", "Team ตัวละครชาย", "87.8 Luuk + ปจต. + Denia + Lucy + Rebecca + อื่นๆ", 1190, "Luuk 🧬+ ปจต. 🧬+ Denia 👁️‍🗨️ + Lucy 💫 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("87.7", "Team ตัวละครชาย", "87.7 Luuk + ปจต. + Denia S1 + Rebecca + อื่นๆ", 1090, "Luuk 🧬+ ปจต. 🧬+ Denia S1👁️‍🗨️👁️‍🗨️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("88.5", "Team ตัวละครชาย", "88.5 Luuk S1 + Lynae + Rebecca + อื่นๆ", 790, "Luuk S1🧬🧬+ Lynae 🛼 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("88.7", "Team ตัวละครชาย", "88.7 Luuk + ปจต. + Jingran + Luno + Rebecca + อื่นๆ", 1190, "Luuk 🧬+ ปจต. 🧬+ Jingran🏮 + Luno 🪐 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("87.3", "Team ตัวละครชาย", "87.3 Luuk + ปจต. + Denia + Rebecca + อื่นๆ", 890, "Luuk 🧬+ ปจต. 🧬+ Denia 👁️‍🗨️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("88.9", "Team ตัวละครชาย", "88.9 Luuk + Denia + Qiuyuan + Brant + Rebecca + อื่นๆ", 1290, "Luuk 🧬+ Denia 👁️‍🗨️ + Qiuyuan ☘️ + Brant ⚓ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("89.6", "Team ตัวละครชาย", "89.6 Luuk + Denia + Qiuyuan + Rebecca + อื่นๆ", 890, "Luuk 🧬+ Denia 👁️‍🗨️ + Qiuyuan ☘️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("87.2", "Team ตัวละครชาย", "87.2 Luuk + Denia + Lynae + Rebecca + อื่นๆ", 790, "Luuk 🧬+ Denia 👁️‍🗨️+ Lynae 🛼 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("89.7", "Team ตัวละครชาย", "89.7 Luuk + Lynae + Rebecca + อื่นๆ", 490, "Luuk 🧬+ Lynae 🛼 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("89.3", "Team ตัวละครชาย", "89.3 Luuk + Lynae + Qiuyuan + Rebecca + อื่นๆ", 890, "Luuk 🧬+ Lynae 🛼 + Qiuyuan ☘️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("87.6", "Team ตัวละครชาย", "87.6 Luuk + Denia + Rebecca + อื่นๆ", 490, "Luuk 🧬+ Denia 👁️‍🗨️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("67.6", "Team ตัวละครชาย", "67.6 Qiuyuan + ปจต. + Phrolova + Jinhsi + Lily + Lynae + Mornye", 2490, "Qiuyuan ☘️+ ปจต. ☘️+ Phrolova 🌺 + Jinhsi🐉 + Lily 🪻+ Lynae 🛼 + Mornye ☄️+ Rebecca 💥+ Verina ⭐+ Encore S1⭐⭐"),
+            buildWuWaItem("67.8", "Team ตัวละครชาย", "67.8 Qiuyuan S1 + Jingran + Rebecca + อื่นๆ", 790, "Qiuyuan S1 ☘️ ☘️ + Jingran🏮 + Rebecca 💥 + อื่นๆ"),
+            buildWuWaItem("67.7", "Team ตัวละครชาย", "67.7 Qiuyuan + Jiyan + Jingran + Rebecca + Lingyang + อื่นๆ", 790, "Qiuyuan ☘️+ Jiyan🐉 + Jingran🏮+ Rebecca 💥 + Lingyang ⭐+ อื่นๆ"),
+            buildWuWaItem("50", "Team ตัวละครชาย", "50. Jingran + ปจต. + Lupa + ปจต. + Changli + Denia + Shorekeeper", 2900, "Jingran🏮+ ปจต. 🏮+ Lupa 🦊+ ปจต. 🦊 + Changli 🐦‍🔥 + Denia 👁️‍🗨️+ Shorekeeper 🦋+ Rebecca 💥 + ดาบ MC ⭐ + โดรน5ดาวใหม่ ⭐ + Verina S1⭐⭐ + Lingyang ⭐ + ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️ ฉลอง 2 ปี ( Lv. โลก 20)"),
+            buildWuWaItem("89.5", "Team ตัวละครชาย", "89.5 Jingran + ปจต. + Luno + Lynae + Rebecca + อื่นๆ", 1290, "Jingran🏮+ ปจต. 🏮+ Luno 🪐+ Lynae 🛼 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("87.1", "Team ตัวละครชาย", "87.1 Jingran + ปจต. + Luuk + Lynae + Rebecca + Calcharo", 1290, "Jingran🏮+ ปจต. 🏮+ Luuk 🧬+ Lynae 🛼 + Rebecca 💥+ Calcharo⭐"),
+            buildWuWaItem("88.4", "Team ตัวละครชาย", "88.4 Jingran + Luuk + Xiangli Yao + Lynae + Rebecca + อื่นๆ", 1190, "Jingran🏮 + Luuk 🧬+ Xiangli Yao 🧊+ Lynae 🛼 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("88.3", "Team ตัวละครชาย", "88.3 Jingran + Luuk + Cartethyia + Rebecca + อื่นๆ", 790, "Jingran🏮+ Luuk 🧬+ Cartethyia🌀 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("88.6-a", "Team ตัวละครชาย", "88.6 Jingran + Luuk + Denia + Rebecca + อื่นๆ", 890, "Jingran🏮 + Luuk 🧬+ Denia 👁️‍🗨️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("74.1", "Team ตัวละครชาย", "74.1 Jingran + Luno + Galbrena + Rebecca + อื่นๆ", 790, "Jingran🏮+ Luno 🪐 + Galbrena 😈 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("92.6", "Team ตัวละครชาย", "92.6 Jingran + Luno + Augusta + Rebecca + อื่นๆ", 790, "Jingran🏮+ Luno 🪐 + Augusta☀️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("92.7", "Team ตัวละครชาย", "92.7 Jingran + Luno + ปจต. + Rebecca + อื่นๆ", 790, "Jingran🏮+ Luno 🪐 + ปจต. 🪐+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("8.4", "Team ตัวละครชาย", "8.4 . Jingran + Changli + Zani + Rebecca + Encore", 790, "Jingran 🏮 + Changli🐦‍🔥+ Zani 🛡️+ Rebecca 💥+ Encore ⭐"),
+            buildWuWaItem("88.6-b", "Team ตัวละครชาย", "88.6 Jingran + Luuk + Rebecca + อื่นๆ", 490, "Jingran🏮 + Luuk 🧬+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("67.9", "Team ตัวละครชาย", "67.9 Jingran + Qiuyuan + Rebecca + อื่นๆ", 490, "Jingran 🏮 + Qiuyuan ☘️+ Rebecca 💥+ อื่นๆ"),
+
+            // --- Team Hsin ---
+            buildWuWaItem("22", "Team Hsin", "22. Hsin + ปจต. + Jinhsi + Augusta + ปจต. + Luno + Shorekeeper + Aemeath", 3190, "Hsin 🏯 + ปจต. 🏯 + Jinhsi 🐉 + Augusta☀️ + ปจต.☀️ + Luno 🪐+ Shorekeeper 🦋 + Aemeath 💗 + Rebecca 💥+ Verina S1⭐⭐+ Calcharo⭐"),
+            buildWuWaItem("17", "Team Hsin", "17. Hsin + ปจต. 2 อัน + Jinhsi + Augusta + Rebecca + Shorekeeper", 2990, "Hsin 🏯 + ปจต. 2 อัน 🏯🏯 + Jinhsi 🐉 + Augusta ☀️+ Rebecca 💥 + Shorekeeper 🦋 + Verina ⭐ + ดาบใหญ่ตู้ถาวรใหม่ ⭐ + ปีกฉลอง 1 ปี 🪽/แมวน้ำ🦭/สกินรถ 🏍️ ฉลอง 2 ปี ( Lv. โลก 20)"),
+            buildWuWaItem("91.3", "Team Hsin", "91.3 Hsin + ปจต. + Jinhsi + Augusta + ปจต. + Luno + Rebecca", 2190, "Hsin 🏯+ ปจต. 🏯+ Jinhsi 🐉 + Augusta ☀️ + ปจต. ☀️+ Luno 🪐 + Rebecca 💥+ ดาบใหญ่ตู้ถาวร ⭐ + Verina S3 ⭐⭐⭐⭐+ Lingyang⭐"),
+            buildWuWaItem("96.2", "Team Hsin", "96.2 Hsin + ปจต. + Aemeath + Lynae + Rebecca + อื่นๆ", 1190, "Hsin 🏯+ ปจต. 🏯 + Aemeath 💗 + Lynae 🛼+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("9.2", "Team Hsin", "9.2 Hsin + ปจต. + Lily + Rebecca + อื่นๆ", 890, "Hsin 🏯+ ปจต. 🏯 + Lily 🪻 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("9.3", "Team Hsin", "9.3 Hsin + Lily + Rebecca + อื่นๆ", 590, "Hsin 🏯 + Lily 🪻 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("85.5", "Team Hsin", "85.5 Hsin + Lynae + Mornye + Rebecca + อื่นๆ", 890, "Hsin 🏯 + Lynae 🛼 + Mornye ☄️ + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("92.8", "Team Hsin", "92.8 Hsin + Augusta + Luno + Rebecca + อื่นๆ", 790, "Hsin 🏯 + Augusta☀️ + Luno 🪐 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("8.5", "Team Hsin", "8.5 Hsin + Denia + Chisa + Rebecca + อื่นๆ", 790, "Hsin 🏯 + Denia 👁️‍🗨️ + Chisa✂️+ Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("6.1", "Team Hsin", "6.1 Hsin + Suisui + Rebecca + อื่นๆ", 490, "Hsin 🏯 + Suisui 🪭 + Rebecca 💥+ อื่นๆ"),
+            buildWuWaItem("6.3", "Team Hsin", "6.3 Hsin + Lynae + Rebecca + อื่นๆ", 490, "Hsin 🏯 + Lynae 🛼 + Rebecca 💥+ อื่นๆ"),
+
+            // --- ไอดี กึ่งเริ่มต้น - กลางเกม (เซิฟ SEA จดไทย กล่องเมลภาษาอังกฤษ) ---
+            buildWuWaItem("MID-1", "ไอดี กึ่งเริ่มต้น - กลางเกม", "1. Augusta + Luno + Jinhsi + ShoreKeeper + ปจต. + Rebecca", 490, "Augusta☀️ + Luno 🪐 + Jinhsi 🐉 + ดาบใหญ่ตู้ถาวร ⭐ + ShoreKeeper 🦋+ ปจต.🦋 + Rebecca 💥+ Verina S1⭐⭐ + jainxin S1 ⭐ | UnionLevel: 30 | สำรวจ จินโจว เฉลี่ย: 12%", null, { unionLevel: "Union Lv. 30", emailStatus: "จดไทย กล่องเมล ENG" }),
+            buildWuWaItem("MID-2", "ไอดี กึ่งเริ่มต้น - กลางเกม", "2. Hsin + Jinhsi + Changli + Camellya + Phrolova + Cantarella + Cartethyia (เมลตาย)", 790, "Hsin 🏯 + Jinhsi 🐉 + ปจต 🐉 + Changli 🐦‍🔥+ ปจต. 🐦‍🔥 + Camellya 🪷+ ปจต. 🪷 + Phrolova 🌺 + ปจต. 🌺 + Cantarella 🪼+ ปจต. 🪼 + Cartethyia 🌀+ ปจต. 🌀 + Ciaccona 🍃 + Yinlin ⚡ + Jiyan 🐉+ Rebecca 💥 + ดาบใหญ่ 5 ดาว ⭐ + ปืน5ดาวใหม่ ⭐+ Calcaro ⭐+ verina S3 ⭐⭐⭐⭐ | UnionLevel: 68 | จินโจว 100%, แบล็คชอร์ 11% | (เมลตาย)", null, { unionLevel: "Union Lv. 68", emailStatus: "เมลตาย" }),
+            buildWuWaItem("MID-3", "ไอดี กึ่งเริ่มต้น - กลางเกม", "3. Hsin + Jinhsi + Jiyan + Ciaccona + Chisa + Denia + Yinlin", 790, "Hsin 🏯 + Jinhsi 🐉 + ปจต. 🐉 + Jiyan 🐉+ ปจต. 🐉 + Ciaccona 🍃 + ปจต. 🍃 + Chisa ✂️ + Denia 👁️‍🗨️ + Yinlin ⚡+ Rebecce 💥 + Calcaro ⭐ + verina ⭐ + encore ⭐ + อาวุธโดรน 5 ดาว 2 อัน ⭐⭐ + ดาบMC ⭐ + Jainxin S2 ⭐⭐⭐ | UnionLevel: 62 | จินโจว 90%, แบล็คชอร์ 15%, Rinascita 5%", null, { unionLevel: "Union Lv. 62", emailStatus: "จดไทย กล่องเมล ENG" }),
+            buildWuWaItem("MID-4", "ไอดี กึ่งเริ่มต้น - กลางเกม", "4. Phrolova S2 + ปจต. + Qiuyuan + Mornye + Camellya + Roccia", 1500, "Phrolova S2 🌺🌺🌺 + ปจต. 🌺 + Qiuyuan ☘️ + ปจต. ☘️ + Mornye ☄️ + ปจต.☄️ + Camellya 🌺 + Roccia 🧳 + Rebecca 💥+ Verina ⭐ + ดาบMC ⭐+ jianxin ⭐ + Calcharo⭐ | UnionLevel: 20 | จินโจว 4%, Rinascita 6%", null, { unionLevel: "Union Lv. 20", emailStatus: "จดไทย กล่องเมล ENG" }),
+            buildWuWaItem("MID-5", "ไอดี กึ่งเริ่มต้น - กลางเกม", "5. Jiyan + Ciaccona + Luno + Luuk + Lynae + Changli + Yinlin", 690, "Jiyan 🐉 + ดาบใหญ่ถาวร + Ciaccona 🍃 + Luno 🪐+ ปจต. 🪐+ Luuk 🧬 + ปจต. 🧬 + Lynae 🛼 + ปจต. 🛼 + Changli 🐦‍🔥 + Yinlin ⚡+ ปจต. ⚡+ Rebecca 💥 + Lingyang ⭐ + jianxin S1 ⭐⭐+ ดาบ MC ⭐ + verina S1 ⭐⭐ | UnionLevel: 40 | จินโจว 51%", null, { unionLevel: "Union Lv. 40", emailStatus: "จดไทย กล่องเมล ENG" }),
+            buildWuWaItem("MID-6", "ไอดี กึ่งเริ่มต้น - กลางเกม", "6. Phrolova S1 + Cantarella + Qiuyuan + Zani + ปจต. + Rebecca", 790, "Phrolova S1🌺🌺 + Cantarella 🪼+ Qiuyuan ☘️ + Zani 🛡️ + ปจต. 🛡️ + Rebecca 💥+ Verina ⭐ + Jianxin⭐ + Encore ⭐ | UnionLevel: 20 | DataBank: 6 | จินโจว 11%", null, { unionLevel: "Union Lv. 20", emailStatus: "จดไทย กล่องเมล ENG" }),
+            buildWuWaItem("MID-7", "ไอดี กึ่งเริ่มต้น - กลางเกม", "7. Cartethyia + ปจต. + Ciaccona + ปจต. + Mornye + Jinhsi + Jiyan", 790, "Cartethyia 🌀 + ปจต. 🌀 + Ciaccona 🍃 + ปจต. 🍃+Mornye ☄️ + Jinhsi 🐉 + Jiyan 🐉+ Rebecca 💥+ Lingyang ⭐+ encore ⭐+ jianxin⭐ | UnionLevel: 20 | จินโจว 6%", null, { unionLevel: "Union Lv. 20", emailStatus: "จดไทย กล่องเมล ENG" }),
+            buildWuWaItem("MID-8", "ไอดี กึ่งเริ่มต้น - กลางเกม", "8. Qingxiao + ปจต. + Phrolova + Cantarella + Roccia + Camellya (เมลตาย)", 490, "Qingxiao 🌊 + ปจต. 🌊+ Phrolova 🌺 + ปจต. 🌺 + Cantarella 🪼 + Roccia 🧳+ Camellya 🌺 + Rebecca 💥 + Verina S2⭐⭐⭐ + ดาบMC ⭐+ โดรน 5 ดาว + Encore ⭐ + Lingyang⭐ | UnionLevel: 33 | จินโจว 19%, Rinascita 6% | (เมลตาย)", null, { unionLevel: "Union Lv. 33", emailStatus: "เมลตาย" }),
+            buildWuWaItem("MID-9", "ไอดี กึ่งเริ่มต้น - กลางเกม", "9. Hsin + ปจต. + Jinhsi + Shorekeeper + Cartethyia + Ciaccona + Chisa (เมลตาย)", 590, "Hsin 🏯 + ปจต. 🏯+ Jinhsi 🐉 + ปจต. 🐉 + Shorekeeper 🦋 + Cartethyia 🌀 + ปจต. 🌀 + Ciaccona 🍃 + Chisa✂️+ ปจต. ✂️ + Jiyan 🐉 + Rebecca 💥+ Yinlin ⚡ + Calcaro S1 ⭐⭐ + ดาบMC ⭐ | UnionLevel: 38 | จินโจว 7% | (เมลตาย)", null, { unionLevel: "Union Lv. 38", emailStatus: "เมลตาย" }),
+            buildWuWaItem("MID-11", "ไอดี กึ่งเริ่มต้น - กลางเกม", "11. Yangyang + ปจต. + Cantarella + Camellya + อาวุธ ShoreKeeper (เมลตาย)", 390, "Yangyang🪶 + ปจต. 🪶 + Cantarella 🪼+ ปจต.🪼 + Camellya 🌺 + อาวุธ ShoreKeeper 🦋 + Rebecca 💥+ Verina ⭐+ Encore⭐ + ดาบMC ⭐ | UnionLevel: 32 | จินโจว 8%, Rinascita 6% | (เมลตาย)", null, { unionLevel: "Union Lv. 32", emailStatus: "เมลตาย" }),
+            buildWuWaItem("MID-12", "ไอดี กึ่งเริ่มต้น - กลางเกม", "12. Hsin S3 + ปจต. + Jinhsi + Rebecca + ดาบใหญ่ตู้ถาวร", 2000, "Hsin S3 🏯🏯🏯🏯 + ปจต. 🏯 + Jinhsi 🐉 + Rebecca 💥 + ดาบใหญ่ตู้ถาวร ⭐+ ดาบMC ⭐+ Verina + Lingyang ⭐+ encore ⭐ | UnionLevel: 30 | จินโจว 14%", null, { unionLevel: "Union Lv. 30", emailStatus: "จดไทย กล่องเมล ENG" }),
+            buildWuWaItem("MID-13", "ไอดี กึ่งเริ่มต้น - กลางเกม", "13. Hsin S2 + ปจต. + Jinhsi + ShoreKeeper + Rebecca (เมลตาย)", 490, "Hsin S2 🏯🏯🏯 + ปจต. 🏯 + Jinhsi 🐉+ ShoreKeeper 🦋 + Rebecca 💥 + ดาบใหญ่ตู้ถาวร ⭐ + ดาบMC ⭐+ Verina | UnionLevel: 20 | จินโจว 6% | (เมลตาย)", null, { unionLevel: "Union Lv. 20", emailStatus: "เมลตาย" }),
+            buildWuWaItem("MID-14", "ไอดี กึ่งเริ่มต้น - กลางเกม", "14. Cartethyia + ปจต. + Chisa + Augusta + Luno + Rebecca", 590, "Cartethyia 🌀 + ปจต. 🌀 + Chisa✂️ + Augusta ☀️ + Luno 🪐 + Rebecca 💥 + Verina ⭐ + Lingyang S1 ⭐⭐+ encore ⭐ + Calcaro ⭐ | UnionLevel: 20 | จินโจว 5%", null, { unionLevel: "Union Lv. 20", emailStatus: "จดไทย กล่องเมล ENG" }),
+            buildWuWaItem("MID-15", "ไอดี กึ่งเริ่มต้น - กลางเกม", "15. Cartethyia S1 + ปจต. + Chisa + Rebecca + Lingyang S1", 590, "Cartethyia S1 🌀 🌀+ ปจต. 🌀 + Chisa✂️ + Rebecca 💥 + Lingyang S1 ⭐⭐+ encore ⭐ + Calcaro ⭐ | UnionLevel: 15 | จินโจว 5%", null, { unionLevel: "Union Lv. 15", emailStatus: "จดไทย กล่องเมล ENG" }),
+            buildWuWaItem("MID-16", "ไอดี กึ่งเริ่มต้น - กลางเกม", "16. Carlotta + ปจต. + Zhezhi + Shorekeeper + Hsin + ปจต. (เมลตาย)", 490, "Carlotta 💎 + ปจต. 💎 + Zhezhi 🖌️+ ปจต. 🖌️ + Shorekeeper 🦋 + ปจต. 🦋 + Hsin 🏯 + ปจต. 🏯 + Rebecce 💥 + Calcaro ⭐ + verina ⭐ + encore ⭐ + อาวุธโดรน 5 ดาว 2 อัน ⭐⭐ + ดาบMC ⭐ + Jainxin S2 ⭐⭐⭐ | UnionLevel: 48 | จินโจว 25%, แบล็คชอร์ 19%, Rinascita 33% | (เมลตาย)", null, { unionLevel: "Union Lv. 48", emailStatus: "เมลตาย" }),
+            buildWuWaItem("MID-19", "ไอดี กึ่งเริ่มต้น - กลางเกม", "19. Augusta + ปจต. + Luno + Yangyang + ปจต. + Rebecca", 490, "Augusta☀️ + ปจต. ☀️ + Luno 🪐 + Yangyang🪶 + ปจต. 🪶 + Rebecca 💥+ Verina S1⭐⭐ + ดาบ MC ⭐ + Calcaro ⭐ + Lingyang ⭐ | UnionLevel: 26 | จินโจว 7%", null, { unionLevel: "Union Lv. 26", emailStatus: "จดไทย กล่องเมล ENG" }),
+            buildWuWaItem("MID-21", "ไอดี กึ่งเริ่มต้น - กลางเกม", "21. Hsin S3 + ปจต. + Jinhsi + ปจต. + Rebecca (เมลตาย)", 590, "Hsin S3 🏯🏯🏯🏯 + ปจต. 🏯 + Jinhsi 🐉 + ปจต. 🐉+ Rebecca 💥 + ดาบใหญ่ตู้ถาวร ⭐+ ดาบMC ⭐+ Verina S1⭐⭐ + Calcaro S1⭐⭐+ encore ⭐ | UnionLevel: 37 | จินโจว 11%, แบล็คชอร์ 14%, Rinascita 7% | (เมลตาย)", null, { unionLevel: "Union Lv. 37", emailStatus: "เมลตาย" }),
+            buildWuWaItem("MID-22", "ไอดี กึ่งเริ่มต้น - กลางเกม", "22. Cartethyia + ปจต. + Lynae + Chisa + ปจต. + Phoebe + Rebecca", 2500, "Cartethyia 🌀 + ปจต. 🌀 + Lynae 🛼 + Chisa✂️ + ปจต. ✂️+ Phoebe 👒 + Rebecca 💥 + อื่นๆ + Verina ⭐ + Lingyang ⭐ | UnionLevel: 10 (เริ่มต้น)", null, { unionLevel: "Union Lv. 10", emailStatus: "จดไทย กล่องเมล ENG" }),
+            buildWuWaItem("MID-23", "ไอดี กึ่งเริ่มต้น - กลางเกม", "23. Augusta + Luno + Yangyang + ปจต. + Suisui + Rebecca + อื่นๆ", 1900, "Augusta☀️ + Luno 🪐 + Yangyang🪶 + ปจต. 🪶 + Suisui 🪭 + Rebecca 💥+ Verina ⭐ + Lingyang ⭐ + Calcharo ⭐ + Encore ⭐ +อื่นๆ | UnionLevel: 11 (เริ่มต้น)", null, { unionLevel: "Union Lv. 11", emailStatus: "จดไทย กล่องเมล ENG" }),
+            buildWuWaItem("MID-24", "ไอดี กึ่งเริ่มต้น - กลางเกม", "24. Phrolova + Lucilla + Rebecca + Verina +อื่นๆ (เมลตาย)", 290, "Phrolova 🌺 + Lucilla 📷 + Rebecca 💥+ Verina ⭐+อื่นๆ | UnionLevel: 12 (เริ่มต้น) | (เมลตาย)", null, { unionLevel: "Union Lv. 12", emailStatus: "เมลตาย" }),
+            buildWuWaItem("MID-26", "ไอดี กึ่งเริ่มต้น - กลางเกม", "26. Phrolova + ปจต. + Qiuyuan + Jingran + Rebecca + อื่นๆ", 1500, "Phrolova 🌺 + ปจต. 🌺 + Qiuyuan ☘️ + Jingran🏮 + Rebecca 💥 + อื่นๆ | UnionLevel: 11 (เริ่มต้น)", null, { unionLevel: "Union Lv. 11", emailStatus: "จดไทย กล่องเมล ENG" }),
+            buildWuWaItem("MID-27", "ไอดี กึ่งเริ่มต้น - กลางเกม", "27. Luno + ปจต. + Lynae + Mornye + Rebecca + อื่นๆ (เมลตาย)", 350, "Luno 🪐 + ปจต. 🪐 + Lynae 🛼 + Mornye ☄️+ Rebecca 💥+ อื่นๆ | UnionLevel: 20 (เริ่มต้น) | (เมลตาย)", null, { unionLevel: "Union Lv. 20", emailStatus: "เมลตาย" }),
+            buildWuWaItem("MID-28", "ไอดี กึ่งเริ่มต้น - กลางเกม", "28. Yangyang + Chisa + ปจต. + Cantarella + Rebecca + Verina", 1200, "Yangyang🪶 + Chisa✂️ + ปจต. ✂️ + Cantarella 🪼 + Rebecca 💥 + Verina⭐ | UnionLevel: 20 (เริ่มต้น)", null, { unionLevel: "Union Lv. 20", emailStatus: "จดไทย กล่องเมล ENG" }),
+            buildWuWaItem("MID-29", "ไอดี กึ่งเริ่มต้น - กลางเกม", "29. Yangyang + ปจต. + Xiangli Yao S1 + Yinlin + Augusta + Rebecca", 690, "Yangyang🪶 + ปจต. 🪶 + Xiangli Yao S1 🧊🧊+ ปจต. 🧊 + Yinlin ⚡+ Augusta ☀️ + Rebecca 💥 + Verina⭐+ ดาบ MC ⭐+ อื่นๆ | UnionLevel: 34 | จินโจว 8%", null, { unionLevel: "Union Lv. 34", emailStatus: "จดไทย กล่องเมล ENG" }),
+            buildWuWaItem("MID-30", "ไอดี กึ่งเริ่มต้น - กลางเกม", "30. Hsin + ปจต. + Jinhsi S1 + Carlotta + Zhezhi + Shorekeeper + Galbrena", 1400, "Hsin 🏯 + ปจต. 🏯+ Jinhsi S1 🐉 🐉 + ปจต. 🐉 + Carlotta 💎+ ปจต.💎+ Zhezhi 🖌️+ ปจต. 🖌️ + Shorekeeper 🦋 + Galbrena 😈+ ปจต. 😈 + Qiuyuan ☘️+ Rebecca 💥 + Verina ⭐ | UnionLevel: 53 | จินโจว 23%, แบล็คชอร์ 36%, Rinascita 15%", null, { unionLevel: "Union Lv. 53", emailStatus: "จดไทย กล่องเมล ENG" }),
+            buildWuWaItem("MID-35", "ไอดี กึ่งเริ่มต้น - กลางเกม", "35. Cartethyia S1 + ปจต. + Lynae + Chisa S1 + Carlotta + Rebecca", 890, "Cartethyia S1 🌀🌀 + ปจต. 🌀 + Lynae 🛼 + ปจต. 🛼+ Chisa S1 ✂️✂️ + ปจต. ✂️ + Carlotta 💎 + Rebecca 💥 + Verina S1 ⭐⭐ + อื่นๆ | UnionLevel: 34 | จินโจว 11%, แบล็คชอร์ 4%, Rinascita 14%", null, { unionLevel: "Union Lv. 34", emailStatus: "จดไทย กล่องเมล ENG" }),
+            buildWuWaItem("MID-36", "ไอดี กึ่งเริ่มต้น - กลางเกม", "36 Galbrena + Lucilla + Suisui + Rebecca + Verina (เมลตาย)", 290, "Galbrena 😈+ Lucilla 📷 + Suisui 🪭 + Rebecca 💥 + Verina ⭐ | UnionLevel: 18 | จินโจว 4% | (เมลตาย)", null, { unionLevel: "Union Lv. 18", emailStatus: "เมลตาย" }),
+            buildWuWaItem("MID-37", "ไอดี กึ่งเริ่มต้น - กลางเกม", "37. Cartethyia S1 + ปจต. + Chisa + ปจต. + Rebecca + อื่นๆ", 590, "Cartethyia S1 🌀🌀 + ปจต. 🌀+ Chisa ✂️ + ปจต. ✂️ + Rebecca 💥 + อื่นๆ | UnionLevel: 17 | จินโจว 4%", null, { unionLevel: "Union Lv. 17", emailStatus: "จดไทย กล่องเมล ENG" }),
+            buildWuWaItem("MID-38", "ไอดี กึ่งเริ่มต้น - กลางเกม", "38. Cartethyia + ปจต. + Ciaccona + Chisa + Phrolova + Lucilla + Lupa", 790, "Cartethyia🌀+ ปจต. 🌀+ Ciaccona 🍃 + Chisa✂️ + Phrolova 🌺 + ปจต. 🌺 + Lucilla 📷 + ปจต. 📷 + Lupa 🦊 + Rebecca 💥+ Verina ⭐+ อื่นๆ | UnionLevel: 62 | จินโจว 65%, แบล็คชอร์ 18%, Rinascita 20%", null, { unionLevel: "Union Lv. 62", emailStatus: "จดไทย กล่องเมล ENG" }),
+            buildWuWaItem("MID-39", "ไอดี กึ่งเริ่มต้น - กลางเกม", "39. Hsin + ปจต. + Augusta + Phoebe + Rebecca + อื่นๆ", 490, "Hsin 🏯 + ปจต. 🏯+ Augusta☀️ + Phoebe 👒 + Rebecca 💥 + อื่นๆ | UnionLevel: 27 | จินโจว 8%", null, { unionLevel: "Union Lv. 27", emailStatus: "จดไทย กล่องเมล ENG" }),
+            buildWuWaItem("MID-43", "ไอดี กึ่งเริ่มต้น - กลางเกม", "43. Yangyang + Chisa + Rebecca + อื่นๆ (เมลตาย)", 190, "Yangyang🪶 + Chisa✂️ + Rebecca 💥 + อื่นๆ | จินโจว 20%, แบล็คชอร์ 17%, Rinascita 14% | UnionLevel: 33 | (เมลตาย)", null, { unionLevel: "Union Lv. 33", emailStatus: "เมลตาย" }),
+
+            // --- เกมอื่นๆ ที่รองรับบนหน้าเว็บ ---
+            {
+                id: "MG-001",
+                game: "mongil",
+                gameLabel: "Mongil: Star Dive",
+                category: "Starter SSR",
+                title: "ไอดีเริ่มต้น Mongil: Star Dive ตัว SSR หน้าตู้ 2 ตัว",
+                server: "Global / SEA",
+                unionLevel: "Starter Lv. 5",
+                dataBank: "เนื้อเรื่องบทที่ 1",
+                emailStatus: "อีเมลเปล่า ปลอดภัย 100%",
+                price: 450,
+                featured: false,
+                albumUrl: "https://drive.google.com/",
+                description: "ไอดีเริ่มต้นเกม Mongil: Star Dive สุ่มได้ตัวละครระดับ SSR ยอดนิยมตั้งแต่ต้นเกม พร้อมเพชรเหลือเปิดต่อ",
+                characters: [
+                    { name: "VERNA", rank: "SSR", element: "Star", img: "https://placehold.co/220x240/1e1b4b/FBBF24?text=VERNA%0ASSR" },
+                    { name: "CLOUD", rank: "SSR", element: "Wind", img: "https://placehold.co/220x240/1e1b4b/22D3EE?text=CLOUD%0ASSR" }
+                ],
+                allCharacterNames: ["VERNA", "CLOUD"],
+                gallery: ["https://placehold.co/800x450/1e1b4b/FBBF24?text=Mongil+Star+Dive+ID+(MG-001)"]
+            },
+            {
+                id: "DNA-001",
+                game: "dna",
+                gameLabel: "Duet Night Abyss",
+                category: "Starter 5★",
+                title: "ไอดี Duet Night Abyss ตัวละคร 5 ดาวลิมิเต็ด + อาวุธ",
+                server: "SEA",
+                unionLevel: "Account Lv. 8",
+                dataBank: "Untouched Map",
+                emailStatus: "อีเมลเปล่า ปลอดภัย 100%",
+                price: 650,
+                featured: false,
+                albumUrl: "https://drive.google.com/",
+                description: "ไอดีเกม Duet Night Abyss (Dual Night Abyss) ได้ตัวละครหลักระดับ 5 ดาวพร้อมอาวุธคู่ใจ เล่นมันส์ตั้งแต่เริ่ม",
+                characters: [
+                    { name: "BERENICA", rank: "5★ + Sig", element: "Abyss", img: "https://placehold.co/220x240/1f122b/F43F5E?text=BERENICA%0A5%E2%98%85" },
+                    { name: "PSYCHE", rank: "5★", element: "Anemo", img: "https://placehold.co/220x240/1f122b/34D399?text=PSYCHE%0A5%E2%98%85" }
+                ],
+                allCharacterNames: ["BERENICA", "PSYCHE"],
+                gallery: ["https://placehold.co/800x450/1f122b/F43F5E?text=Duet+Night+Abyss+ID+(DNA-001)"]
+            },
+            {
+                id: "NTE-001",
+                game: "nte",
+                gameLabel: "NTE (Neverness to Everness)",
+                category: "Starter S-Rank",
+                title: "ไอดี NTE ตัวละคร S-Rank หน้าตู้ + รถสปอร์ตแต่ง",
+                server: "SEA / Asia",
+                unionLevel: "Rank Lv. 7",
+                dataBank: "Hethereau City",
+                emailStatus: "อีเมลเปล่า ปลอดภัย 100%",
+                price: 790,
+                featured: false,
+                albumUrl: "https://drive.google.com/",
+                description: "ไอดีเริ่มต้นเกม NTE (Neverness to Everness) ได้ตัวละคร S-Rank พร้อมลุยเมือง Hethereau เมลเปล่าเปลี่ยนได้หมด",
+                characters: [
+                    { name: "MINT", rank: "S-Rank", element: "Anomaly", img: "https://placehold.co/220x240/0f172a/38BDF8?text=MINT%0AS-Rank" },
+                    { name: "NANALLY", rank: "S-Rank", element: "Fire", img: "https://placehold.co/220x240/0f172a/FBBF24?text=NANALLY%0AS-Rank" }
+                ],
+                allCharacterNames: ["MINT", "NANALLY"],
+                gallery: ["https://placehold.co/800x450/0f172a/38BDF8?text=NTE+Neverness+to+Everness+(NTE-001)"]
+            }
+        ];
+
+        const STORAGE_PRODUCTS_KEY = "beatsroots_products_v1";
+        const STORAGE_ALBUMS_KEY = "beatsroots_albums_v1";
+
+        function loadSavedAlbums() {
+            try {
+                return JSON.parse(localStorage.getItem(STORAGE_ALBUMS_KEY) || "{}");
+            } catch (e) {
+                return {};
+            }
+        }
+
+        function saveAlbumLink(productId, url) {
+            try {
+                const map = loadSavedAlbums();
+                const trimmed = (url || "").trim();
+                if (trimmed) {
+                    map[productId] = trimmed;
+                } else {
+                    delete map[productId];
+                }
+                localStorage.setItem(STORAGE_ALBUMS_KEY, JSON.stringify(map));
+                return true;
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function loadProducts() {
+            const albumMap = loadSavedAlbums();
+            let baseList = DEFAULT_PRODUCTS_DATA;
+            try {
+                const stored = localStorage.getItem(STORAGE_PRODUCTS_KEY);
+                if (stored) {
+                    const parsed = JSON.parse(stored);
+                    if (Array.isArray(parsed) && parsed.length > 0) {
+                        baseList = parsed;
+                    }
+                }
+            } catch (e) {
+                baseList = DEFAULT_PRODUCTS_DATA;
+            }
+
+            return baseList.map(item => ({
+                ...item,
+                albumUrl: albumMap[item.id] || item.albumUrl || "https://drive.google.com/"
+            }));
+        }
+
+        let PRODUCTS_DATA = loadProducts();
+
         // State ของแอปพลิเคชัน
         let selectedGame = 'all';
         let cart = [];
@@ -1020,40 +1415,67 @@
 
         // เริ่มต้นทำงานเมื่อโหลดหน้าเว็บ
         document.addEventListener('DOMContentLoaded', () => {
-            populateCharacterFilters();
+            populateCategoryAndCharacterFilters();
             applyFilters();
             updateCartUI();
         });
 
-        // 1. สร้างรายการตัวละครใน Dropdown และ Quick Chips อัตโนมัติจากข้อมูลไอดี
-        function populateCharacterFilters() {
+        // 1. สร้างรายการหมวดหมู่/ทีม และตัวละครใน Dropdown และ Quick Chips อัตโนมัติจากข้อมูลไอดี
+        function populateCategoryAndCharacterFilters() {
+            const catSet = new Set();
             const charSet = new Set();
+
             PRODUCTS_DATA.forEach(item => {
-                item.characters.forEach(c => charSet.add(c.name));
+                if (item.category) catSet.add(item.category);
+                if (Array.isArray(item.allCharacterNames) && item.allCharacterNames.length > 0) {
+                    item.allCharacterNames.forEach(n => charSet.add(n));
+                } else if (Array.isArray(item.characters)) {
+                    item.characters.forEach(c => charSet.add(c.name));
+                }
             });
 
-            const sortedChars = Array.from(charSet).sort();
+            // เติมตัวเลือกหมวดหมู่ / ทีม
+            const catSelect = document.getElementById('category-select');
+            const prevCat = catSelect.value;
+            catSelect.innerHTML = '<option value="all">ทุกหมวดหมู่ / ทุกทีม</option>';
+            Array.from(catSet).forEach(cat => {
+                const opt = document.createElement('option');
+                opt.value = cat;
+                opt.textContent = cat;
+                catSelect.appendChild(opt);
+            });
+            if (Array.from(catSet).includes(prevCat)) catSelect.value = prevCat;
+
+            // เติมตัวเลือกตัวละคร
+            const sortedChars = Array.from(charSet).sort((a, b) => a.localeCompare(b));
             const selectEl = document.getElementById('character-select');
-            const chipsEl = document.getElementById('quick-char-chips');
+            const prevChar = selectEl.value;
+            selectEl.innerHTML = '<option value="all">ตัวละครทั้งหมด (เลือกเฉพาะตัวละคร)</option>';
 
             sortedChars.forEach(charName => {
-                // เติมใน Dropdown
                 const opt = document.createElement('option');
                 opt.value = charName;
                 opt.textContent = `ตัวละคร: ${charName}`;
                 selectEl.appendChild(opt);
             });
+            if (sortedChars.includes(prevChar)) selectEl.value = prevChar;
 
-            // ตัวละครเด่นสำหรับปุ่มกดด่วน
-            const highlightChars = ['HIYUKI', 'CARTETHYIA', 'AEMEATH', 'ZANI', 'PHOEBE', 'AUGUSTA', 'PHROLOVA', 'QINGXIAO'];
+            // เติมปุ่มตัวละครยอดฮิตแบบด่วน
+            const chipsEl = document.getElementById('quick-char-chips');
+            chipsEl.innerHTML = '';
+            const highlightChars = [
+                "Hsin", "Cartethyia", "Aemeath", "Hiyuki", "Zani", "Phoebe",
+                "Phrolova", "Augusta", "Lucy", "Qingxiao", "Galbrena", "Lynae", "Luuk", "Jingran"
+            ];
             highlightChars.forEach(name => {
-                if (charSet.has(name)) {
+                const match = sortedChars.find(c => c.toLowerCase() === name.toLowerCase());
+                if (match) {
                     const btn = document.createElement('button');
                     btn.type = 'button';
-                    btn.textContent = name;
-                    btn.onclick = () => quickFilterCharacter(name);
+                    btn.textContent = match;
+                    btn.onclick = () => quickFilterCharacter(match);
                     btn.className = 'char-chip px-2.5 py-1 rounded-lg bg-navy-950 hover:bg-cyan-500/20 border border-slate-700 hover:border-cyan-400 text-xs font-semibold text-slate-300 hover:text-cyan-300 transition shrink-0';
-                    btn.dataset.char = name;
+                    btn.dataset.char = match;
                     chipsEl.appendChild(btn);
                 }
             });
@@ -1074,7 +1496,6 @@
         function selectGame(gameKey) {
             selectedGame = gameKey;
             
-            // อัปเดตสไตล์ปุ่มแท็บเกม
             document.querySelectorAll('.game-tab').forEach(btn => {
                 if (btn.dataset.game === gameKey) {
                     btn.classList.remove('border-slate-700/80', 'bg-navy-900/80');
@@ -1091,10 +1512,10 @@
         // กรองและเรียงลำดับรายการไอดีทั้งหมด
         function applyFilters() {
             const searchQuery = document.getElementById('search-input').value.trim().toLowerCase();
+            const selectedCategory = document.getElementById('category-select').value;
             const selectedChar = document.getElementById('character-select').value;
             const sortOrder = document.getElementById('sort-select').value;
 
-            // แสดง/ซ่อนปุ่มล้างคำค้นหา
             const clearBtn = document.getElementById('clear-search-btn');
             if (searchQuery.length > 0) {
                 clearBtn.classList.remove('hidden');
@@ -1102,7 +1523,6 @@
                 clearBtn.classList.add('hidden');
             }
 
-            // ไฮไลต์ปุ่ม Quick Character Chip ที่เลือกอยู่
             document.querySelectorAll('.char-chip').forEach(chip => {
                 if (chip.dataset.char === selectedChar) {
                     chip.classList.add('bg-cyan-500/25', 'border-cyan-400', 'text-cyan-300');
@@ -1113,30 +1533,30 @@
                 }
             });
 
-            // 1) กรองข้อมูล
             let filtered = PRODUCTS_DATA.filter(item => {
-                // กรองเกม
                 if (selectedGame !== 'all' && item.game !== selectedGame) return false;
+                if (selectedCategory !== 'all' && item.category !== selectedCategory) return false;
 
-                // กรองเฉพาะตัวละคร
                 if (selectedChar !== 'all') {
-                    const hasChar = item.characters.some(c => c.name.toLowerCase() === selectedChar.toLowerCase());
+                    const namesPool = Array.isArray(item.allCharacterNames) && item.allCharacterNames.length > 0
+                        ? item.allCharacterNames
+                        : item.characters.map(c => c.name);
+                    const hasChar = namesPool.some(n => n.toLowerCase() === selectedChar.toLowerCase());
                     if (!hasChar) return false;
                 }
 
-                // กรองคำค้นหา (ชื่อไอดี, รหัสไอดี, ชื่อตัวละคร, ชื่อเกม)
                 if (searchQuery) {
-                    const inId = item.id.toLowerCase().includes(searchQuery);
-                    const inTitle = item.title.toLowerCase().includes(searchQuery);
-                    const inGame = item.gameLabel.toLowerCase().includes(searchQuery);
+                    const inId = String(item.id).toLowerCase().includes(searchQuery) || String(item.code || '').toLowerCase().includes(searchQuery);
+                    const inTitle = String(item.title).toLowerCase().includes(searchQuery);
+                    const inDesc = String(item.description).toLowerCase().includes(searchQuery);
+                    const inCat = String(item.category || '').toLowerCase().includes(searchQuery);
                     const inChars = item.characters.some(c => c.name.toLowerCase().includes(searchQuery));
-                    if (!inId && !inTitle && !inGame && !inChars) return false;
+                    if (!inId && !inTitle && !inDesc && !inCat && !inChars) return false;
                 }
 
                 return true;
             });
 
-            // 2) เรียงลำดับราคา
             if (sortOrder === 'price-asc') {
                 filtered.sort((a, b) => a.price - b.price);
             } else if (sortOrder === 'price-desc') {
@@ -1154,6 +1574,7 @@
         function resetAllFilters() {
             selectedGame = 'all';
             document.getElementById('search-input').value = '';
+            document.getElementById('category-select').value = 'all';
             document.getElementById('character-select').value = 'all';
             document.getElementById('sort-select').value = 'default';
             selectGame('all');
@@ -1179,8 +1600,8 @@
 
             items.forEach(item => {
                 const isInCart = cart.some(c => c.id === item.id);
+                const isDeadMail = String(item.emailStatus || '').includes('เมลตาย') || String(item.description || '').includes('เมลตาย');
 
-                // สร้างช่องแสดงตัวละคร (เหมือนในแบนเนอร์ที่มีกรอบทอง + ป้าย S0R1)
                 const charsHtml = item.characters.map(char => `
                     <div class="char-slot rounded-xl p-1.5 flex flex-col items-center relative overflow-hidden group/char">
                         <span class="absolute top-1.5 right-1.5 z-10 px-1.5 py-0.5 rounded bg-navy-950/90 border border-gold-400/60 text-gold-300 font-gaming font-bold text-[11px] leading-none">
@@ -1188,7 +1609,7 @@
                         </span>
                         <div class="w-full aspect-[4/4.2] rounded-lg overflow-hidden bg-navy-950 mb-1.5">
                             <img src="${char.img}" alt="${char.name}" loading="lazy"
-                                 onerror="this.src='https://placehold.co/200x210/0b1733/22D3EE?text=${char.name}'"
+                                 onerror="this.src='https://placehold.co/200x210/0b1733/22D3EE?text=${encodeURIComponent(char.name)}'"
                                  class="w-full h-full object-cover group-hover/char:scale-105 transition duration-300">
                         </div>
                         <div class="w-full text-center py-0.5 rounded bg-navy-950/90 border border-cyan-500/30 font-gaming font-bold text-xs tracking-wider text-white truncate px-1">
@@ -1197,20 +1618,19 @@
                     </div>
                 `).join('');
 
-                // จัดคอลัมน์ตัวละครตามจำนวน (2 หรือ 3 ช่อง)
                 const charGridCols = item.characters.length >= 3 ? 'grid-cols-3' : 'grid-cols-2';
 
                 const card = document.createElement('article');
                 card.className = 'gaming-card rounded-2xl p-4 flex flex-col justify-between relative';
                 card.innerHTML = `
                     <div>
-                        <!-- ส่วนหัวการ์ด: แท็กเกม + รหัสไอดี -->
+                        <!-- ส่วนหัวการ์ด: แท็กทีม/หมวดหมู่ + รหัสไอดี -->
                         <div class="flex items-center justify-between gap-2 mb-3">
                             <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-cyan-500/15 border border-cyan-400/35 text-cyan-300 text-xs font-semibold truncate">
-                                <i class="fa-solid fa-gamepad text-[11px]"></i> ${item.gameLabel}
+                                <i class="fa-solid fa-layer-group text-[11px]"></i> ${item.category || item.gameLabel}
                             </span>
                             <span class="px-2.5 py-1 rounded-lg bg-navy-950 border border-gold-400/40 text-gold-400 font-gaming font-bold text-xs shrink-0">
-                                ID: ${item.id}
+                                #${item.code || item.id}
                             </span>
                         </div>
 
@@ -1221,20 +1641,25 @@
 
                         <!-- ชื่อหัวข้อไอดี -->
                         <h4 onclick="openDetailModal('${item.id}')" 
-                            class="font-bold text-base text-white hover:text-cyan-300 cursor-pointer transition line-clamp-1 mb-2">
+                            class="font-bold text-base text-white hover:text-cyan-300 cursor-pointer transition line-clamp-1 mb-1.5">
                             ${item.title}
                         </h4>
 
-                        <!-- รายละเอียดสเปกไอดี (Server / Level / เมลเปล่า) -->
+                        <!-- รายละเอียดย่อ -->
+                        <p class="text-xs text-slate-400 line-clamp-2 mb-2.5">${item.description}</p>
+
+                        <!-- รายละเอียดสเปกไอดี (Server / Level / เมล / ลิงก์รูป) -->
                         <div class="rounded-xl bg-navy-950/85 border border-slate-800 p-2.5 space-y-1 text-xs mb-3">
                             <div class="flex items-center justify-between text-slate-300">
-                                <span><i class="fa-solid fa-server text-cyan-400 w-4"></i> Server: <strong class="text-white">${item.server}</strong></span>
-                                <span class="text-slate-400">${item.unionLevel}</span>
+                                <span><i class="fa-solid fa-server text-cyan-400 w-4"></i> ${item.server}</span>
+                                <span class="text-slate-400 truncate">${item.unionLevel}</span>
                             </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-emerald-400 font-medium"><i class="fa-solid fa-circle-check w-4"></i> ${item.emailStatus}</span>
+                            <div class="flex items-center justify-between gap-2">
+                                <span class="${isDeadMail ? 'text-rose-400' : 'text-emerald-400'} font-medium truncate">
+                                    <i class="fa-solid ${isDeadMail ? 'fa-triangle-exclamation' : 'fa-circle-check'} w-4"></i> ${item.emailStatus}
+                                </span>
                                 <a href="${item.albumUrl}" target="_blank" rel="noopener" 
-                                   class="text-cyan-400 hover:text-cyan-300 underline font-medium flex items-center gap-1">
+                                   class="text-cyan-400 hover:text-cyan-300 underline font-medium flex items-center gap-1 shrink-0">
                                     <span>ลิงก์รูปเพิ่มเติม</span> <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                                 </a>
                             </div>
@@ -1244,8 +1669,8 @@
                     <!-- ส่วนท้ายการ์ด: ราคา + ปุ่มดูรายละเอียด + ปุ่มใส่ตะกร้า -->
                     <div class="pt-2 border-t border-slate-800/80 space-y-2.5">
                         <div class="flex items-baseline justify-between">
-                            <span class="text-xs text-slate-400">ราคาไอดี:</span>
-                            <span class="text-2xl font-extrabold text-gold-400 text-glow-gold">฿${item.price.toLocaleString()}</span>
+                            <span class="text-xs text-slate-400">ราคา:</span>
+                            <span class="text-2xl font-extrabold text-gold-400 text-glow-gold">฿${Number(item.price).toLocaleString()}</span>
                         </div>
 
                         <div class="grid grid-cols-2 gap-2">
@@ -1268,25 +1693,39 @@
         }
 
         // =====================================================================
-        // MODAL ดูรายละเอียดไอดี
+        // MODAL ดูรายละเอียดไอดี + แก้ไข/บันทึกลิงก์ฝากรูป
         // =====================================================================
         function openDetailModal(productId) {
             const item = PRODUCTS_DATA.find(p => p.id === productId);
             if (!item) return;
 
-            document.getElementById('modal-id-badge').textContent = item.id;
+            document.getElementById('modal-id-badge').textContent = item.code || item.id;
             document.getElementById('modal-title').textContent = item.title;
-            document.getElementById('modal-game').textContent = item.gameLabel;
+            document.getElementById('modal-game').textContent = `${item.gameLabel} (${item.category || ''})`;
             document.getElementById('modal-server').textContent = item.server;
-            document.getElementById('modal-level').textContent = `${item.unionLevel} • ${item.dataBank}`;
+            document.getElementById('modal-level').textContent = item.unionLevel || item.dataBank;
             document.getElementById('modal-desc').textContent = item.description;
-            document.getElementById('modal-price').textContent = `฿${item.price.toLocaleString()}`;
+            document.getElementById('modal-price').textContent = `฿${Number(item.price).toLocaleString()}`;
             
-            // ลิงก์ฝากรูปภายนอก
             const albumBtn = document.getElementById('modal-album-link');
-            albumBtn.href = item.albumUrl;
+            albumBtn.href = item.albumUrl || "https://drive.google.com/";
 
-            // ตัวละครในหน้าต่างรายละเอียด
+            const albumInput = document.getElementById('modal-album-input');
+            albumInput.value = item.albumUrl || "";
+
+            const saveAlbumBtn = document.getElementById('modal-save-album-btn');
+            saveAlbumBtn.onclick = () => {
+                const newUrl = albumInput.value.trim();
+                saveAlbumLink(item.id, newUrl);
+                PRODUCTS_DATA = loadProducts();
+                const updatedItem = PRODUCTS_DATA.find(p => p.id === item.id);
+                if (updatedItem) {
+                    albumBtn.href = updatedItem.albumUrl;
+                }
+                applyFilters();
+                showToast(`บันทึกลิงก์รูปของไอดี ${item.code || item.id} เรียบร้อยแล้ว`, 'success');
+            };
+
             const charsContainer = document.getElementById('modal-characters');
             charsContainer.innerHTML = item.characters.map(c => `
                 <div class="p-2.5 rounded-xl bg-navy-950 border border-gold-400/40 flex items-center gap-3">
@@ -1294,27 +1733,24 @@
                     <div>
                         <div class="font-gaming font-bold text-base text-white">${c.name}</div>
                         <span class="inline-block px-2 py-0.5 rounded bg-gold-500/20 text-gold-300 font-gaming font-bold text-xs">${c.rank}</span>
-                        <div class="text-[11px] text-cyan-400 mt-0.5">${c.element}</div>
+                        <div class="text-[11px] text-cyan-400 mt-0.5 truncate max-w-[130px]">${c.element}</div>
                     </div>
                 </div>
             `).join('');
 
-            // รูปภาพตัวอย่าง
             const galleryContainer = document.getElementById('modal-gallery');
-            galleryContainer.innerHTML = item.gallery.map(imgUrl => `
+            galleryContainer.innerHTML = (item.gallery || []).map(imgUrl => `
                 <div class="rounded-xl overflow-hidden border border-slate-700 bg-navy-950">
                     <img src="${imgUrl}" alt="ภาพตัวอย่างไอดี ${item.id}" class="w-full h-auto object-cover">
                 </div>
             `).join('');
 
-            // ปุ่มใส่ตะกร้าใน Modal
             const addBtn = document.getElementById('modal-add-cart-btn');
             addBtn.onclick = () => {
                 addToCart(item.id);
                 closeDetailModal();
             };
 
-            // ปุ่มทักแชทซื้อไอดีนี้ทันที
             const chatBtn = document.getElementById('modal-chat-btn');
             chatBtn.onclick = () => {
                 if (!cart.some(c => c.id === item.id)) {
@@ -1334,6 +1770,176 @@
             const modal = document.getElementById('detail-modal');
             modal.classList.add('hidden');
             modal.classList.remove('flex');
+        }
+
+        // =====================================================================
+        // MODAL นำเข้าข้อมูล CSV / JSON
+        // =====================================================================
+        function openImporterModal() {
+            const modal = document.getElementById('importer-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeImporterModal() {
+            const modal = document.getElementById('importer-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function parseCSVLine(line) {
+            const result = [];
+            let current = "";
+            let inQuotes = false;
+            for (let i = 0; i < line.length; i++) {
+                const ch = line[i];
+                if (ch === '"') {
+                    if (inQuotes && line[i + 1] === '"') {
+                        current += '"';
+                        i++;
+                    } else {
+                        inQuotes = !inQuotes;
+                    }
+                } else if (ch === "," && !inQuotes) {
+                    result.push(current);
+                    current = "";
+                } else {
+                    current += ch;
+                }
+            }
+            result.push(current);
+            return result;
+        }
+
+        function parseImportedCSV(csvText) {
+            const cleanText = csvText.replace(/^\uFEFF/, "").trim();
+            const lines = cleanText.split(/\r?\n/).filter(l => l.trim().length > 0);
+            if (lines.length < 2) return [];
+
+            const headers = parseCSVLine(lines[0]).map(h => h.trim());
+            const items = [];
+
+            for (let i = 1; i < lines.length; i++) {
+                const cols = parseCSVLine(lines[i]);
+                const row = {};
+                headers.forEach((h, idx) => {
+                    row[h] = (cols[idx] || "").trim();
+                });
+
+                const code = row.code || row.id || String(i);
+                const priceNum = Number(String(row.price || "0").replace(/[^0-9.]/g, "")) || 0;
+                const charNames = (row.characters || "")
+                    .split(",")
+                    .map(s => s.trim())
+                    .filter(Boolean);
+
+                const gameRaw = (row.game || "wuthering").toLowerCase();
+                const gameKey = gameRaw.includes("mongil") ? "mongil"
+                    : (gameRaw.includes("dna") || gameRaw.includes("abyss")) ? "dna"
+                    : gameRaw.includes("nte") ? "nte"
+                    : "wuthering";
+
+                const built = buildWuWaItem(
+                    code,
+                    row.category || "นำเข้าจาก CSV",
+                    row.title || `ไอดี ${code}`,
+                    priceNum,
+                    row.detail || row.title || "",
+                    charNames.length > 0 ? charNames : null,
+                    {
+                        emailStatus: row.mailStatus || "เช็กสถานะกับผู้ขาย",
+                        albumUrl: row.albumUrl || "https://drive.google.com/"
+                    }
+                );
+                built.id = row.id || built.id;
+                built.game = gameKey;
+                items.push(built);
+            }
+            return items;
+        }
+
+        function applyImportedData() {
+            const raw = document.getElementById("import-data-textarea").value.trim();
+            const mode = document.getElementById("import-format-select").value;
+
+            if (!raw) {
+                showToast("กรุณาวางข้อมูล CSV หรือ JSON ก่อนนำเข้าครับ", "info");
+                return;
+            }
+
+            try {
+                let importedItems = [];
+                const isJsonCandidate = mode === "json" || (mode === "auto" && (raw.startsWith("[") || raw.includes("PRODUCTS_DATA")));
+
+                if (isJsonCandidate) {
+                    const cleanedJson = raw
+                        .replace(/^const\s+PRODUCTS_DATA\s*=\s*/i, "")
+                        .replace(/;\s*$/, "");
+                    const parsed = JSON.parse(cleanedJson);
+                    if (!Array.isArray(parsed) || parsed.length === 0) {
+                        throw new Error("รูปแบบ JSON ไม่ใช่อาร์เรย์ที่มีข้อมูล");
+                    }
+                    importedItems = parsed.map((p, idx) => {
+                        const code = p.code || p.id || String(idx + 1);
+                        const charList = Array.isArray(p.characters)
+                            ? p.characters.map(c => typeof c === "string" ? c : c.name)
+                            : [];
+                        const built = buildWuWaItem(
+                            code,
+                            p.category || "ทั่วไป",
+                            p.title || `ไอดี ${code}`,
+                            Number(p.price) || 0,
+                            p.detail || p.description || "",
+                            charList.length > 0 ? charList : null,
+                            {
+                                emailStatus: p.mailStatus || p.emailStatus || "เช็กสถานะกับผู้ขาย",
+                                albumUrl: p.albumUrl || "https://drive.google.com/"
+                            }
+                        );
+                        return {
+                            ...built,
+                            ...p,
+                            id: p.id || built.id,
+                            price: Number(p.price) || 0,
+                            characters: Array.isArray(p.characters) && typeof p.characters[0] === "object"
+                                ? p.characters
+                                : built.characters
+                        };
+                    });
+                } else {
+                    importedItems = parseImportedCSV(raw);
+                }
+
+                if (importedItems.length === 0) {
+                    throw new Error("ไม่พบแถวข้อมูลสินค้าที่สามารถนำเข้าได้");
+                }
+
+                localStorage.setItem(STORAGE_PRODUCTS_KEY, JSON.stringify(importedItems));
+                PRODUCTS_DATA = loadProducts();
+                cart = [];
+                updateCartUI();
+                populateCategoryAndCharacterFilters();
+                applyFilters();
+                closeImporterModal();
+                showToast(`นำเข้าข้อมูลสำเร็จ ${importedItems.length} รายการ!`, "success");
+            } catch (err) {
+                showToast(`นำเข้าไม่สำเร็จ: ${err.message || "รูปแบบข้อมูลไม่ถูกต้อง"}`, "info");
+            }
+        }
+
+        function resetProductsToDefault() {
+            try {
+                localStorage.removeItem(STORAGE_PRODUCTS_KEY);
+                PRODUCTS_DATA = loadProducts();
+                cart = [];
+                updateCartUI();
+                populateCategoryAndCharacterFilters();
+                applyFilters();
+                closeImporterModal();
+                showToast("คืนค่าข้อมูลรายการไอดีเริ่มต้นเรียบร้อยแล้ว", "success");
+            } catch (e) {
+                showToast("ไม่สามารถรีเซ็ตข้อมูลได้", "info");
+            }
         }
 
         // =====================================================================
