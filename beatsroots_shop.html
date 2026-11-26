@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="th" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEATSROOTS SHOP | ร้านขายไอดีเกม Wuthering Waves, Mongil, DNA, NTE</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Kanit & Rajdhani สำหรับฟีลเกมมิ่งทันสมัยอ่านง่าย -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Kanit', 'sans-serif'],
+                        gaming: ['Rajdhani', 'Kanit', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            950: '#040914',
+                            900: '#071024',
+                            850: '#0b1733',
+                            800: '#102047',
+                        },
+                        gold: {
+                            400: '#FCD34D',
+                            500: '#FBBF24',
+                            600: '#D97706',
+                        },
+                        cyan: {
+                            400: '#22D3EE',
+                            500: '#06B6D4',
+                        }
+                    },
+                    boxShadow: {
+                        'gold-glow': '0 0 18px rgba(251, 191, 36, 0.25)',
+                        'cyan-glow': '0 0 20px rgba(34, 211, 238, 0.28)',
+                        'card-hover': '0 10px 30px -5px rgba(34, 211, 238, 0.25), 0 0 15px rgba(251, 191, 36, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* พื้นหลังหลักไล่เฉดสีน้ำเงินเข้มแบบแบนเนอร์ */
+        body {
+            background-color: #040914;
+            background-image: 
+                radial-gradient(circle at 15% 10%, rgba(14, 165, 233, 0.14) 0%, transparent 40%),
+                radial-gradient(circle at 85% 20%, rgba(251, 191, 36, 0.08) 0%, transparent 35%),
+                radial-gradient(circle at 50% 85%, rgba(6, 182, 212, 0.10) 0%, transparent 45%);
+            background-attachment: fixed;
+            color: #F8FAFC;
+        }
+
+        /* เอฟเฟกต์ข้อความเรืองแสง */
+        .text-glow-cyan {
+            text-shadow: 0 0 16px rgba(34, 211, 238, 0.65);
+        }
+        .text-glow-gold {
+            text-shadow: 0 0 16px rgba(251, 191, 36, 0.6);
+        }
+
+        /* กรอบการ์ดสไตล์แบนเนอร์ */
+        .gaming-card {
+            background: linear-gradient(160deg, rgba(16, 32, 71, 0.85) 0%, rgba(7, 16, 36, 0.95) 100%);
+            border: 1px solid rgba(56, 189, 248, 0.28);
+            transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gaming-card:hover {
+            border-color: rgba(251, 191, 36, 0.75);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px -6px rgba(6, 182, 212, 0.25), 0 0 15px rgba(251, 191, 36, 0.2);
+        }
+
+        /* กรอบตัวละครย่อยด้านใน์การ์ด (คล้ายช่อง S0R1 ในรูปตัวอย่าง) */
+        .char-slot {
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.7) 100%);
+            border: 1px solid rgba(251, 191, 36, 0.45);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #040914;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E3A8A;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06B6D4;
+        }
+
+        /* ซ่อน scrollbar แนวนอนบนมือถือสำหรับแถบตัวกรอง */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-cyan-500 selection:text-navy-950">
+
+    <!-- =====================================================================
+         ตั้งค่าข้อมูลร้านค้าและรายการไอดี (ผู้ขายสามารถแก้ไขข้อมูลตรงนี้ได้ง่ายๆ)
+         ===================================================================== -->
+    <script>
+        const SHOP_CONFIG = {
+            storeName: "BEATSROOTS SHOP",
+            tagline: "ศูนย์รวมไอดีเกมคุณภาพ ปลอดภัย 100% เครดิตแน่น",
+            facebookName: "Surasak Besun",
+            facebookUrl: "https://www.facebook.com/search/top?q=Surasak%20Besun", // ใส่ลิงก์โปรไฟล์ FB จริงของคุณตรงนี้
+            lineId: "12ut_",
+            lineUrl: "https://line.me/ti/p/~12ut_", // ลิงก์แอดไลน์อัตโนมัติ
+            paymentInfo: {
+                bankName: "ธนาคารกสิกรไทย (K-Bank) / พร้อมเพย์",
+                accountName: "นาย สุรศักดิ์ (BEATSROOTS SHOP)",
+                accountNumber: "XXX-X-XXXXX-X", // แก้ไขเลขบัญชีจริงตรงนี้
+                promptPayQrUrl: "https://placehold.co/260x260/071024/22D3EE?text=QR+PromptPay%0A(ใส่รูป+QR+จริงของคุณ)"
+            }
+        };
+
+        // ข้อมูลรายการไอดีทั้งหมด (สามารถเพิ่ม/ลบ/แก้ไขราคา ลิงก์รูปภาพ และลิงก์ฝากรูปได้ทันที)
+        const PRODUCTS_DATA = [
+            {
+                id: "WW-001",
+                game: "wuthering",
+                gameLabel: "Wuthering Waves",
+                title: "ไอดีเริ่มต้น Hiyuki S0R1 + อาวุธประจำตัว",
+                server: "SEA",
+                unionLevel: "Union Level: 8 - 10",
+                dataBank: "Data Bank: Lv. 1",
+                emailStatus: "อีเมลเปล่า ปลอดภัย 100%",
+                price: 590,
+                featured: true,
+                albumUrl: "https://drive.google.com/", // ใส่ลิงก์ Google Drive / Imgur / โพสต์รูปของไอดีนี้
+                description: "ไอดีรีโรลมือแท้ 100% ไม่ใช้โปรแกรมช่วยเล่น เมลเปล่าพร้อมเปลี่ยนรหัสผ่านได้ทันที เนื้อเรื่องเริ่มต้น สายสำรวจเองห้ามพลาด!",
+                characters: [
+                    { name: "HIYUKI", rank: "S0R1", element: "Glacio", img: "https://placehold.co/220x240/0b1733/FCD34D?text=HIYUKI%0AS0R1" },
+                    { name: "VERINA", rank: "S0", element: "Spectro", img: "https://placehold.co/220x240/0b1733/22D3EE?text=VERINA%0AS0" }
+                ],
+                gallery: [
+                    "https://placehold.co/800x450/071024/22D3EE?text=ภาพหน้าตัวละคร+Hiyuki+S0R1+(WW-001)",
+                    "https://placehold.co/800x450/071024/FBBF24?text=ภาพกระเป๋า+และอาวุธประจำตัว+(WW-001)"
+                ]
+            },
+            {
+                id: "WW-002",
+                game: "wuthering",
+                gameLabel: "Wuthering Waves",
+                title: "ไอดีเทพ Cartethyia S0R1 + Aemeath S0R1",
+                server: "SEA",
+                unionLevel: "Union Level: 10",
+                dataBank: "Data Bank: Lv. 1",
+                emailStatus: "อีเมลเปล่า ปลอดภัย 100%",
+                price: 1290,
+                featured: true,
+                albumUrl: "https://drive.google.com/",
+                description: "คู่หูสุดแกร่ง Cartethyia + Aemeath พร้อมอาวุธประจำตัวทั้งคู่ คุ้มสุดๆ สำหรับสายแบกคอนเทนต์และเสพเนื้อเรื่อง",
+                characters: [
+                    { name: "CARTETHYIA", rank: "S0R1", element: "Aero", img: "https://placehold.co/220x240/0b1733/FCD34D?text=CARTETHYIA%0AS0R1" },
+                    { name: "AEMEATH", rank: "S0R1", element: "Fusion", img: "https://placehold.co/220x240/0b1733/F472B6?text=AEMEATH%0AS0R1" }
+                ],
+                gallery: [
+                    "https://placehold.co/800x450/071024/FBBF24?text=Cartethyia+%26+Aemeath+S0R1+(WW-002)",
+                    "https://placehold.co/800x450/071024/22D3EE?text=รายละเอียดอาวุธในไอดี+(WW-002)"
+                ]
+            },
+            {
+                id: "WW-003",
+                game: "wuthering",
+                gameLabel: "Wuthering Waves",
+                title: "ไอดี Zani S0R1 + Phoebe S0R1 ทีมแสงสุดโหด",
+                server: "SEA",
+                unionLevel: "Union Level: 8",
+                dataBank: "Data Bank: Lv. 1",
+                emailStatus: "อีเมลเปล่า ปลอดภัย 100%",
+                price: 1150,
+                featured: false,
+                albumUrl: "https://drive.google.com/",
+                description: "คอมโบทีม Spectro ยอดนิยม Zani S0R1 คู่กับ Phoebe S0R1 เล่นลื่นตั้งแต่ต้นเกมจนจบเกม",
+                characters: [
+                    { name: "ZANI", rank: "S0R1", element: "Spectro", img: "https://placehold.co/220x240/0b1733/FCD34D?text=ZANI%0AS0R1" },
+                    { name: "PHOEBE", rank: "S0R1", element: "Spectro", img: "https://placehold.co/220x240/0b1733/38BDF8?text=PHOEBE%0AS0R1" }
+                ],
+                gallery: [
+                    "https://placehold.co/800x450/071024/FBBF24?text=Zani+%26+Phoebe+S0R1+(WW-003)"
+                ]
+            },
+            {
+                id: "WW-004",
+                game: "wuthering",
+                gameLabel: "Wuthering Waves",
+                title: "ไอดี Augusta S0R1 + Phrolova S0R1",
+                server: "SEA",
+                unionLevel: "Union Level: 9",
+                dataBank: "Data Bank: Lv. 1",
+                emailStatus: "อีเมลเปล่า ปลอดภัย 100%",
+                price: 1090,
+                featured: false,
+                albumUrl: "https://drive.google.com/",
+                description: "ตัวละครลิมิเต็ดยอดฮิต Augusta พร้อมอาวุธ + Phrolova พร้อมอาวุธ แผนที่ยังไม่ได้สำรวจ 100%",
+                characters: [
+                    { name: "AUGUSTA", rank: "S0R1", element: "Electro", img: "https://placehold.co/220x240/0b1733/FB923C?text=AUGUSTA%0AS0R1" },
+                    { name: "PHROLOVA", rank: "S0R1", element: "Havoc", img: "https://placehold.co/220x240/0b1733/E879F9?text=PHROLOVA%0AS0R1" }
+                ],
+                gallery: [
+                    "https://placehold.co/800x450/071024/22D3EE?text=Augusta+%26+Phrolova+S0R1+(WW-004)"
+                ]
+            },
+            {
+                id: "WW-005",
+                game: "wuthering",
+                gameLabel: "Wuthering Waves",
+                title: "ไอดี Galbrena S0R1 + Lucy S0R1 สายปืนคู่",
+                server: "SEA",
+                unionLevel: "Union Level: 8",
+                dataBank: "Data Bank: Lv. 1",
+                emailStatus: "อีเมลเปล่า ปลอดภัย 100%",
+                price: 890,
+                featured: false,
+                albumUrl: "https://drive.google.com/",
+                description: "ไอดีเริ่มต้นราคาประหยัดได้ 2 ตัวลิมิเต็ดพร้อมอาวุธประจำตัว Galbrena และ Lucy เมลเปล่าสะอาด",
+                characters: [
+                    { name: "GALBRENA", rank: "S0R1", element: "Glacio", img: "https://placehold.co/220x240/0b1733/38BDF8?text=GALBRENA%0AS0R1" },
+                    { name: "LUCY", rank: "S0R1", element: "Electro", img: "https://placehold.co/220x240/0b1733/818CF8?text=LUCY%0AS0R1" }
+                ],
+                gallery: [
+                    "https://placehold.co/800x450/071024/38BDF8?text=Galbrena+%26+Lucy+S0R1+(WW-005)"
+                ]
+            },
+            {
+                id: "WW-006",
+                game: "wuthering",
+                gameLabel: "Wuthering Waves",
+                title: "ไอดี Qingxiao S0R1 + Sigrika S0R1 + Luno S0R1",
+                server: "SEA",
+                unionLevel: "Union Level: 10",
+                dataBank: "Data Bank: Lv. 1",
+                emailStatus: "อีเมลเปล่า ปลอดภัย 100%",
+                price: 1690,
+                featured: true,
+                albumUrl: "https://drive.google.com/",
+                description: "ไอดีระดับท็อป 3 ตัวลิมิเต็ดพร้อมอาวุธประจำตัวครบเซ็ต Qingxiao, Sigrika และ Luno หายากมาก!",
+                characters: [
+                    { name: "QINGXIAO", rank: "S0R1", element: "Glacio", img: "https://placehold.co/220x240/0b1733/22D3EE?text=QINGXIAO%0AS0R1" },
+                    { name: "SIGRIKA", rank: "S0R1", element: "Fusion", img: "https://placehold.co/220x240/0b1733/FB923C?text=SIGRIKA%0AS0R1" },
+                    { name: "LUNO", rank: "S0R1", element: "Spectro", img: "https://placehold.co/220x240/0b1733/FBBF24?text=LUNO%0AS0R1" }
+                ],
+                gallery: [
+                    "https://placehold.co/800x450/071024/FBBF24?text=Triple+S0R1+Qingxiao+Sigrika+Luno+(WW-006)"
+                ]
+            },
+            {
+                id: "MG-001",
+                game: "mongil",
+                gameLabel: "Mongil: Star Dive",
+                title: "ไอดีเริ่มต้น Mongil: Star Dive ตัว SSR หน้าตู้ 2 ตัว",
+                server: "Global / SEA",
+                unionLevel: "Starter Lv. 5",
+                dataBank: "เนื้อเรื่องบทที่ 1",
+                emailStatus: "อีเมลเปล่า ปลอดภัย 100%",
+                price: 450,
+                featured: false,
+                albumUrl: "https://drive.google.com/",
+                description: "ไอดีเริ่มต้นเกม Mongil: Star Dive สุ่มได้ตัวละครระดับ SSR ยอดนิยมตั้งแต่ต้นเกม พร้อมเพชรเหลือเปิดต่อ",
+                characters: [
+                    { name: "VERNA", rank: "SSR", element: "Star", img: "https://placehold.co/220x240/1e1b4b/FBBF24?text=VERNA%0ASSR" },
+                    { name: "CLOUD", rank: "SSR", element: "Wind", img: "https://placehold.co/220x240/1e1b4b/22D3EE?text=CLOUD%0ASSR" }
+                ],
+                gallery: [
+                    "https://placehold.co/800x450/1e1b4b/FBBF24?text=Mongil+Star+Dive+ID+(MG-001)"
+                ]
+            },
+            {
+                id: "DNA-001",
+                game: "dna",
+                gameLabel: "Duet Night Abyss",
+                title: "ไอดี Duet Night Abyss ตัวละคร 5 ดาวลิมิเต็ด + อาวุธ",
+                server: "SEA",
+                unionLevel: "Account Lv. 8",
+                dataBank: "Untouched Map",
+                emailStatus: "อีเมลเปล่า ปลอดภัย 100%",
+                price: 650,
+                featured: false,
+                albumUrl: "https://drive.google.com/",
+                description: "ไอดีเกม Duet Night Abyss (Dual Night Abyss) ได้ตัวละครหลักระดับ 5 ดาวพร้อมอาวุธคู่ใจ เล่นมันส์ตั้งแต่เริ่ม",
+                characters: [
+                    { name: "BERENICA", rank: "5★ + Sig", element: "Abyss", img: "https://placehold.co/220x240/1f122b/F43F5E?text=BERENICA%0A5%E2%98%85" },
+                    { name: "PSYCHE", rank: "5★", element: "Anemo", img: "https://placehold.co/220x240/1f122b/34D399?text=PSYCHE%0A5%E2%98%85" }
+                ],
+                gallery: [
+                    "https://placehold.co/800x450/1f122b/F43F5E?text=Duet+Night+Abyss+ID+(DNA-001)"
+                ]
+            },
+            {
+                id: "NTE-001",
+                game: "nte",
+                gameLabel: "NTE (Neverness to Everness)",
+                title: "ไอดี NTE ตัวละคร S-Rank หน้าตู้ + รถสปอร์ตแต่ง",
+                server: "SEA / Asia",
+                unionLevel: "Rank Lv. 7",
+                dataBank: "Hethereau City",
+                emailStatus: "อีเมลเปล่า ปลอดภัย 100%",
+                price: 790,
+                featured: false,
+                albumUrl: "https://drive.google.com/",
+                description: "ไอดีเริ่มต้นเกม NTE (Neverness to Everness) ได้ตัวละคร S-Rank พร้อมลุยเมือง Hethereau เมลเปล่าเปลี่ยนได้หมด",
+                characters: [
+                    { name: "MINT", rank: "S-Rank", element: "Anomaly", img: "https://placehold.co/220x240/0f172a/38BDF8?text=MINT%0AS-Rank" },
+                    { name: "NANALLY", rank: "S-Rank", element: "Fire", img: "https://placehold.co/220x240/0f172a/FBBF24?text=NANALLY%0AS-Rank" }
+                ],
+                gallery: [
+                    "https://placehold.co/800x450/0f172a/38BDF8?text=NTE+Neverness+to+Everness+(NTE-001)"
+                ]
+            }
+        ];
+    </script>
+
+    <!-- =====================================================================
+         1. TOP NAVBAR & TRUST BADGES BAR
+         ===================================================================== -->
+    <div class="bg-gradient-to-r from-navy-950 via-blue-950 to-navy-950 border-b border-cyan-500/25 text-xs py-2 px-3">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+            <!-- Trust Badges ตามแบนเนอร์ -->
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-slate-200 font-medium">
+                <span class="flex items-center gap-1.5 text-cyan-400">
+                    <i class="fa-solid fa-bolt"></i> ส่งไวใน 5 นาที
+                </span>
+                <span class="hidden sm:inline text-slate-600">|</span>
+                <span class="flex items-center gap-1.5 text-emerald-400">
+                    <i class="fa-solid fa-shield-halved"></i> เมลเปล่าพร้อมเปลี่ยน 100%
+                </span>
+                <span class="hidden md:inline text-slate-600">|</span>
+                <span class="hidden md:flex items-center gap-1.5 text-gold-400">
+                    <i class="fa-solid fa-circle-check"></i> ปลอดภัยไร้โกง
+                </span>
+                <span class="hidden lg:inline text-slate-600">|</span>
+                <span class="hidden lg:flex items-center gap-1.5 text-sky-300">
+                    <i class="fa-solid fa-headset"></i> สอบถามได้ 24 ชม.
+                </span>
+            </div>
+
+            <!-- ช่องทางติดต่อด่วนบนสุด -->
+            <div class="flex items-center gap-2 ml-auto">
+                <a href="https://www.facebook.com/search/top?q=Surasak%20Besun" target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-1.5 bg-[#1877F2]/20 hover:bg-[#1877F2] text-blue-300 hover:text-white border border-[#1877F2]/50 px-2.5 py-1 rounded-full transition text-[11px] sm:text-xs font-medium">
+                    <i class="fa-brands fa-facebook"></i>
+                    <span>FB: Surasak Besun</span>
+                </a>
+                <a href="https://line.me/ti/p/~12ut_" target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-1.5 bg-[#06C755]/20 hover:bg-[#06C755] text-emerald-300 hover:text-white border border-[#06C755]/50 px-2.5 py-1 rounded-full transition text-[11px] sm:text-xs font-medium">
+                    <i class="fa-brands fa-line"></i>
+                    <span>LINE: 12ut_</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Sticky Header -->
+    <header class="sticky top-0 z-40 bg-navy-900/90 backdrop-blur-md border-b border-cyan-500/20 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
+            <!-- Brand Logo -->
+            <a href="#" onclick="resetAllFilters(); return false;" class="flex items-center gap-3 group">
+                <div class="relative w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-500 via-blue-600 to-navy-900 p-0.5 shadow-cyan-glow group-hover:scale-105 transition">
+                    <div class="w-full h-full bg-navy-950 rounded-[10px] flex items-center justify-center relative">
+                        <i class="fa-solid fa-crown text-gold-400 text-lg absolute -top-2 -left-1.5 -rotate-12 drop-shadow"></i>
+                        <span class="font-gaming font-extrabold text-xl bg-gradient-to-r from-white via-cyan-300 to-gold-400 bg-clip-text text-transparent">BR</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex items-center gap-1.5">
+                        <h1 class="font-gaming font-extrabold text-xl sm:text-2xl tracking-wider italic bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent">
+                            BEATSROOTS SHOP
+                        </h1>
+                    </div>
+                    <p class="text-[11px] sm:text-xs text-gold-400 font-medium tracking-wide">
+                        Gaming ID Store • มีไอดีให้เลือกกว่า 300+ ไอดี
+                    </p>
+                </div>
+            </a>
+
+            <!-- Right Actions: Middleman Mode Indicator & Cart Button -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- ปุ่มเลือกโหมดการซื้อ (โอนตรง / กลางแอดมินกลุ่ม) -->
+                <button onclick="openContactModal()" 
+                        class="hidden md:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-navy-800/90 hover:bg-navy-800 border border-gold-500/40 text-xs font-medium text-gold-300 transition shadow-gold-glow">
+                    <i class="fa-solid fa-handshake-angle text-gold-400 text-sm"></i>
+                    <div class="text-left leading-tight">
+                        <div class="text-[10px] text-slate-400">รูปแบบการซื้อขาย</div>
+                        <div id="header-trade-mode-label" class="font-semibold text-gold-400">ผ่านกลางแอดมินกลุ่มได้</div>
+                    </div>
+                </button>
+
+                <!-- ปุ่มตะกร้าสินค้า -->
+                <button onclick="toggleCartDrawer(true)" 
+                        class="relative flex items-center gap-2 px-3.5 sm:px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-navy-950 font-bold text-sm shadow-cyan-glow transition active:scale-95">
+                    <i class="fa-solid fa-cart-shopping text-base"></i>
+                    <span class="hidden sm:inline">ตะกร้าไอดี</span>
+                    <span id="cart-badge" class="min-w-[22px] h-[22px] px-1.5 rounded-full bg-gold-400 text-navy-950 font-extrabold text-xs flex items-center justify-center shadow">
+                        0
+                    </span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- =====================================================================
+         2. HERO BANNER & DIRECT CONTACT / MIDDLEMAN SELECTOR
+         ===================================================================== -->
+    <section class="relative overflow-hidden border-b border-cyan-500/15 bg-gradient-to-b from-navy-900/70 to-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+            <div class="rounded-2xl bg-gradient-to-r from-navy-900 via-navy-850 to-navy-900 border border-cyan-400/30 p-5 sm:p-7 shadow-2xl relative overflow-hidden">
+                <!-- แสงตกแต่งพื้นหลัง -->
+                <div class="absolute -right-16 -top-16 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -left-16 -bottom-16 w-64 h-64 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center relative z-10">
+                    <!-- ฝั่งซ้าย: ข้อความต้อนรับและจุดเด่น -->
+                    <div class="lg:col-span-7 space-y-3">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/15 border border-gold-400/40 text-gold-300 text-xs font-semibold">
+                            <i class="fa-solid fa-fire text-gold-400"></i>
+                            <span>สายชอบเสพเนื้อเรื่องเอง สำรวจเอง ห้ามพลาด !!</span>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-snug">
+                            แหล่งรวมไอดีเกม <span class="text-cyan-400 text-glow-cyan">Wuthering Waves</span> & เกมดัง
+                            <span class="block text-gold-400 text-glow-gold text-xl sm:text-2xl mt-1">อีเมลเปล่า ปลอดภัย 100% พร้อมส่งใน 5 นาที</span>
+                        </h2>
+                        <p class="text-slate-300 text-sm sm:text-base max-w-2xl">
+                            เลือกชมไอดีตัวละครลิมิเต็ดพร้อมอาวุธประจำตัว (S0R1) กดดูรูปภาพเพิ่มเติมได้ทุกไอดี 
+                            รองรับทั้ง <strong class="text-white">โอนตรงเครดิตแน่น</strong> และ <strong class="text-gold-400">ผ่านกลางแอดมินกลุ่ม</strong>
+                        </p>
+
+                        <!-- ปุ่มติดต่อผู้ขายโดยตรง (Facebook & LINE) + ปุ่มเลือกกลางแอดมิน -->
+                        <div class="pt-2 flex flex-wrap items-center gap-2.5">
+                            <a href="https://www.facebook.com/search/top?q=Surasak%20Besun" target="_blank" rel="noopener"
+                               class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#1877F2] hover:bg-[#166FE5] text-white font-semibold text-sm shadow-lg transition active:scale-95">
+                                <i class="fa-brands fa-facebook text-lg"></i>
+                                <span>ทักแชท FB: Surasak Besun</span>
+                            </a>
+                            <a href="https://line.me/ti/p/~12ut_" target="_blank" rel="noopener"
+                               class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#06C755] hover:bg-[#05B34C] text-white font-semibold text-sm shadow-lg transition active:scale-95">
+                                <i class="fa-brands fa-line text-lg"></i>
+                                <span>แอด LINE: 12ut_</span>
+                            </a>
+                            <button onclick="openContactModal()"
+                                    class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-navy-800 hover:bg-navy-700 text-gold-300 border border-gold-400/50 font-semibold text-sm transition active:scale-95">
+                                <i class="fa-solid fa-user-shield text-gold-400"></i>
+                                <span>เลือกกลางแอดมินกลุ่ม / โอนตรง</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- ฝั่งขวา: การ์ดสถานะ & ตัวเลือกการซื้อขายด่วน (คล้ายกล่องขวาบนของแบนเนอร์) -->
+                    <div class="lg:col-span-5">
+                        <div class="rounded-xl bg-navy-950/90 border border-cyan-400/35 p-4 sm:p-5 space-y-3 shadow-inner">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+                                <span class="text-sm font-bold text-cyan-300 flex items-center gap-2">
+                                    <i class="fa-solid fa-thumbtack text-rose-400"></i> ข้อมูลมาตรฐานไอดีร้านเรา
+                                </span>
+                                <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">พร้อมส่งทันที</span>
+                            </div>
+                            <ul class="space-y-2 text-xs sm:text-sm text-slate-200">
+                                <li class="flex items-center justify-between">
+                                    <span class="text-slate-400"><i class="fa-solid fa-globe text-cyan-400 w-5"></i> Server:</span>
+                                    <span class="font-semibold text-white">SEA / Global (ตามระบุในไอดี)</span>
+                                </li>
+                                <li class="flex items-center justify-between">
+                                    <span class="text-slate-400"><i class="fa-solid fa-shield text-cyan-400 w-5"></i> ความปลอดภัย:</span>
+                                    <span class="font-semibold text-emerald-400">อีเมลเปล่า ปลอดภัย 100%</span>
+                                </li>
+                                <li class="flex items-center justify-between">
+                                    <span class="text-slate-400"><i class="fa-solid fa-handshake text-gold-400 w-5"></i> การชำระเงิน:</span>
+                                    <span class="font-semibold text-gold-400">ผ่านกลางแอดมินกลุ่มได้ / โอนตรง</span>
+                                </li>
+                            </ul>
+
+                            <!-- สวิตช์เลือกความต้องการของผู้ซื้อทันที -->
+                            <div class="pt-2 border-t border-slate-800">
+                                <label class="block text-xs text-slate-400 mb-1.5">เลือกรูปแบบที่คุณต้องการติดต่อ/สั่งซื้อ:</label>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <button type="button" onclick="setTradePreference('direct')" id="hero-btn-direct"
+                                            class="py-2 px-2.5 rounded-lg border text-xs font-semibold flex items-center justify-center gap-1.5 transition bg-cyan-500/20 border-cyan-400 text-cyan-200">
+                                        <i class="fa-solid fa-bolt text-cyan-400"></i> โอนตรงเครดิตแน่น
+                                    </button>
+                                    <button type="button" onclick="setTradePreference('middleman')" id="hero-btn-middleman"
+                                            class="py-2 px-2.5 rounded-lg border text-xs font-semibold flex items-center justify-center gap-1.5 transition bg-navy-900 border-slate-700 text-slate-300 hover:border-gold-400/50">
+                                        <i class="fa-solid fa-user-shield text-gold-400"></i> ผ่านกลางแอดมินกลุ่ม
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         3. MAIN CONTENT: GAME SELECTOR, SEARCH/FILTER & ID GRID
+         ===================================================================== -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
+
+        <!-- 3.1 แถบเลือกเกม (Game Category Icons) -->
+        <div>
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-gamepad text-cyan-400"></i> เลือกเกมที่ต้องการค้นหาไอดี
+                </h3>
+                <span id="total-count-label" class="text-xs sm:text-sm text-cyan-300 font-medium">กำลังแสดง 0 ไอดี</span>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3" id="game-selector-grid">
+                <!-- ทั้งหมด -->
+                <button onclick="selectGame('all')" data-game="all"
+                        class="game-tab active group flex items-center gap-3 p-3 rounded-xl border border-gold-400 bg-gradient-to-r from-navy-800 to-navy-900 shadow-gold-glow text-left transition">
+                    <div class="w-10 h-10 rounded-lg bg-gold-500/20 border border-gold-400/50 flex items-center justify-center text-gold-400 shrink-0 group-hover:scale-105 transition">
+                        <i class="fa-solid fa-layer-group text-lg"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <div class="text-xs sm:text-sm font-bold text-white truncate">ทุกเกมทั้งหมด</div>
+                        <div class="text-[11px] text-gold-400">All Games</div>
+                    </div>
+                </button>
+
+                <!-- Wuthering Waves -->
+                <button onclick="selectGame('wuthering')" data-game="wuthering"
+                        class="game-tab group flex items-center gap-3 p-3 rounded-xl border border-slate-700/80 bg-navy-900/80 hover:border-cyan-400/60 text-left transition">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-500/15 border border-cyan-400/40 flex items-center justify-center text-cyan-300 shrink-0 group-hover:scale-105 transition">
+                        <!-- Custom Wave/Star SVG -->
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M2 12c2.5-3 5.5-3 8 0s5.5 3 8 0 4-2 4-2" stroke-linecap="round"/>
+                            <path d="M2 17c2.5-3 5.5-3 8 0s5.5 3 8 0 4-2 4-2" stroke-linecap="round" opacity="0.6"/>
+                            <circle cx="12" cy="6" r="2" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="min-w-0">
+                        <div class="text-xs sm:text-sm font-bold text-white truncate">Wuthering Waves</div>
+                        <div class="text-[11px] text-cyan-400">WuWa SEA / Global</div>
+                    </div>
+                </button>
+
+                <!-- Mongil: Star Dive -->
+                <button onclick="selectGame('mongil')" data-game="mongil"
+                        class="game-tab group flex items-center gap-3 p-3 rounded-xl border border-slate-700/80 bg-navy-900/80 hover:border-cyan-400/60 text-left transition">
+                    <div class="w-10 h-10 rounded-lg bg-amber-500/15 border border-amber-400/40 flex items-center justify-center text-amber-300 shrink-0 group-hover:scale-105 transition">
+                        <i class="fa-solid fa-star-and-crescent text-lg"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <div class="text-xs sm:text-sm font-bold text-white truncate">Mongil: Star Dive</div>
+                        <div class="text-[11px] text-amber-300">Action RPG</div>
+                    </div>
+                </button>
+
+                <!-- Duet Night Abyss -->
+                <button onclick="selectGame('dna')" data-game="dna"
+                        class="game-tab group flex items-center gap-3 p-3 rounded-xl border border-slate-700/80 bg-navy-900/80 hover:border-cyan-400/60 text-left transition">
+                    <div class="w-10 h-10 rounded-lg bg-rose-500/15 border border-rose-400/40 flex items-center justify-center text-rose-400 shrink-0 group-hover:scale-105 transition">
+                        <i class="fa-solid fa-khanda text-lg"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <div class="text-xs sm:text-sm font-bold text-white truncate">Duet Night Abyss</div>
+                        <div class="text-[11px] text-rose-300">Dual Night Abyss</div>
+                    </div>
+                </button>
+
+                <!-- NTE (Neverness to Everness) -->
+                <button onclick="selectGame('nte')" data-game="nte"
+                        class="game-tab group flex items-center gap-3 p-3 rounded-xl border border-slate-700/80 bg-navy-900/80 hover:border-cyan-400/60 text-left transition">
+                    <div class="w-10 h-10 rounded-lg bg-indigo-500/15 border border-indigo-400/40 flex items-center justify-center text-indigo-300 shrink-0 group-hover:scale-105 transition">
+                        <i class="fa-solid fa-car-burst text-lg"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <div class="text-xs sm:text-sm font-bold text-white truncate">NTE</div>
+                        <div class="text-[11px] text-indigo-300">Neverness to Everness</div>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- 3.2 ระบบคัดกรองการค้นหา (ค้นหาชื่อ / เลือกตัวละครเฉพาะ / เรียงราคา) -->
+        <div class="rounded-2xl bg-navy-900/90 border border-cyan-500/25 p-4 space-y-3.5 shadow-lg">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-3">
+                <!-- ช่องพิมพ์ค้นหา -->
+                <div class="md:col-span-5 relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-cyan-400"></i>
+                    <input type="text" id="search-input" oninput="applyFilters()"
+                           placeholder="ค้นหาชื่อตัวละคร, รหัสไอดี (เช่น Hiyuki, Zani, WW-001)..."
+                           class="w-full pl-10 pr-9 py-2.5 rounded-xl bg-navy-950 border border-slate-700 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 text-sm text-white placeholder-slate-400 outline-none transition">
+                    <button id="clear-search-btn" onclick="clearSearchInput()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Dropdown ค้นหาแยกเฉพาะตัวละคร -->
+                <div class="md:col-span-4 relative">
+                    <i class="fa-solid fa-user-astronaut absolute left-3.5 top-1/2 -translate-y-1/2 text-gold-400"></i>
+                    <select id="character-select" onchange="applyFilters()"
+                            class="w-full pl-10 pr-8 py-2.5 rounded-xl bg-navy-950 border border-slate-700 focus:border-gold-400 text-sm text-white outline-none appearance-none cursor-pointer transition">
+                        <option value="all">ตัวละครทั้งหมด (เลือกเฉพาะตัวละคร)</option>
+                        <!-- ตัวเลือกตัวละครจะถูกเติมอัตโนมัติด้วย JS -->
+                    </select>
+                    <i class="fa-solid fa-chevron-down absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs pointer-events-none"></i>
+                </div>
+
+                <!-- Dropdown เรียงตามราคา -->
+                <div class="md:col-span-3 relative">
+                    <i class="fa-solid fa-arrow-down-wide-short absolute left-3.5 top-1/2 -translate-y-1/2 text-cyan-400"></i>
+                    <select id="sort-select" onchange="applyFilters()"
+                            class="w-full pl-10 pr-8 py-2.5 rounded-xl bg-navy-950 border border-slate-700 focus:border-cyan-400 text-sm text-white outline-none appearance-none cursor-pointer transition">
+                        <option value="default">เรียงลำดับ: แนะนำ / ล่าสุด</option>
+                        <option value="price-asc">ราคา: ต่ำไปสูง (ถูกสุดก่อน)</option>
+                        <option value="price-desc">ราคา: สูงไปต่ำ (แพงสุดก่อน)</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs pointer-events-none"></i>
+                </div>
+            </div>
+
+            <!-- ปุ่มกดเลือกตัวละครยอดฮิตแบบด่วน (Quick Character Chips) -->
+            <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pt-1">
+                <span class="text-xs text-slate-400 shrink-0"><i class="fa-solid fa-tags text-gold-400 mr-1"></i>ตัวละครฮิต:</span>
+                <div id="quick-char-chips" class="flex items-center gap-1.5">
+                    <!-- เติมปุ่มตัวละครจาก JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 3.3 หน้าแสดงรายการไอดีทั้งหมด (Account Grid) -->
+        <div id="accounts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <!-- การ์ดไอดีจะถูก Render ที่นี่ -->
+        </div>
+
+        <!-- กรณีไม่พบไอดีที่ค้นหา -->
+        <div id="empty-state" class="hidden rounded-2xl bg-navy-900/70 border border-slate-800 p-12 text-center space-y-3">
+            <div class="w-16 h-16 mx-auto rounded-full bg-slate-800/80 flex items-center justify-center text-slate-400 text-2xl">
+                <i class="fa-solid fa-box-open"></i>
+            </div>
+            <h4 class="text-lg font-bold text-white">ไม่พบไอดีที่ตรงกับเงื่อนไขการค้นหา</h4>
+            <p class="text-sm text-slate-400">ลองเปลี่ยนคำค้นหา เลือกตัวละครอื่น หรือทักแชทสอบถามแอดมินได้เลย (มีไอดีในสต็อกอีกกว่า 300+ ไอดี)</p>
+            <div class="pt-2 flex flex-wrap justify-center gap-3">
+                <button onclick="resetAllFilters()" class="px-4 py-2 rounded-xl bg-cyan-500 text-navy-950 font-bold text-sm hover:bg-cyan-400 transition">
+                    ล้างตัวกรองทั้งหมด
+                </button>
+                <a href="https://www.facebook.com/search/top?q=Surasak%20Besun" target="_blank" rel="noopener"
+                   class="px-4 py-2 rounded-xl bg-[#1877F2] text-white font-semibold text-sm hover:bg-[#166FE5] transition">
+                    สอบถามหาไอดีที่ต้องการทางแชท
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- =====================================================================
+         4. DEDICATED FOOTER & FLOATING CONTACT WIDGET
+         ===================================================================== -->
+    <footer class="mt-12 border-t border-cyan-500/20 bg-navy-950/95">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-crown text-gold-400 text-xl"></i>
+                        <span class="font-gaming font-extrabold text-2xl italic text-white">BEATSROOTS SHOP</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-1.5">
+                        ร้านจำหน่ายไอดีเกม Wuthering Waves, Mongil: Star Dive, Duet Night Abyss และ NTE 
+                        เมลเปล่าพร้อมเปลี่ยน ปลอดภัยไร้โกง 100%
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row md:justify-center gap-2.5">
+                    <a href="https://www.facebook.com/search/top?q=Surasak%20Besun" target="_blank" rel="noopener"
+                       class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#1877F2]/20 hover:bg-[#1877F2] text-blue-300 hover:text-white border border-[#1877F2]/50 text-sm font-semibold transition">
+                        <i class="fa-brands fa-facebook text-lg"></i>
+                        <span>FB: Surasak Besun</span>
+                    </a>
+                    <a href="https://line.me/ti/p/~12ut_" target="_blank" rel="noopener"
+                       class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#06C755]/20 hover:bg-[#06C755] text-emerald-300 hover:text-white border border-[#06C755]/50 text-sm font-semibold transition">
+                        <i class="fa-brands fa-line text-lg"></i>
+                        <span>LINE: 12ut_</span>
+                    </a>
+                </div>
+
+                <div class="md:text-right text-xs text-slate-400 space-y-1">
+                    <div class="text-gold-400 font-semibold"><i class="fa-solid fa-shield-check mr-1"></i>ผ่านกลางแอดมินกลุ่มได้ / โอนตรงเครดิตแน่น</div>
+                    <div>เติมง่าย ปลอดภัย ต้อง BeatsRoots Shop!</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ปุ่มติดต่อลอยมุมขวาล่าง (สำหรับมือถือและเดสก์ท็อป) -->
+    <div class="fixed bottom-4 right-4 z-30 flex flex-col gap-2">
+        <button onclick="openContactModal()" title="ติดต่อผู้ขาย / เลือกกลางแอดมินกลุ่ม"
+                class="flex items-center gap-2 px-4 py-3 rounded-full bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-400 hover:to-amber-500 text-navy-950 font-extrabold text-xs sm:text-sm shadow-xl border border-white/20 transition transform hover:scale-105">
+            <i class="fa-solid fa-comments text-base"></i>
+            <span>ติดต่อผู้ขาย / กลางแอดมิน</span>
+        </button>
+    </div>
+
+    <!-- =====================================================================
+         5. MODAL: ดูรายละเอียดเพิ่มเติมของไอดี + ลิงก์ฝากรูปภาพภายนอก
+         ===================================================================== -->
+    <div id="detail-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-5 bg-black/80 backdrop-blur-sm">
+        <div class="bg-navy-900 border border-cyan-400/40 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative animate-fadeIn">
+            <!-- Modal Header -->
+            <div class="sticky top-0 z-10 bg-navy-950/95 backdrop-blur px-5 py-4 border-b border-slate-800 flex items-center justify-between gap-3">
+                <div class="flex items-center gap-2.5 min-w-0">
+                    <span id="modal-id-badge" class="px-2.5 py-1 rounded-lg bg-cyan-500/20 border border-cyan-400/50 text-cyan-300 font-gaming font-bold text-sm shrink-0">WW-001</span>
+                    <h3 id="modal-title" class="text-base sm:text-lg font-bold text-white truncate">ชื่อไอดี</h3>
+                </div>
+                <button onclick="closeDetailModal()" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-rose-500/20 hover:text-rose-400 text-slate-300 flex items-center justify-center transition shrink-0">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-5 space-y-5">
+                <!-- แถบข้อมูลพื้นฐาน -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                    <div class="p-3 rounded-xl bg-navy-950 border border-slate-800">
+                        <div class="text-[11px] text-slate-400">เกม</div>
+                        <div id="modal-game" class="text-xs sm:text-sm font-bold text-cyan-300 mt-0.5">Wuthering Waves</div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-navy-950 border border-slate-800">
+                        <div class="text-[11px] text-slate-400">เซิร์ฟเวอร์</div>
+                        <div id="modal-server" class="text-xs sm:text-sm font-bold text-white mt-0.5">SEA</div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-navy-950 border border-slate-800">
+                        <div class="text-[11px] text-slate-400">ระดับไอดี</div>
+                        <div id="modal-level" class="text-xs sm:text-sm font-bold text-gold-400 mt-0.5">Union Lv. 8-10</div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-navy-950 border border-slate-800">
+                        <div class="text-[11px] text-slate-400">สถานะอีเมล</div>
+                        <div class="text-xs sm:text-sm font-bold text-emerald-400 mt-0.5">เมลเปล่า 100%</div>
+                    </div>
+                </div>
+
+                <!-- รายชื่อตัวละครในไอดี -->
+                <div>
+                    <h4 class="text-sm font-bold text-gold-400 mb-2.5 flex items-center gap-2">
+                        <i class="fa-solid fa-users"></i> ตัวละครและอาวุธที่มีในไอดี
+                    </h4>
+                    <div id="modal-characters" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        <!-- เติมตัวละครจาก JS -->
+                    </div>
+                </div>
+
+                <!-- รายละเอียดเพิ่มเติม -->
+                <div class="p-4 rounded-xl bg-navy-950/80 border border-slate-800 space-y-2">
+                    <h4 class="text-sm font-bold text-white">รายละเอียดไอดี:</h4>
+                    <p id="modal-desc" class="text-sm text-slate-300 leading-relaxed"></p>
+                </div>
+
+                <!-- ปุ่มลิงก์ดูรูปภาพเพิ่มเติมทั้งหมด (ลิงก์ฝากรูปภายนอกที่ผู้ขายเตรียมไว้) -->
+                <div class="p-4 rounded-xl bg-gradient-to-r from-blue-950/80 to-cyan-950/60 border border-cyan-400/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                    <div>
+                        <div class="text-sm font-bold text-cyan-300 flex items-center gap-2">
+                            <i class="fa-solid fa-images"></i> อัลบั้มรูปภาพเพิ่มเติมทั้งหมดของไอดีนี้
+                        </div>
+                        <p class="text-xs text-slate-300 mt-0.5">กดเปิดลิงก์เพื่อดูรูปกระเป๋า อาวุธ เอคโค่ และทรัพยากรทั้งหมดแบบชัดๆ</p>
+                    </div>
+                    <a id="modal-album-link" href="#" target="_blank" rel="noopener"
+                       class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold text-sm shadow-cyan-glow transition shrink-0">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>เปิดดูอัลบั้มรูปฝาก</span>
+                    </a>
+                </div>
+
+                <!-- รูปตัวอย่างในหน้าต่าง -->
+                <div id="modal-gallery" class="space-y-3">
+                    <!-- รูปภาพตัวอย่างจาก JS -->
+                </div>
+            </div>
+
+            <!-- Modal Footer Actions -->
+            <div class="sticky bottom-0 bg-navy-950/95 backdrop-blur px-5 py-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div>
+                    <span class="text-xs text-slate-400 block">ราคาไอดีนี้</span>
+                    <span id="modal-price" class="text-2xl font-extrabold text-gold-400">฿590</span>
+                </div>
+                <div class="w-full sm:w-auto flex flex-wrap items-center gap-2">
+                    <button id="modal-chat-btn"
+                            class="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl bg-navy-800 hover:bg-navy-700 border border-cyan-400/40 text-cyan-300 font-semibold text-sm flex items-center justify-center gap-2 transition">
+                        <i class="fa-brands fa-facebook-messenger"></i>
+                        <span>ทักแชทซื้อไอดีนี้</span>
+                    </button>
+                    <button id="modal-add-cart-btn"
+                            class="flex-1 sm:flex-initial px-5 py-2.5 rounded-xl bg-gradient-to-r from-gold-500 to-amber-500 hover:from-gold-400 hover:to-amber-400 text-navy-950 font-extrabold text-sm flex items-center justify-center gap-2 shadow-gold-glow transition">
+                        <i class="fa-solid fa-cart-plus"></i>
+                        <span>ใส่ตะกร้าสินค้า</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         6. SLIDE-OVER SHOPPING CART DRAWER (ตะกร้าสินค้า)
+         ===================================================================== -->
+    <div id="cart-drawer-backdrop" onclick="toggleCartDrawer(false)" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-xs"></div>
+    <aside id="cart-drawer" class="fixed top-0 right-0 z-50 h-full w-full max-w-md bg-navy-900 border-l border-cyan-500/30 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+        <!-- Cart Header -->
+        <div class="px-5 py-4 bg-navy-950 border-b border-slate-800 flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+                <i class="fa-solid fa-cart-shopping text-cyan-400 text-lg"></i>
+                <h3 class="text-lg font-bold text-white">ตะกร้าไอดีของคุณ</h3>
+            </div>
+            <button onclick="toggleCartDrawer(false)" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Cart Items List -->
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-4 space-y-3">
+            <!-- รายการในตะกร้า -->
+        </div>
+
+        <!-- Cart Footer & Checkout Options -->
+        <div id="cart-footer" class="p-4 bg-navy-950 border-t border-slate-800 space-y-4">
+            <!-- เลือกรูปแบบการสั่งซื้อ (โอนตรง vs ผ่านกลางแอดมินกลุ่ม) -->
+            <div class="space-y-2">
+                <label class="text-xs font-bold text-slate-300 flex items-center gap-1.5">
+                    <i class="fa-solid fa-shield-halved text-gold-400"></i> เลือกช่องทางการชำระเงิน / ความปลอดภัย:
+                </label>
+                <div class="grid grid-cols-1 gap-2">
+                    <label onclick="setTradePreference('direct')" id="cart-opt-direct"
+                           class="cursor-pointer p-2.5 rounded-xl border border-cyan-400 bg-cyan-500/15 flex items-center gap-3 transition">
+                        <input type="radio" name="cartTradeMode" value="direct" checked class="accent-cyan-400">
+                        <div class="text-xs">
+                            <div class="font-bold text-white">โอนตรงกับผู้ขาย (เครดิตแน่น ส่งไวใน 5 นาที)</div>
+                            <div class="text-slate-400">โอนเข้าบัญชีร้านโดยตรง รับเมลและรหัสทันที</div>
+                        </div>
+                    </label>
+                    <label onclick="setTradePreference('middleman')" id="cart-opt-middleman"
+                           class="cursor-pointer p-2.5 rounded-xl border border-slate-700 bg-navy-900 flex items-center gap-3 transition">
+                        <input type="radio" name="cartTradeMode" value="middleman" class="accent-gold-400">
+                        <div class="text-xs">
+                            <div class="font-bold text-gold-400">ผ่านกลางแอดมินกลุ่ม (ปลอดภัย 100%)</div>
+                            <div class="text-slate-400">ดึงกลุ่มกลางแอดมินที่เชื่อถือได้เพื่อตรวจสอบไอดีก่อนโอน</div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- ยอดรวม -->
+            <div class="flex items-center justify-between pt-2 border-t border-slate-800">
+                <span class="text-sm text-slate-300">ยอดชำระทั้งหมด (<span id="cart-total-items">0</span> ไอดี):</span>
+                <span id="cart-total-price" class="text-2xl font-extrabold text-gold-400">฿0</span>
+            </div>
+
+            <!-- ปุ่มกดสั่งซื้อไปยังช่องทางชำระเงินของผู้ขายโดยตรง -->
+            <button onclick="openCheckoutModal()" id="checkout-btn"
+                    class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 disabled:opacity-40 disabled:cursor-not-allowed text-navy-950 font-extrabold text-sm sm:text-base shadow-cyan-glow flex items-center justify-center gap-2 transition">
+                <i class="fa-solid fa-credit-card"></i>
+                <span>ดำเนินการสั่งซื้อ / ชำระเงินกับผู้ขาย</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- =====================================================================
+         7. CHECKOUT & DIRECT PAYMENT MODAL (หน้าชำระเงินและส่งออเดอร์ให้ผู้ขาย)
+         ===================================================================== -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-5 bg-black/85 backdrop-blur-sm">
+        <div class="bg-navy-900 border border-gold-400/50 rounded-2xl max-w-xl w-full max-h-[92vh] overflow-y-auto shadow-2xl">
+            <div class="px-5 py-4 bg-navy-950 border-b border-slate-800 flex items-center justify-between">
+                <h3 class="text-lg font-bold text-gold-400 flex items-center gap-2">
+                    <i class="fa-solid fa-receipt"></i> สรุปคำสั่งซื้อ & ช่องทางชำระเงิน
+                </h3>
+                <button onclick="closeCheckoutModal()" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="p-5 space-y-4">
+                <!-- แสดงโหมดที่เลือก -->
+                <div id="checkout-mode-banner" class="p-3 rounded-xl bg-cyan-500/15 border border-cyan-400/40 text-xs sm:text-sm text-cyan-200 flex items-center gap-2.5">
+                    <i class="fa-solid fa-bolt text-cyan-400 text-base"></i>
+                    <span>คุณเลือกรูปแบบ: <strong>โอนตรงกับผู้ขาย (เครดิตแน่น)</strong></span>
+                </div>
+
+                <!-- กล่องข้อความสรุปรายการสั่งซื้อ พร้อมปุ่มคัดลอก -->
+                <div class="space-y-1.5">
+                    <div class="flex items-center justify-between">
+                        <label class="text-xs font-semibold text-slate-300">รายละเอียดออเดอร์ (กดคัดลอกเพื่อส่งในแชทได้เลย):</label>
+                        <button onclick="copyOrderSummary()" class="text-xs px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-cyan-500 hover:text-navy-950 text-cyan-300 font-semibold transition flex items-center gap-1">
+                            <i class="fa-regular fa-copy"></i> <span id="copy-btn-text">คัดลอกข้อความ</span>
+                        </button>
+                    </div>
+                    <textarea id="order-summary-text" rows="5" readonly
+                              class="w-full p-3 rounded-xl bg-navy-950 border border-slate-700 text-xs sm:text-sm text-slate-200 font-mono focus:outline-none"></textarea>
+                </div>
+
+                <!-- ข้อมูลบัญชีรับโอน / QR Code (แสดงชัดเจนเมื่อเลือกโอนตรง หรือดูไว้เป็นข้อมูล) -->
+                <div id="direct-payment-box" class="p-4 rounded-xl bg-navy-950 border border-gold-400/30 grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
+                    <div class="sm:col-span-5 flex justify-center">
+                        <img src="https://placehold.co/220x220/071024/22D3EE?text=QR+PromptPay%0ABEATSROOTS+SHOP" alt="QR PromptPay"
+                             class="w-36 h-36 rounded-xl border border-cyan-400/40 object-cover">
+                    </div>
+                    <div class="sm:col-span-7 space-y-1.5 text-xs sm:text-sm">
+                        <div class="text-gold-400 font-bold text-base">ช่องทางโอนเงินโดยตรง</div>
+                        <div class="text-slate-300">ธนาคาร: <span class="text-white font-semibold">กสิกรไทย / พร้อมเพย์</span></div>
+                        <div class="text-slate-300">ชื่อบัญชี: <span class="text-white font-semibold">BEATSROOTS SHOP</span></div>
+                        <div class="text-slate-300">ยอดโอน: <span id="checkout-amount-display" class="text-gold-400 font-extrabold text-lg">฿0</span></div>
+                        <p class="text-[11px] text-slate-400 pt-1">* หลังโอนเงินหรือต้องการดึงกลางแอดมินกลุ่ม กดปุ่มติดต่อผู้ขายด้านล่างเพื่อส่งสลิป/แจ้งรหัสไอดีได้เลยครับ</p>
+                    </div>
+                </div>
+
+                <!-- ปุ่มส่งออเดอร์ไปที่ Facebook หรือ LINE ของผู้ขายโดยตรง -->
+                <div class="space-y-2 pt-1">
+                    <div class="text-xs font-bold text-center text-slate-300">เลือกช่องทางส่งรายการสั่งซื้อ / แจ้งสลิปให้ผู้ขายโดยตรง:</div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                        <a href="https://www.facebook.com/search/top?q=Surasak%20Besun" target="_blank" rel="noopener" onclick="copyOrderSummary()"
+                           class="py-3 px-4 rounded-xl bg-[#1877F2] hover:bg-[#166FE5] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg transition">
+                            <i class="fa-brands fa-facebook text-lg"></i>
+                            <span>ส่งทาง FB: Surasak Besun</span>
+                        </a>
+                        <a href="https://line.me/ti/p/~12ut_" target="_blank" rel="noopener" onclick="copyOrderSummary()"
+                           class="py-3 px-4 rounded-xl bg-[#06C755] hover:bg-[#05B34C] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg transition">
+                            <i class="fa-brands fa-line text-lg"></i>
+                            <span>ส่งทาง LINE: 12ut_</span>
+                        </a>
+                    </div>
+                    <p class="text-[11px] text-center text-cyan-300">
+                        <i class="fa-solid fa-circle-info mr-1"></i>ระบบจะคัดลอกข้อความสั่งซื้อให้อัตโนมัติเมื่อกดปุ่มแชท สามารถกดวาง (Paste) ส่งให้แอดมินได้ทันที
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         8. CONTACT & MIDDLEMAN INFO MODAL (หน้าต่างเลือกกลางแอดมิน / ติดต่อผู้ขาย)
+         ===================================================================== -->
+    <div id="contact-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-5 bg-black/80 backdrop-blur-sm">
+        <div class="bg-navy-900 border border-cyan-400/40 rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl">
+            <div class="px-5 py-4 bg-navy-950 border-b border-slate-800 flex items-center justify-between">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-headset text-cyan-400"></i> ติดต่อผู้ขาย & เลือกบริการกลางแอดมิน
+                </h3>
+                <button onclick="closeContactModal()" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="p-5 space-y-4">
+                <p class="text-sm text-slate-300">
+                    ลูกค้าสามารถเลือกซื้อขายได้ 2 รูปแบบตามความสบายใจ ทักแชทสอบถามสต็อกเพิ่มเติม (มีกว่า 300+ ไอดี) ได้ตลอด 24 ชม.
+                </p>
+
+                <!-- ตัวเลือก 1: โอนตรง -->
+                <div onclick="setTradePreference('direct')" id="modal-card-direct"
+                     class="cursor-pointer p-4 rounded-xl border border-cyan-400 bg-cyan-500/10 space-y-1 transition">
+                    <div class="flex items-center justify-between">
+                        <span class="font-bold text-cyan-300 flex items-center gap-2">
+                            <i class="fa-solid fa-bolt"></i> 1. โอนตรงกับผู้ขาย (เครดิตแน่น)
+                        </span>
+                        <span class="text-xs px-2 py-0.5 rounded bg-cyan-500 text-navy-950 font-bold">ส่งไวใน 5 นาที</span>
+                    </div>
+                    <p class="text-xs text-slate-300">โอนเงินเข้าบัญชีผู้ขายโดยตรง ไม่มีค่าธรรมเนียมกลาง รับเมลเปล่าและรหัสเข้าเกมทันที</p>
+                </div>
+
+                <!-- ตัวเลือก 2: ผ่านกลางแอดมินกลุ่ม -->
+                <div onclick="setTradePreference('middleman')" id="modal-card-middleman"
+                     class="cursor-pointer p-4 rounded-xl border border-slate-700 bg-navy-950 hover:border-gold-400/60 space-y-1 transition">
+                    <div class="flex items-center justify-between">
+                        <span class="font-bold text-gold-400 flex items-center gap-2">
+                            <i class="fa-solid fa-user-shield"></i> 2. ผ่านกลางแอดมินกลุ่ม
+                        </span>
+                        <span class="text-xs px-2 py-0.5 rounded bg-gold-500/20 text-gold-300 border border-gold-400/40 font-semibold">ปลอดภัย 100%</span>
+                    </div>
+                    <p class="text-xs text-slate-300">ซื้อขายผ่านแอดมินกลางของกลุ่มซื้อขายเกม (ผู้ซื้อออกค่ากลางตามเรทแอดมินกลุ่ม) สบายใจหายห่วง</p>
+                </div>
+
+                <!-- ปุ่มช่องทางติดต่อ -->
+                <div class="pt-2 space-y-2.5">
+                    <a href="https://www.facebook.com/search/top?q=Surasak%20Besun" target="_blank" rel="noopener"
+                       class="w-full py-3 px-4 rounded-xl bg-[#1877F2] hover:bg-[#166FE5] text-white font-bold text-sm flex items-center justify-center gap-2.5 shadow-lg transition">
+                        <i class="fa-brands fa-facebook text-xl"></i>
+                        <span>ติดต่อทาง Facebook: Surasak Besun</span>
+                    </a>
+                    <a href="https://line.me/ti/p/~12ut_" target="_blank" rel="noopener"
+                       class="w-full py-3 px-4 rounded-xl bg-[#06C755] hover:bg-[#05B34C] text-white font-bold text-sm flex items-center justify-center gap-2.5 shadow-lg transition">
+                        <i class="fa-brands fa-line text-xl"></i>
+                        <span>ติดต่อทาง LINE: 12ut_</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         TOAST NOTIFICATION (แจ้งเตือนมุมจอแบบนุ่มนวลแทน alert)
+         ===================================================================== -->
+    <div id="toast-container" class="fixed top-20 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- =====================================================================
+         JAVASCRIPT LOGIC: FILTERING, CART, MODALS & CHECKOUT
+         ===================================================================== -->
+    <script>
+        // State ของแอปพลิเคชัน
+        let selectedGame = 'all';
+        let cart = [];
+        let tradePreference = 'direct'; // 'direct' = โอนตรง, 'middleman' = ผ่านกลางแอดมินกลุ่ม
+
+        // เริ่มต้นทำงานเมื่อโหลดหน้าเว็บ
+        document.addEventListener('DOMContentLoaded', () => {
+            populateCharacterFilters();
+            applyFilters();
+            updateCartUI();
+        });
+
+        // 1. สร้างรายการตัวละครใน Dropdown และ Quick Chips อัตโนมัติจากข้อมูลไอดี
+        function populateCharacterFilters() {
+            const charSet = new Set();
+            PRODUCTS_DATA.forEach(item => {
+                item.characters.forEach(c => charSet.add(c.name));
+            });
+
+            const sortedChars = Array.from(charSet).sort();
+            const selectEl = document.getElementById('character-select');
+            const chipsEl = document.getElementById('quick-char-chips');
+
+            sortedChars.forEach(charName => {
+                // เติมใน Dropdown
+                const opt = document.createElement('option');
+                opt.value = charName;
+                opt.textContent = `ตัวละคร: ${charName}`;
+                selectEl.appendChild(opt);
+            });
+
+            // ตัวละครเด่นสำหรับปุ่มกดด่วน
+            const highlightChars = ['HIYUKI', 'CARTETHYIA', 'AEMEATH', 'ZANI', 'PHOEBE', 'AUGUSTA', 'PHROLOVA', 'QINGXIAO'];
+            highlightChars.forEach(name => {
+                if (charSet.has(name)) {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.textContent = name;
+                    btn.onclick = () => quickFilterCharacter(name);
+                    btn.className = 'char-chip px-2.5 py-1 rounded-lg bg-navy-950 hover:bg-cyan-500/20 border border-slate-700 hover:border-cyan-400 text-xs font-semibold text-slate-300 hover:text-cyan-300 transition shrink-0';
+                    btn.dataset.char = name;
+                    chipsEl.appendChild(btn);
+                }
+            });
+        }
+
+        // กดปุ่มตัวละครฮิต
+        function quickFilterCharacter(charName) {
+            const selectEl = document.getElementById('character-select');
+            if (selectEl.value === charName) {
+                selectEl.value = 'all';
+            } else {
+                selectEl.value = charName;
+            }
+            applyFilters();
+        }
+
+        // เลือกเกมจากแถบด้านบน
+        function selectGame(gameKey) {
+            selectedGame = gameKey;
+            
+            // อัปเดตสไตล์ปุ่มแท็บเกม
+            document.querySelectorAll('.game-tab').forEach(btn => {
+                if (btn.dataset.game === gameKey) {
+                    btn.classList.remove('border-slate-700/80', 'bg-navy-900/80');
+                    btn.classList.add('border-gold-400', 'bg-gradient-to-r', 'from-navy-800', 'to-navy-900', 'shadow-gold-glow');
+                } else {
+                    btn.classList.add('border-slate-700/80', 'bg-navy-900/80');
+                    btn.classList.remove('border-gold-400', 'bg-gradient-to-r', 'from-navy-800', 'to-navy-900', 'shadow-gold-glow');
+                }
+            });
+
+            applyFilters();
+        }
+
+        // กรองและเรียงลำดับรายการไอดีทั้งหมด
+        function applyFilters() {
+            const searchQuery = document.getElementById('search-input').value.trim().toLowerCase();
+            const selectedChar = document.getElementById('character-select').value;
+            const sortOrder = document.getElementById('sort-select').value;
+
+            // แสดง/ซ่อนปุ่มล้างคำค้นหา
+            const clearBtn = document.getElementById('clear-search-btn');
+            if (searchQuery.length > 0) {
+                clearBtn.classList.remove('hidden');
+            } else {
+                clearBtn.classList.add('hidden');
+            }
+
+            // ไฮไลต์ปุ่ม Quick Character Chip ที่เลือกอยู่
+            document.querySelectorAll('.char-chip').forEach(chip => {
+                if (chip.dataset.char === selectedChar) {
+                    chip.classList.add('bg-cyan-500/25', 'border-cyan-400', 'text-cyan-300');
+                    chip.classList.remove('bg-navy-950', 'border-slate-700', 'text-slate-300');
+                } else {
+                    chip.classList.remove('bg-cyan-500/25', 'border-cyan-400', 'text-cyan-300');
+                    chip.classList.add('bg-navy-950', 'border-slate-700', 'text-slate-300');
+                }
+            });
+
+            // 1) กรองข้อมูล
+            let filtered = PRODUCTS_DATA.filter(item => {
+                // กรองเกม
+                if (selectedGame !== 'all' && item.game !== selectedGame) return false;
+
+                // กรองเฉพาะตัวละคร
+                if (selectedChar !== 'all') {
+                    const hasChar = item.characters.some(c => c.name.toLowerCase() === selectedChar.toLowerCase());
+                    if (!hasChar) return false;
+                }
+
+                // กรองคำค้นหา (ชื่อไอดี, รหัสไอดี, ชื่อตัวละคร, ชื่อเกม)
+                if (searchQuery) {
+                    const inId = item.id.toLowerCase().includes(searchQuery);
+                    const inTitle = item.title.toLowerCase().includes(searchQuery);
+                    const inGame = item.gameLabel.toLowerCase().includes(searchQuery);
+                    const inChars = item.characters.some(c => c.name.toLowerCase().includes(searchQuery));
+                    if (!inId && !inTitle && !inGame && !inChars) return false;
+                }
+
+                return true;
+            });
+
+            // 2) เรียงลำดับราคา
+            if (sortOrder === 'price-asc') {
+                filtered.sort((a, b) => a.price - b.price);
+            } else if (sortOrder === 'price-desc') {
+                filtered.sort((a, b) => b.price - a.price);
+            }
+
+            renderAccounts(filtered);
+        }
+
+        function clearSearchInput() {
+            document.getElementById('search-input').value = '';
+            applyFilters();
+        }
+
+        function resetAllFilters() {
+            selectedGame = 'all';
+            document.getElementById('search-input').value = '';
+            document.getElementById('character-select').value = 'all';
+            document.getElementById('sort-select').value = 'default';
+            selectGame('all');
+        }
+
+        // แสดงผลการ์ดไอดีลงใน Grid
+        function renderAccounts(items) {
+            const grid = document.getElementById('accounts-grid');
+            const emptyState = document.getElementById('empty-state');
+            const countLabel = document.getElementById('total-count-label');
+
+            countLabel.textContent = `กำลังแสดง ${items.length} ไอดี`;
+            grid.innerHTML = '';
+
+            if (items.length === 0) {
+                grid.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            grid.classList.remove('hidden');
+            emptyState.classList.add('hidden');
+
+            items.forEach(item => {
+                const isInCart = cart.some(c => c.id === item.id);
+
+                // สร้างช่องแสดงตัวละคร (เหมือนในแบนเนอร์ที่มีกรอบทอง + ป้าย S0R1)
+                const charsHtml = item.characters.map(char => `
+                    <div class="char-slot rounded-xl p-1.5 flex flex-col items-center relative overflow-hidden group/char">
+                        <span class="absolute top-1.5 right-1.5 z-10 px-1.5 py-0.5 rounded bg-navy-950/90 border border-gold-400/60 text-gold-300 font-gaming font-bold text-[11px] leading-none">
+                            ${char.rank}
+                        </span>
+                        <div class="w-full aspect-[4/4.2] rounded-lg overflow-hidden bg-navy-950 mb-1.5">
+                            <img src="${char.img}" alt="${char.name}" loading="lazy"
+                                 onerror="this.src='https://placehold.co/200x210/0b1733/22D3EE?text=${char.name}'"
+                                 class="w-full h-full object-cover group-hover/char:scale-105 transition duration-300">
+                        </div>
+                        <div class="w-full text-center py-0.5 rounded bg-navy-950/90 border border-cyan-500/30 font-gaming font-bold text-xs tracking-wider text-white truncate px-1">
+                            ${char.name}
+                        </div>
+                    </div>
+                `).join('');
+
+                // จัดคอลัมน์ตัวละครตามจำนวน (2 หรือ 3 ช่อง)
+                const charGridCols = item.characters.length >= 3 ? 'grid-cols-3' : 'grid-cols-2';
+
+                const card = document.createElement('article');
+                card.className = 'gaming-card rounded-2xl p-4 flex flex-col justify-between relative';
+                card.innerHTML = `
+                    <div>
+                        <!-- ส่วนหัวการ์ด: แท็กเกม + รหัสไอดี -->
+                        <div class="flex items-center justify-between gap-2 mb-3">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-cyan-500/15 border border-cyan-400/35 text-cyan-300 text-xs font-semibold truncate">
+                                <i class="fa-solid fa-gamepad text-[11px]"></i> ${item.gameLabel}
+                            </span>
+                            <span class="px-2.5 py-1 rounded-lg bg-navy-950 border border-gold-400/40 text-gold-400 font-gaming font-bold text-xs shrink-0">
+                                ID: ${item.id}
+                            </span>
+                        </div>
+
+                        <!-- กรอบรูปตัวละครในไอดี -->
+                        <div class="grid ${charGridCols} gap-2 mb-3 cursor-pointer" onclick="openDetailModal('${item.id}')">
+                            ${charsHtml}
+                        </div>
+
+                        <!-- ชื่อหัวข้อไอดี -->
+                        <h4 onclick="openDetailModal('${item.id}')" 
+                            class="font-bold text-base text-white hover:text-cyan-300 cursor-pointer transition line-clamp-1 mb-2">
+                            ${item.title}
+                        </h4>
+
+                        <!-- รายละเอียดสเปกไอดี (Server / Level / เมลเปล่า) -->
+                        <div class="rounded-xl bg-navy-950/85 border border-slate-800 p-2.5 space-y-1 text-xs mb-3">
+                            <div class="flex items-center justify-between text-slate-300">
+                                <span><i class="fa-solid fa-server text-cyan-400 w-4"></i> Server: <strong class="text-white">${item.server}</strong></span>
+                                <span class="text-slate-400">${item.unionLevel}</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-emerald-400 font-medium"><i class="fa-solid fa-circle-check w-4"></i> ${item.emailStatus}</span>
+                                <a href="${item.albumUrl}" target="_blank" rel="noopener" 
+                                   class="text-cyan-400 hover:text-cyan-300 underline font-medium flex items-center gap-1">
+                                    <span>ลิงก์รูปเพิ่มเติม</span> <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ส่วนท้ายการ์ด: ราคา + ปุ่มดูรายละเอียด + ปุ่มใส่ตะกร้า -->
+                    <div class="pt-2 border-t border-slate-800/80 space-y-2.5">
+                        <div class="flex items-baseline justify-between">
+                            <span class="text-xs text-slate-400">ราคาไอดี:</span>
+                            <span class="text-2xl font-extrabold text-gold-400 text-glow-gold">฿${item.price.toLocaleString()}</span>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="openDetailModal('${item.id}')"
+                                    class="py-2.5 px-3 rounded-xl bg-navy-800 hover:bg-navy-700 border border-cyan-400/40 text-cyan-200 font-semibold text-xs flex items-center justify-center gap-1.5 transition">
+                                <i class="fa-solid fa-eye"></i>
+                                <span>ดูรายละเอียด/รูป</span>
+                            </button>
+
+                            <button onclick="addToCart('${item.id}')"
+                                    class="py-2.5 px-3 rounded-xl ${isInCart ? 'bg-emerald-500 text-navy-950' : 'bg-gradient-to-r from-gold-500 to-amber-500 hover:from-gold-400 hover:to-amber-400 text-navy-950'} font-extrabold text-xs flex items-center justify-center gap-1.5 shadow transition active:scale-95">
+                                <i class="fa-solid ${isInCart ? 'fa-check' : 'fa-cart-plus'}"></i>
+                                <span>${isInCart ? 'อยู่ในตะกร้าแล้ว' : 'ใส่ตะกร้า'}</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // =====================================================================
+        // MODAL ดูรายละเอียดไอดี
+        // =====================================================================
+        function openDetailModal(productId) {
+            const item = PRODUCTS_DATA.find(p => p.id === productId);
+            if (!item) return;
+
+            document.getElementById('modal-id-badge').textContent = item.id;
+            document.getElementById('modal-title').textContent = item.title;
+            document.getElementById('modal-game').textContent = item.gameLabel;
+            document.getElementById('modal-server').textContent = item.server;
+            document.getElementById('modal-level').textContent = `${item.unionLevel} • ${item.dataBank}`;
+            document.getElementById('modal-desc').textContent = item.description;
+            document.getElementById('modal-price').textContent = `฿${item.price.toLocaleString()}`;
+            
+            // ลิงก์ฝากรูปภายนอก
+            const albumBtn = document.getElementById('modal-album-link');
+            albumBtn.href = item.albumUrl;
+
+            // ตัวละครในหน้าต่างรายละเอียด
+            const charsContainer = document.getElementById('modal-characters');
+            charsContainer.innerHTML = item.characters.map(c => `
+                <div class="p-2.5 rounded-xl bg-navy-950 border border-gold-400/40 flex items-center gap-3">
+                    <img src="${c.img}" alt="${c.name}" class="w-14 h-14 rounded-lg object-cover border border-slate-700">
+                    <div>
+                        <div class="font-gaming font-bold text-base text-white">${c.name}</div>
+                        <span class="inline-block px-2 py-0.5 rounded bg-gold-500/20 text-gold-300 font-gaming font-bold text-xs">${c.rank}</span>
+                        <div class="text-[11px] text-cyan-400 mt-0.5">${c.element}</div>
+                    </div>
+                </div>
+            `).join('');
+
+            // รูปภาพตัวอย่าง
+            const galleryContainer = document.getElementById('modal-gallery');
+            galleryContainer.innerHTML = item.gallery.map(imgUrl => `
+                <div class="rounded-xl overflow-hidden border border-slate-700 bg-navy-950">
+                    <img src="${imgUrl}" alt="ภาพตัวอย่างไอดี ${item.id}" class="w-full h-auto object-cover">
+                </div>
+            `).join('');
+
+            // ปุ่มใส่ตะกร้าใน Modal
+            const addBtn = document.getElementById('modal-add-cart-btn');
+            addBtn.onclick = () => {
+                addToCart(item.id);
+                closeDetailModal();
+            };
+
+            // ปุ่มทักแชทซื้อไอดีนี้ทันที
+            const chatBtn = document.getElementById('modal-chat-btn');
+            chatBtn.onclick = () => {
+                if (!cart.some(c => c.id === item.id)) {
+                    cart.push(item);
+                    updateCartUI();
+                }
+                closeDetailModal();
+                openCheckoutModal();
+            };
+
+            const modal = document.getElementById('detail-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeDetailModal() {
+            const modal = document.getElementById('detail-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // =====================================================================
+        // SHOPPING CART & TRADE MODE LOGIC
+        // =====================================================================
+        function addToCart(productId) {
+            const item = PRODUCTS_DATA.find(p => p.id === productId);
+            if (!item) return;
+
+            if (cart.some(c => c.id === productId)) {
+                showToast(`ไอดี ${item.id} อยู่ในตะกร้าแล้ว`, 'info');
+                toggleCartDrawer(true);
+                return;
+            }
+
+            cart.push(item);
+            updateCartUI();
+            applyFilters(); // อัปเดตปุ่มบนการ์ด
+            showToast(`เพิ่มไอดี ${item.id} ลงตะกร้าแล้ว!`, 'success');
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(c => c.id !== productId);
+            updateCartUI();
+            applyFilters();
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cart-badge');
+            const container = document.getElementById('cart-items-container');
+            const totalItemsEl = document.getElementById('cart-total-items');
+            const totalPriceEl = document.getElementById('cart-total-price');
+            const checkoutBtn = document.getElementById('checkout-btn');
+
+            badge.textContent = cart.length;
+            totalItemsEl.textContent = cart.length;
+
+            const totalAmount = cart.reduce((sum, item) => sum + item.price, 0);
+            totalPriceEl.textContent = `฿${totalAmount.toLocaleString()}`;
+
+            if (cart.length === 0) {
+                checkoutBtn.disabled = true;
+                container.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center text-center p-6 text-slate-400 space-y-2">
+                        <i class="fa-solid fa-basket-shopping text-4xl text-slate-600 mb-1"></i>
+                        <div class="font-bold text-slate-300">ยังไม่มีไอดีในตะกร้า</div>
+                        <p class="text-xs">เลือกดูไอดีเกมที่ถูกใจแล้วกดปุ่ม "ใส่ตะกร้า" ได้เลยครับ</p>
+                    </div>
+                `;
+                return;
+            }
+
+            checkoutBtn.disabled = false;
+            container.innerHTML = cart.map(item => `
+                <div class="p-3 rounded-xl bg-navy-950 border border-slate-800 flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-3 min-w-0">
+                        <img src="${item.characters[0]?.img}" alt="${item.id}" class="w-12 h-12 rounded-lg object-cover border border-gold-400/40 shrink-0">
+                        <div class="min-w-0">
+                            <div class="flex items-center gap-1.5">
+                                <span class="text-xs font-gaming font-bold text-cyan-400">${item.id}</span>
+                                <span class="text-[11px] text-slate-400 truncate">• ${item.gameLabel}</span>
+                            </div>
+                            <div class="text-xs sm:text-sm font-bold text-white truncate">${item.title}</div>
+                            <div class="text-sm font-extrabold text-gold-400">฿${item.price.toLocaleString()}</div>
+                        </div>
+                    </div>
+                    <button onclick="removeFromCart('${item.id}')" title="ลบออก"
+                            class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-rose-500/20 text-slate-400 hover:text-rose-400 flex items-center justify-center shrink-0 transition">
+                        <i class="fa-solid fa-trash-can text-xs"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function toggleCartDrawer(open) {
+            const drawer = document.getElementById('cart-drawer');
+            const backdrop = document.getElementById('cart-drawer-backdrop');
+            if (open) {
+                backdrop.classList.remove('hidden');
+                drawer.classList.remove('translate-x-full');
+            } else {
+                backdrop.classList.add('hidden');
+                drawer.classList.add('translate-x-full');
+            }
+        }
+
+        // ตั้งค่ารูปแบบการซื้อขาย (โอนตรง vs ผ่านกลางแอดมินกลุ่ม)
+        function setTradePreference(mode) {
+            tradePreference = mode;
+
+            // อัปเดตป้ายบน Header
+            const headerLabel = document.getElementById('header-trade-mode-label');
+            headerLabel.textContent = mode === 'middleman' ? 'เลือก: ผ่านกลางแอดมินกลุ่ม' : 'เลือก: โอนตรงเครดิตแน่น';
+
+            // อัปเดตปุ่มบน Hero
+            const heroDirect = document.getElementById('hero-btn-direct');
+            const heroMiddle = document.getElementById('hero-btn-middleman');
+            if (mode === 'direct') {
+                heroDirect.className = 'py-2 px-2.5 rounded-lg border text-xs font-semibold flex items-center justify-center gap-1.5 transition bg-cyan-500/20 border-cyan-400 text-cyan-200';
+                heroMiddle.className = 'py-2 px-2.5 rounded-lg border text-xs font-semibold flex items-center justify-center gap-1.5 transition bg-navy-900 border-slate-700 text-slate-300 hover:border-gold-400/50';
+            } else {
+                heroMiddle.className = 'py-2 px-2.5 rounded-lg border text-xs font-semibold flex items-center justify-center gap-1.5 transition bg-gold-500/20 border-gold-400 text-gold-300';
+                heroDirect.className = 'py-2 px-2.5 rounded-lg border text-xs font-semibold flex items-center justify-center gap-1.5 transition bg-navy-900 border-slate-700 text-slate-300 hover:border-cyan-400/50';
+            }
+
+            // อัปเดต Radio ในตะกร้า
+            const cartDirect = document.getElementById('cart-opt-direct');
+            const cartMiddle = document.getElementById('cart-opt-middleman');
+            const radios = document.getElementsByName('cartTradeMode');
+            radios.forEach(r => { r.checked = (r.value === mode); });
+
+            if (mode === 'direct') {
+                cartDirect.className = 'cursor-pointer p-2.5 rounded-xl border border-cyan-400 bg-cyan-500/15 flex items-center gap-3 transition';
+                cartMiddle.className = 'cursor-pointer p-2.5 rounded-xl border border-slate-700 bg-navy-900 flex items-center gap-3 transition';
+            } else {
+                cartMiddle.className = 'cursor-pointer p-2.5 rounded-xl border border-gold-400 bg-gold-500/15 flex items-center gap-3 transition';
+                cartDirect.className = 'cursor-pointer p-2.5 rounded-xl border border-slate-700 bg-navy-900 flex items-center gap-3 transition';
+            }
+
+            // อัปเดตการ์ดใน Contact Modal
+            const modalDirect = document.getElementById('modal-card-direct');
+            const modalMiddle = document.getElementById('modal-card-middleman');
+            if (mode === 'direct') {
+                modalDirect.className = 'cursor-pointer p-4 rounded-xl border border-cyan-400 bg-cyan-500/10 space-y-1 transition';
+                modalMiddle.className = 'cursor-pointer p-4 rounded-xl border border-slate-700 bg-navy-950 hover:border-gold-400/60 space-y-1 transition';
+            } else {
+                modalMiddle.className = 'cursor-pointer p-4 rounded-xl border border-gold-400 bg-gold-500/10 space-y-1 transition';
+                modalDirect.className = 'cursor-pointer p-4 rounded-xl border border-slate-700 bg-navy-950 hover:border-cyan-400/60 space-y-1 transition';
+            }
+
+            showToast(mode === 'middleman' ? 'เลือกซื้อแบบ: ผ่านกลางแอดมินกลุ่ม' : 'เลือกซื้อแบบ: โอนตรงกับผู้ขาย', 'info');
+        }
+
+        // =====================================================================
+        // CHECKOUT & CONTACT MODALS
+        // =====================================================================
+        function openCheckoutModal() {
+            if (cart.length === 0) return;
+            toggleCartDrawer(false);
+
+            const totalAmount = cart.reduce((sum, item) => sum + item.price, 0);
+            const modeText = tradePreference === 'middleman' 
+                ? 'ผ่านกลางแอดมินกลุ่ม (ปลอดภัย 100%)' 
+                : 'โอนตรงกับผู้ขาย (เครดิตแน่น ส่งไวใน 5 นาที)';
+
+            // อัปเดตแบนเนอร์โหมดในหน้าชำระเงิน
+            const banner = document.getElementById('checkout-mode-banner');
+            if (tradePreference === 'middleman') {
+                banner.className = 'p-3 rounded-xl bg-gold-500/15 border border-gold-400/40 text-xs sm:text-sm text-gold-300 flex items-center gap-2.5';
+                banner.innerHTML = `<i class="fa-solid fa-user-shield text-gold-400 text-base"></i><span>รูปแบบการซื้อ: <strong>${modeText}</strong> (ทักแชทเพื่อดึงกลุ่มกลางแอดมินได้เลย)</span>`;
+            } else {
+                banner.className = 'p-3 rounded-xl bg-cyan-500/15 border border-cyan-400/40 text-xs sm:text-sm text-cyan-200 flex items-center gap-2.5';
+                banner.innerHTML = `<i class="fa-solid fa-bolt text-cyan-400 text-base"></i><span>รูปแบบการซื้อ: <strong>${modeText}</strong></span>`;
+            }
+
+            document.getElementById('checkout-amount-display').textContent = `฿${totalAmount.toLocaleString()}`;
+
+            // สร้างข้อความสรุปออเดอร์สำหรับให้ลูกค้าคัดลอกส่งเข้าแชท FB/LINE
+            const itemLines = cart.map((item, idx) => `${idx + 1}. [${item.id}] ${item.gameLabel} - ${item.title} (฿${item.price.toLocaleString()})`).join('\n');
+            const summaryText = `🛒 สั่งซื้อไอดีจาก BEATSROOTS SHOP\n` +
+                                `--------------------------\n` +
+                                `${itemLines}\n` +
+                                `--------------------------\n` +
+                                `💰 ยอดรวมทั้งหมด: ฿${totalAmount.toLocaleString()}\n` +
+                                `🛡️ รูปแบบที่เลือก: ${modeText}\n` +
+                                `รบกวนแอดมินตรวจสอบสต็อกและแจ้งรายละเอียดได้เลยครับ`;
+
+            document.getElementById('order-summary-text').value = summaryText;
+
+            const modal = document.getElementById('checkout-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeCheckoutModal() {
+            const modal = document.getElementById('checkout-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // คัดลอกข้อความออเดอร์ (รองรับ iframe ด้วย document.execCommand)
+        function copyOrderSummary() {
+            const textarea = document.getElementById('order-summary-text');
+            textarea.select();
+            textarea.setSelectionRange(0, 99999);
+            try {
+                document.execCommand('copy');
+                const btnText = document.getElementById('copy-btn-text');
+                btnText.textContent = 'คัดลอกสำเร็จ!';
+                showToast('คัดลอกรายการสั่งซื้อแล้ว พร้อมวางส่งในแชท!', 'success');
+                setTimeout(() => {
+                    btnText.textContent = 'คัดลอกข้อความ';
+                }, 2500);
+            } catch (err) {
+                showToast('กรุณากดคัดลอกข้อความในกล่องด้วยตนเอง', 'info');
+            }
+        }
+
+        function openContactModal() {
+            const modal = document.getElementById('contact-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeContactModal() {
+            const modal = document.getElementById('contact-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // ระบบแจ้งเตือน Toast สวยงาม (ไม่ใช้ alert)
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            
+            const borderClass = type === 'success' ? 'border-emerald-400/60 text-emerald-200' : 'border-cyan-400/60 text-cyan-200';
+            const iconClass = type === 'success' ? 'fa-circle-check text-emerald-400' : 'fa-circle-info text-cyan-400';
+
+            toast.className = `pointer-events-auto px-4 py-3 rounded-xl bg-navy-950/95 backdrop-blur border ${borderClass} shadow-xl flex items-center gap-2.5 text-xs sm:text-sm font-medium transition-all duration-300 transform translate-x-0`;
+            toast.innerHTML = `<i class="fa-solid ${iconClass} text-base"></i><span>${message}</span>`;
+
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-x-4');
+                setTimeout(() => toast.remove(), 300);
+            }, 2800);
+        }
+    </script>
+</body>
+</html>
